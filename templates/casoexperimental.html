@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <title>Caso Experimental</title>
+  </head>
+
+  <body>
+    <div class="justify-center items-center">
+      <h1 class="text-4xl text-center font-semibold m-4">Caso Experimental</h1>
+      <p class="text-center my-8 mx-44">
+        Los datos de entrada utilizados para los algoritmos provienen
+        específicamente del proceso de moldeo por inyección de plástico de una
+        empresa manufacturera ubicada en Ciudad Juárez, Chihuahua, México. Este
+        proceso, ampliamente empleado en la industria manufacturera para
+        producir piezas de plástico en masa con precisión y detalles
+        intrincados, abarca una amplia gama de aplicaciones, desde juguetes y
+        embalajes hasta componentes automotrices y dispositivos médicos.
+        <br />
+        <br />
+        Durante esta operación, los gránulos de plástico se funden en una
+        máquina especializada y se inyectan con precisión en un molde cerrado
+        con la forma deseada. Dentro del molde, el plástico se enfría y
+        solidifica rápidamente, adoptando la forma deseada. Posteriormente, se
+        abre el molde y se expulsa la pieza moldeada.
+        <br />
+        <br />
+        Las características críticas dentro de este proceso aseguran la calidad
+        y eficiencia de este. Estas incluyen la temperatura de fusión, la
+        temperatura del molde, el tiempo de llenado, el tiempo de envasado y la
+        precisión del envasado. La temperatura de fusión influye en el flujo del
+        plástico durante la inyección, mientras que su mantenimiento adecuado
+        previene defectos. La temperatura del molde afecta la velocidad de
+        enfriamiento y la calidad de la superficie de la pieza. Un tiempo de
+        llenado adecuado previene problemas como el exceso de material o llenado
+        incompleto, así como la generación de tensiones internas en la pieza. El
+        tiempo de envasado adecuado garantiza una solidificación uniforme del
+        plástico en todas las áreas del molde, mejorando la densidad y
+        reduciendo posibles defectos como la contracción. La presión de envasado
+        adecuada ayuda en la compactación del material, reduce la porosidad y
+        mejora la homogeneidad de la pieza moldeada. El control preciso de estas
+        características es esencial para garantizar que la pieza final cumpla
+        con las especificaciones requeridas en términos de calidad, precisión
+        dimensional y propiedades físicas.
+        <br />
+        <br />
+        Optimizar estas características es crucial para prevenir defectos y
+        mantener una producción eficiente y consistente en el proceso de moldeo
+        por inyección de plástico. En consecuencia, se ha diseñado una matriz de
+        decisión que comprende cinco criterios: temperatura de fusión (C1),
+        temperatura del molde (C2), tiempo de llenado (C3), tiempo de envasado
+        (C4) y presión de envasado (C5), además de nueve alternativas (A1,
+        A2...A9) con valores asignados para estas características.
+      </p>
+    </div>
+    <div class="max-w-screen-md mx-auto my-10">
+      <h2 class="text-2xl font-bold text-center mb-4">Tabla de Datos</h2>
+      <div class="overflow-x-auto">
+        <table class="table-auto w-full">
+          <thead>
+            <tr class="bg-gray-200">
+              <th class="px-4 py-2">A</th>
+              <th class="px-4 py-2">C1</th>
+              <th class="px-4 py-2">C2</th>
+              <th class="px-4 py-2">C3</th>
+              <th class="px-4 py-2">C4</th>
+              <th class="px-4 py-2">C5</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border px-4 py-2">A1</td>
+              <td class="border px-4 py-2">0.048</td>
+              <td class="border px-4 py-2">0.047</td>
+              <td class="border px-4 py-2">0.070</td>
+              <td class="border px-4 py-2">0.087</td>
+              <td class="border px-4 py-2">0.190</td>
+            </tr>
+            <tr>
+              <td class="border px-4 py-2">A2</td>
+              <td class="border px-4 py-2">0.053</td>
+              <td class="border px-4 py-2">0.052</td>
+              <td class="border px-4 py-2">0.066</td>
+              <td class="border px-4 py-2">0.081</td>
+              <td class="border px-4 py-2">0.058</td>
+            </tr>
+            <tr>
+              <td class="border px-4 py-2">A3</td>
+              <td class="border px-4 py-2">0.057</td>
+              <td class="border px-4 py-2">0.057</td>
+              <td class="border px-4 py-2">0.066</td>
+              <td class="border px-4 py-2">0.076</td>
+              <td class="border px-4 py-2">0.022</td>
+            </tr>
+            <tr>
+              <td class="border px-4 py-2">A4</td>
+              <td class="border px-4 py-2">0.062</td>
+              <td class="border px-4 py-2">0.062</td>
+              <td class="border px-4 py-2">0.063</td>
+              <td class="border px-4 py-2">0.058</td>
+              <td class="border px-4 py-2">0.007</td>
+            </tr>
+            <tr>
+              <td class="border px-4 py-2">A5</td>
+              <td class="border px-4 py-2">0.066</td>
+              <td class="border px-4 py-2">0.066</td>
+              <td class="border px-4 py-2">0.070</td>
+              <td class="border px-4 py-2">0.085</td>
+              <td class="border px-4 py-2">0.004</td>
+            </tr>
+            <tr>
+              <td class="border px-4 py-2">A6</td>
+              <td class="border px-4 py-2">0.070</td>
+              <td class="border px-4 py-2">0.071</td>
+              <td class="border px-4 py-2">0.066</td>
+              <td class="border px-4 py-2">0.058</td>
+              <td class="border px-4 py-2">0.003</td>
+            </tr>
+            <tr>
+              <td class="border px-4 py-2">A7</td>
+              <td class="border px-4 py-2">0.075</td>
+              <td class="border px-4 py-2">0.075</td>
+              <td class="border px-4 py-2">0.066</td>
+              <td class="border px-4 py-2">0.047</td>
+              <td class="border px-4 py-2">0.002</td>
+            </tr>
+            <tr>
+              <td class="border px-4 py-2">A8</td>
+              <td class="border px-4 py-2">0.079</td>
+              <td class="border px-4 py-2">0.079</td>
+              <td class="border px-4 py-2">0.066</td>
+              <td class="border px-4 py-2">0.035</td>
+              <td class="border px-4 py-2">0.002</td>
+            </tr>
+            <tr>
+              <td class="border px-4 py-2">A9</td>
+              <td class="border px-4 py-2">0.083</td>
+              <td class="border px-4 py-2">0.083</td>
+              <td class="border px-4 py-2">0.066</td>
+              <td class="border px-4 py-2">0.051</td>
+              <td class="border px-4 py-2">0.000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

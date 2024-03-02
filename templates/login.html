@@ -1,0 +1,58 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./static/css/output.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;700;800&display=swap" rel="stylesheet">
+    <title>Login</title>
+</head>
+<body class="font-haken bg-gray-200 py-8">
+
+    <section class="w-[90%] max-w-md mx-auto bg-white shadow-2xl md:flex md:rounded-2xl md:max-w-3xl ">
+
+        <article class="bg-gradient-to-b from-gray to-gray-light rounded-b-2xl p-10 text-white text-center md:rounded-2xl md:w-1/2 md:grid md:content-center ">
+            <h2 class="text-5xl font-bold text-blue">Login</h2>
+
+            <div class="w-36 aspect-square bg-gradient-to-b from-violet-blue
+             to-persian-blue rounded-full mx-auto my-8 grid content-center md:w-56">
+                <p class="text-5xl font-bold mb-2 md:text-7xl">
+                    
+                </p>
+            </div>
+
+        </article>
+       
+        
+        <article class="">
+           
+            <form class="p-14 grid gap-6 md:w-1/2" action="/login" method="POST">
+
+                 {% if mensaje %}
+                 <p class="text-orange ml-3 text-lg text-center">{{ mensaje }}</p>
+                 {% endif %}
+
+            <div class="bg-stone rounded-xl flex py-4 px-2 items-center">
+                <img src="#" alt="">
+                <label for="email" class="ml-3 text-cobalt-blue text-lg">Email</label><br>
+                <input class="ml-auto font-bold text-dark-gray-blue rounded-xl text-center" type="email" id="email" name="email" placeholder="Email" value="{{email}}">
+            </div>
+            <div class="bg-stone rounded-xl flex py-4 px-2 items-center">
+                <img src="#" alt="">
+                <label for="email" class="ml-3 text-cobalt-blue text-lg">Password</label><br>
+                <input class="ml-auto font-bold text-dark-gray-blue rounded-xl text-center" type="password" id="password" name="password" placeholder="******" value="{{password}}">
+            </div>
+            <button class="bg-gray text-white rounded-full py-5 text-center font-bold hover:bg-gray-light text-2xl hover:text-blue" type="submit" id="" name="" value="Login">Login</button>
+            <div>
+            </form>
+            <p>Don't have an account? <a href="/signup">Signup</a></p>
+        </article>
+    </section>
+   
+    
+</body>
+</html>

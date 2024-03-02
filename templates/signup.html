@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./static/css/output.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;700;800display=swap" rel="stylesheet">
+    <title>Sign Up</title>
+</head>
+
+
+<body class="font-haken bg-gray-200 py-8">
+
+    <section class="w-[90%] max-w-md mx-auto bg-white shadow-2xl md:flex md:rounded-2xl md:max-w-3xl ">
+
+        <article class="bg-gradient-to-b from-gray to-gray-light rounded-b-2xl p-10 text-white text-center md:rounded-2xl md:w-1/2 md:grid md:content-center ">
+            <h2 class="text-5xl font-bold text-blue">Sign Up</h2>
+
+            <div class="w-36 aspect-square bg-gradient-to-b from-violet-blue
+             to-persian-blue rounded-full mx-auto my-8 grid content-center md:w-56">
+                <p class="text-5xl font-bold mb-2 md:text-7xl">
+                    
+                </p>
+            </div>
+
+        </article>
+       
+        
+        <article class="">
+           
+            <form class="p-14 grid gap-3 md:w-1/2" action="/signup" method="POST">
+
+            <div class="bg-stone rounded-xl flex py-4 px-2 items-center">
+                <label for="nombres" class="ml-3 text-cobalt-blue text-lg">Nombre</label><br>
+                <input class="ml-auto font-bold text-dark-gray-blue rounded-xl text-center" min='5' type="text" id="nombres" name="nombre" placeholder="Nombre" value="{{nombre}}">
+            </div>
+
+                {% if listaErrores %}
+                <span class="text-orange text-sm text-center gap-2">{{ listaErrores['nombre'] }}</span>
+                {% endif %}
+
+            <div class="bg-stone rounded-xl flex py-4 px-2 items-center">
+                <label for="escolaridad" class="ml-3 text-cobalt-blue text-lg">Grado académico</label><br>
+                <select class="py-3 text-dark-gray-blue px-4 pe-9 block w-full border-gray-200 rounded-full text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600" name="" id="">
+                    <option selected disabled value=""  class="ml-auto font-bold text-dark-gray-blue rounded-xl text-center" >Seleccione una opción</option>
+                    <option value=""  class="ml-auto font-bold text-dark-gray-blue rounded-xl text-center">Licenciatura</option>
+                    <option value=""  class="ml-auto font-bold text-dark-gray-blue rounded-xl text-center">Maestría</option>
+                    <option value=""  class="ml-auto font-bold text-dark-gray-blue rounded-xl text-center">Posgrado</option>
+                    
+                </select>
+            </div>
+            
+                {% if listaErrores %}
+                <span class="text-orange text-sm text-center gap-2" >{{ listaErrores['escolaridad'] }}</span>
+                {% endif %}
+
+            <div class="bg-stone rounded-xl flex py-4 px-2 items-center">
+                <label for="universidad" class="ml-3 text-cobalt-blue text-lg">Universidad de procedencia</label><br>
+                <input class="ml-auto font-bold text-dark-gray-blue rounded-xl text-center" type="text" id="universidad" name="universidad" placeholder="Universidad" value="{{universidad}}">
+            </div>
+
+                {% if listaErrores %}
+                <span class="text-orange text-sm text-center gap-2" >{{ listaErrores['universidad'] }}</span>
+                {% endif %}
+
+                <div class="bg-stone rounded-xl flex py-4 px-2 items-center">
+                    <label for="orcid" class="ml-3 text-cobalt-blue text-lg">ORCID</label><br>
+                    <input class="ml-auto font-bold text-dark-gray-blue rounded-xl text-center" type="text" id="orcid" name="orcid" placeholder="¡Compártenos tu perfil!" value="{{orcid}}">
+                </div>
+    
+                    {% if listaErrores %}
+                    <span class="text-orange text-sm text-center" >{{ listaErrores['orcid']}}</span>
+                    {% endif %}
+
+            <div class="bg-stone rounded-xl flex py-4 px-2 items-center">
+                <label for="email" class="ml-3 text-cobalt-blue text-lg">Email</label><br>
+                <input class="ml-auto font-bold text-dark-gray-blue rounded-xl text-center" type="text" id="email" name="email" placeholder="Email" value="{{email}}">
+            </div>
+
+                {% if listaErrores %}
+                <span class="text-orange text-sm text-center" >{{ listaErrores['email'] }}</span>
+                {% endif %}
+
+            <div class="bg-stone rounded-xl flex py-4 px-2 items-center">
+                <img src="#" alt="">
+                <label for="password" class="ml-3 text-cobalt-blue text-lg">Password</label><br>
+                <input class="ml-auto font-bold text-dark-gray-blue rounded-xl text-center" type="password" id="password" name="password" placeholder="********" >
+            </div>
+
+                {% if listaErrores %}
+                <p class="text-orange ml-1 text-sm text-center">{{ listaErrores['password'] }}</p>
+                {% endif %}
+                
+            <button class="bg-gray text-white rounded-full py-5 text-center font-bold hover:bg-gray-light text-2xl hover:text-blue" type="submit" id="" name="" value="">Submit</button>
+            <div>
+            </form>
+
+        </article>
+    </section>
+   
+    
+</body>
+
+</html>

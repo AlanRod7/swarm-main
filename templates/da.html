@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  </head>
+  <body>
+    <nav class="bg-light p-4">
+      <div class="container mx-auto flex justify-between items-center">
+        <a class="navbar-brand" href="/">Algorithms App</a>
+        <div class="flex">
+          <ul class="flex space-x-4">
+            <li class="nav-item active">
+              <a class="nav-link" href="/">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/topsis">MCDM</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/pso">PSO</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/ba">BA</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">ACO</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/comparacion">Comparación</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/acercade">Acerca De</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="bg-white pt-8">
+        <div class="container mx-auto rounded-xl bg-white px-8 py-10 shadow-2xl">
+            <h1 class="text-center text-3xl font-semibold capitalize text-gray-800 lg:text-4xl">Algoritmo de Murciélago (BA)</h1>
+            <p class="mt-6 text-justify">
+              El algoritmo de Murciélago (BA, por sus siglas en inglés, Bat Algorithm) es una técnica de optimización que se inspira en la observación del comportamiento de los murciélagos en la naturaleza, propuesto por Xin-She Yang en 2010.  Este algoritmo simula cómo los murciélagos buscan alimento y se comunican entre sí para encontrar soluciones óptimas a problemas de optimización en diversos dominios, como la ingeniería, la economía y la ciencia de datos. <br>
+              Basándose en la simulación del comportamiento de los murciélagos en su búsqueda de alimento en la naturaleza, el algoritmo de Murciélago destaca por su capacidad para equilibrar la exploración y la explotación en la búsqueda de soluciones. Esto lo convierte en una herramienta versátil para abordar una amplia variedad de problemas de optimización, especialmente en espacios de búsqueda continuos. Su eficacia se ha demostrado en la búsqueda de soluciones aproximadas en situaciones en las que encontrar la solución óptima podría ser computacionalmente costoso o poco realista.
+               <a id="enlace" href="https://link.springer.com/chapter/10.1007/978-3-642-12538-6_6" class="text-cyan-400">Leer más</a>
+            </p>
+        </div>
+    </div>
+    
+    <div class="mt-16 text-center mx-auto max-w-5xl overflow-hidden rounded-xl bg-white">
+        <div class="flex justify-center">
+            <section class="mt-20">
+                <div class="mx-auto max-w-lg">
+                    <!-- <h1 class="text-3xl font-bold text-gray-800 lg:text-4xl"></h1> -->
+                </div>
+                <div class="container mx-auto rounded-xl bg-white px-8 py-10 shadow-2xl">
+                    <h1 class="text-center text-3xl font-semibold capitalize text-gray-800 lg:text-4xl">
+                      A continuación, se describen los aspectos fundamentales de este algoritmo:
+                    </h1>
+                    <p class="text-justify text-gray-500">
+                        <div class="mt-10">
+                            <li><strong>Representación de soluciones:</strong></li>
+                            <h2>
+                              En el algoritmo de Murciélago, las soluciones se representan como puntos en un espacio de búsqueda multidimensional. Cada punto en este espacio representa una posible solución al problema que se está optimizando.
+                            </h2>
+                            <!-- ... (otros elementos li y h2) ... -->
+                        </div>
+                    </p>
+                    <p class="text-justify text-gray-500">
+                        <div class="mt-10">
+                            <li><strong>Población de murciélagos:</strong></li>
+                            <h2>
+                              El algoritmo comienza con una población de murciélagos virtuales, cada uno de los cuales representa una solución potencial. Inicialmente, los murciélagos se distribuyen aleatoriamente en el espacio de búsqueda.
+                            </h2>
+                            <!-- ... (otros elementos li y h2) ... -->
+                        </div>
+                    </p>
+                    <p class="text-justify text-gray-500">
+                        <div class="mt-10">
+                            <li><strong>Comportamiento de los murciélagos: </strong></li>
+                            <h2>
+                              Los murciélagos en el algoritmo de Murciélago siguen un comportamiento que incluye la búsqueda de alimento y la comunicación entre sí. Cada murciélago tiene una posición actual en el espacio de búsqueda y una frecuencia de emisión de pulsos ultrasónicos.                            </h2>
+                            <!-- ... (otros elementos li y h2) ... -->
+                        </div>
+                    </p>
+                    <p class="text-justify text-gray-500">
+                        <div class="mt-10">
+                            <li><strong>Búsqueda de alimento:</strong></li>
+                            <h2>
+                              Los murciélagos buscan alimento emitiendo pulsos ultrasónicos en una dirección determinada. Cuando un murciélago encuentra una solución prometedora, se mueve hacia esa solución en la siguiente iteración. La velocidad de movimiento está influenciada por la calidad de la solución encontrada.                            <!-- ... (otros elementos li y h2) ... -->
+                        </div>
+                    </p>
+                    <p class="text-justify text-gray-500">
+                        <div class="mt-10">
+                            <li><strong>Comunicación: </strong></li>
+                            <h2>
+                              Los murciélagos también pueden comunicarse entre sí emitiendo llamadas de frecuencia ultrasónica. Esta comunicación permite a los murciélagos compartir información sobre soluciones prometedoras y, en consecuencia, converger más rápidamente hacia soluciones óptimas.                        </div>
+                    </p>
+                    <p class="text-justify text-gray-500">
+                        <div class="mt-10">
+                            <li><strong>Exploración y explotación: </strong></li>
+                            <h2>
+                              El algoritmo de Murciélago equilibra la exploración (buscar nuevas áreas del espacio de búsqueda) y la explotación (refinar las áreas prometedoras). Los murciélagos pueden ajustar su comportamiento para enfocarse en áreas de alta calidad o explorar áreas desconocidas según sea necesario.                    
+                    </p>
+                    <p class="text-justify text-gray-500">
+                        <div class="mt-10">
+                            <li><strong>Criterio de parada: </strong></li>
+                            <h2>
+                              El algoritmo de Murciélago se ejecuta durante un número fijo de iteraciones o hasta que se cumpla un criterio de parada predefinido, como alcanzar un valor objetivo o una tolerancia específica.                    </p>
+                    <div class="container mx-auto px-6 py-10">
+                        <p class="mt-6 text-gray-500 text-justify">
+                          En esta página, te ofrecemos acceso al algoritmo BA, junto con tres híbridos que combinan PSO con MCDM (Múltiples Criterios de Toma de Decisiones). En esta sección, tienes la flexibilidad de utilizar los algoritmos de forma independiente. Para hacerlo, simplemente proporciona la matriz de decisión y ajusta los parámetros de entrada según tus necesidades. Los resultados que visualizarás en pantalla corresponden a la última iteración, pero si deseas un análisis más detallado, tienes la opción de descargar un archivo en formato Excel para profundizar en la información proporcionada.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="mt-1 flex items-center justify-center">
+        <a href="/topsis" class="text-lg font-bold p-8 transition-all duration-100 ease-in-out hover:font-bold nav-link">
+            TOPSIS
+        </a>
+        <a href="/moorav" class="text-lg p-8 transition-all duration-100 ease-in-out hover:font-bold nav-link">
+            MOORA
+        </a>
+        <a href="/da" class="text-lg p-8 transition-all duration-100 ease-in-out hover:font-bold nav-link">
+            DA 
+        </a>
+  </div>
+
+  <div class="flex justify-center mb-5">
+    <section class="mx-4">
+      <div class="max-w-2xl mx-auto bg-white p-8">
+        <form method="POST" id="daForm" class="rounded-xl bg-white px-8 py-10 shadow-2xl">
+          <h1 class="font-semibold mb-3">Ingrese parámetros de control</h1>
+          <div>
+            <label for="w" class="block mb-2 text-sm font-medium text-gray-900">W:</label>
+            <input value="0.400, 0.200, 0.030, 0.070, 0.300" id="w" name="w" class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
+          </div>
+          <div>
+            <label class="block mb-2 text-sm font-medium text-gray-900">Cantidad de Iteraciones:</label>
+            <input type="number" step="any" value="10" id="T" name="T" class="text-center bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" pattern="" required />
+          </div>
+          <div>
+            <!-- <label class="block mt-5 mb-2 text-sm font-medium text-gray-900">Función objetivo:</label>
+            <input type="number" placeholder="Ri= (t^-i)/(t^+i+t^-i), i=1,...,m" disabled class="text-center bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" pattern="" /> -->
+          </div>
+          <button type="button" id="ejecutarDa" class="text-black mt-5 hover:bg-blue focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center bg-slate-400">Calcular</button>
+        </form>
+      </div>
+    </section>
+    
+    <section class="mx-4">
+      <div class="max-w-2xl mx-auto bg-white p-8">
+        <form class="rounded-xl bg-white px-8 py-10 shadow-2xl">
+          <h1 class="font-semibold mb-3">Últimos 10 resultados</h1>
+          <div class="overflow-y-auto h-full">
+            <table class="w-full table-auto border-separate border border-slate-400">
+              <thead>
+                <tr>
+                  <th class="border border-slate-300 text-center align-middle">Iteración</th>
+                  <th class="border border-slate-300 text-center align-middle">Mejor Alternativa</th>
+                  <!-- Agrega más encabezados según sea necesario -->
+                </tr>
+              </thead>
+              <tbody>
+                {% for i in range (10) %}
+                <tr>
+                  <td class="border border-slate-300 text-center align-middle">{{ i + 1 }}</td>
+                  <td id="alternativa{{ i }}" class="border border-slate-300 text-center align-middle"></td>
+                  <!-- Repite para las otras mejores alternativas -->
+                </tr>
+                {% endfor %}
+                <!-- Agrega más filas según sea necesario -->
+              </tbody>
+            </table>
+          </div>
+          <div class="grid mt-4 gap-6 mb-6 lg:grid-cols-2">
+            <!-- Aquí puedes agregar más contenido si es necesario -->
+          </div>
+        </form>
+      </div>
+    </section>
+    
+    <section class="">
+      <div>
+        <div class="max-w-2xl mx-auto bg-white p-8">
+          <form class="rounded-xl bg-white px-8 py-10 shadow-2xl">
+            <div class="grid mt-4 gap-6 mb-6">
+              <div>
+                <label class="block mb-2 text-sm font-medium text-gray-900"
+                  >Cantidad de Iteraciones:
+                </label>
+                <input
+                  type="text"
+                  id="cantidadIteraciones"
+                  placeholder="Esperando ejecución..."
+                  disabled
+                  class="text-center bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  pattern=""
+                  required
+                />
+              </div>
+              <div>
+                <label class="block mb-2 text-sm font-medium text-gray-900"
+                  >Hora de inicio</label
+                >
+                <input
+                  type="text"
+                  id="horaInicio"
+                  disabled
+                  placeholder="Esperando ejecución..."
+                  class="text-center bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  pattern=""
+                  required
+                />
+              </div>
+              <div>
+                <label class="block mb-2 text-sm font-medium text-gray-900"
+                  >Fecha de inicio</label
+                >
+                <input
+                  type="text"
+                  id="fechaInicio"
+                  disabled
+                  placeholder="Esperando ejecución..."
+                  class="text-center bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+                />
+              </div>
+              <div>
+                <label class="block mb-2 text-sm font-medium text-gray-900"
+                  >Hora de finalización</label
+                >
+                <input
+                  type="text"
+                  id="horaFinalizacion"
+                  disabled
+                  placeholder="Esperando ejecución..."
+                  class="text-center bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  pattern=""
+                  required
+                />
+              </div>
+  
+              <div>
+                <label class="block mb-2 text-sm font-medium text-gray-900"
+                  >Tiempo de ejecución</label
+                >
+                <input
+                  type="text"
+                  id="tiempoEjecucion"
+                  disabled
+                  placeholder="Esperando ejecución..."
+                  class="text-center bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  pattern=""
+                  required
+                />
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="items-center">
+        <button
+          class="text-black mt-5 ml-9 hover:bg-blue focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center bg-slate-400"
+        >
+          Descargar XLSX
+        </button>
+      </div>
+    </section>
+  </div>
+
+    <script src="{{ url_for('static', filename='js/da.js') }}"></script>
+  </body>
+</html>
