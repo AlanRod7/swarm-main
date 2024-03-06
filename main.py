@@ -25,6 +25,7 @@ from moorav import ejecutar_moorav
 from pso import ejecutar_pso
 from topsis import ejecutar_topsis
 from topsispso import ejecutar_topsispso
+from topsisba import ejecutar_topsisba
 
 db = SQLAlchemy()
 app = Flask(__name__)
@@ -490,6 +491,49 @@ def calcular_mooraba():
         # Manejo de errores
         print(f'Error en calcular_mooraba: {str(e)}')
         return jsonify({'error': 'Ocurrió un error en el servidor'}), 500
+
+
+#-------------------------------------------------------------------------------------------------------------------
+@app.route('/topsisba')
+def topsisba():
+    try:
+        # Obtén los datos del formulario
+        w_input =  [float(request.form[f'w{i}']) for i in range(1, 6)]
+        w = [float(value) for value in w_input if value != '']  # Filtra valores vacíos
+        alpha = float(request.form['alpha'])
+        gamma = float(request.form['gamma'])
+        iter_max = int(request.form['T'])
+        
+        # Llama a la función de procesar_datos en pso.py
+        datosTopsisba = asyncio.run(ejecutar_topsisba(w, alpha, gamma, iter_max))
+
+        return render_template('topsisba.html', datosTopsisba=datosTopsisba)
+    except Exception as e:
+        return render_template('topsisba.html', error_message=str(e))
+
+
+@app.route('/topsisba', methods=['POST'])
+def calcular_topsisba():
+    try:
+        # Obtén los datos del formulario de la solicitud POST
+        w_input =  [float(request.form[f'w{i}']) for i in range(1, 6)]
+        w = [float(value) for value in w_input if value != '']  # Filtra valores vacíos
+        alpha = float(request.form['alpha'])
+        gamma = float(request.form['gamma'])
+        iter_max = int(request.form['T'])
+
+        # Llama a la función de PSO en pso.py
+        datosTopsisba = asyncio.run(ejecutar_topsisba(w, alpha, gamma, iter_max))
+        print("Resultados de la ejecución:", datosTopsisba)
+
+        # Devuelve los resultados como JSON
+        return jsonify(datosTopsisba)
+    except Exception as e:
+        # Manejo de errores
+        print(f'Error en calcular_topsisBa: {str(e)}')
+        return jsonify({'error': 'Ocurrió un error en el servidor'}), 500
+#-------------------------------------------------------------------------------------------------------------------
+
 
 #-------------------------------------------------------------------------------------------------------------------
 @app.route('/comparacionBa')

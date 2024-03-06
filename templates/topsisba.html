@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BA</title>
+    <title>TOPSIS-BA</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   </head>
@@ -142,200 +142,157 @@
           <div class="max-w-2xl mx-auto bg-white p-8">
             <form
               method="POST"
-              id="baForm"
+              id="topsisbaForm"
               class="rounded-xl bg-white px-8 py-10 shadow-2xl"
             >
-              <h1 class="font-semibold mb-3">Ingrese parámetros de control</h1>
-              <div class="grid gap-6 mb-6 lg:grid-cols-2">
-                <div>
-                  <label
-                    for="w1"
-                    class="block mb-2 text-sm font-medium text-gray-900"
-                    >C1</label
-                  >
-                  <input
-                    type="number"
-                    step="any"
-                    value="0.400"
-                    id="w1"
-                    name="w1"
-                    class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                    pattern=""
-                    required
-                  />
-                </div>
-                <div>
-                  <label
-                    for="w2"
-                    class="block mb-2 text-sm font-medium text-gray-900"
-                    >C2</label
-                  >
-                  <input
-                    type="number"
-                    step="any"
-                    value="0.200"
-                    id="w2"
-                    name="w2"
-                    class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                    pattern=""
-                    required
-                  />
-                </div>
-                <div>
-                  <label
-                    for="w3"
-                    class="block mb-2 text-sm font-medium text-gray-900"
-                    >C3</label
-                  >
-                  <input
-                    type="number"
-                    step="any"
-                    value="0.030"
-                    id="w3"
-                    name="w3"
-                    class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                    pattern=""
-                    required
-                  />
-                </div>
-                <div>
-                  <label
-                    for="w4"
-                    class="block mb-2 text-sm font-medium text-gray-900"
-                    >C4</label
-                  >
-                  <input
-                    type="number"
-                    step="any"
-                    value="0.070"
-                    id="w4"
-                    name="w4"
-                    class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                    pattern=""
-                    required
-                  />
-                </div>
-                <div>
-                  <label
-                    for="w5"
-                    class="block mb-2 text-sm font-medium text-gray-900"
-                    >C5</label
-                  >
-                  <input
-                    type="number"
-                    step="any"
-                    value="0.300"
-                    id="w5"
-                    name="w5"
-                    class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                    pattern=""
-                    required
-                  />
-                </div>
-                <div>
-                  <label class="block mb-2 text-sm font-medium text-gray-900"
-                    >Peso de Incercia</label
-                  >
-                  <input
-                    type="number"
-                    step="any"
-                    value="0.7"
-                    id="wwi"
-                    name="wwi"
-                    class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                    pattern=""
-                    required
-                  />
-                </div>
-                <div>
-                  <label class="block mb-2 text-sm font-medium text-gray-900"
-                    >c1:</label
-                  >
-                  <input
-                    type="number"
-                    step="any"
-                    value="2.5"
-                    id="c1"
-                    name="c1"
-                    class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                    pattern=""
-                    required
-                  />
-                </div>
-                <div>
-                  <label class="block mb-2 text-sm font-medium text-gray-900"
-                    >c2:</label
-                  >
-                  <input
-                    type="number"
-                    step="any"
-                    value="2.5"
-                    id="c2"
-                    name="c2"
-                    class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                    pattern=""
-                    required
-                  />
-                </div>
-                <div>
-                  <label
-                    for="r1"
-                    class="block mb-2 text-sm font-medium text-gray-900"
-                    >R1:</label
-                  >
-                  <input
-                    value="0.4657,0.8956,0.3877,0.4902,0.5039"
-                    id="r1"
-                    name="r1"
-                    class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                    required
-                  />
-                </div>
-                <div>
-                  <label
-                    for="r2"
-                    class="block mb-2 text-sm font-medium text-gray-900"
-                    >R2:</label
-                  >
-                  <input
-                    value="0.5319,0.8185,0.8331,0.7677,0.1708"
-                    id="r2"
-                    name="r2"
-                    class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                    required
-                  />
-                </div>
-              </div>
+            <h1 class="font-semibold mb-3">Ingrese parámetros de control</h1>
+            <div class="grid gap-6 mb-6 lg:grid-cols-2">
               <div>
-                <label class="block mb-2 text-sm font-medium text-gray-900"
-                  >Cantidad de Iteraciones:
-                </label>
+                <label
+                  for="w1"
+                  class="block mb-2 text-sm font-medium text-gray-900"
+                  >C1</label
+                >
                 <input
                   type="number"
                   step="any"
-                  value="10"
-                  id="T"
-                  name="T"
-                  class="text-center bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  value="0.400"
+                  id="w1"
+                  name="w1"
+                  class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                   pattern=""
                   required
                 />
               </div>
               <div>
-                <!-- <label class="block mt-5 mb-2 text-sm font-medium text-gray-900"
-                  >Función objetivo:
-                </label>
+                <label
+                  for="w2"
+                  class="block mb-2 text-sm font-medium text-gray-900"
+                  >C2</label
+                >
                 <input
                   type="number"
-                  placeholder="Ri= (t^-i)/(t^+i+t^-i), i=1,...,m"
-                  disabled
-                  class="text-center bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  step="any"
+                  value="0.200"
+                  id="w2"
+                  name="w2"
+                  class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                   pattern=""
-                /> -->
+                  required
+                />
               </div>
+              <div>
+                <label
+                  for="w3"
+                  class="block mb-2 text-sm font-medium text-gray-900"
+                  >C3</label
+                >
+                <input
+                  type="number"
+                  step="any"
+                  value="0.030"
+                  id="w3"
+                  name="w3"
+                  class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  pattern=""
+                  required
+                />
+              </div>
+              <div>
+                <label
+                  for="w4"
+                  class="block mb-2 text-sm font-medium text-gray-900"
+                  >C4</label
+                >
+                <input
+                  type="number"
+                  step="any"
+                  value="0.070"
+                  id="w4"
+                  name="w4"
+                  class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  pattern=""
+                  required
+                />
+              </div>
+              <div>
+                <label
+                  for="w5"
+                  class="block mb-2 text-sm font-medium text-gray-900"
+                  >C5</label
+                >
+                <input
+                  type="number"
+                  step="any"
+                  value="0.300"
+                  id="w5"
+                  name="w5"
+                  class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  pattern=""
+                  required
+                />
+              </div>
+              <div>
+                <label class="block mb-2 text-sm font-medium text-gray-900"
+                  >Alpha:</label
+                >
+                <input
+                  type="number"
+                  step="any"
+                  value="2.5"
+                  id="alpha"
+                  name="alpha"
+                  class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  pattern=""
+                  required
+                />
+              </div>
+              <div>
+                <label class="block mb-2 text-sm font-medium text-gray-900"
+                  >Gamma:</label
+                >
+                <input
+                  type="number"
+                  step="any"
+                  value="2.5"
+                  id="gamma"
+                  name="gamma"
+                  class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  pattern=""
+                  required
+                />
+              </div>
+            </div>
+            <div>
+              <label class="block mb-2 text-sm font-medium text-gray-900"
+                >Cantidad de Iteraciones:
+              </label>
+              <input
+                type="number"
+                step="any"
+                value="10"
+                id="T"
+                name="T"
+                class="text-center bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                pattern=""
+                required
+              />
+            </div>
+            <div>
+              <!-- <label class="block mt-5 mb-2 text-sm font-medium text-gray-900"
+                >Función objetivo:
+              </label>
+              <input
+                type="number"
+                placeholder="Ri= (t^-i)/(t^+i+t^-i), i=1,...,m"
+                disabled
+                class="text-center bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                pattern=""
+              /> -->
+            </div>
               <button
                 type="button"
-                id="ejecutarBa"
+                id="ejecutarTopsisba"
                 class="text-black mt-5 hover:bg-blue focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center bg-slate-400"
               >
                 Calcular
@@ -484,6 +441,6 @@
       </section>
     </div>
 
-    <script src="{{ url_for('static', filename='js/ba.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/topsisba.js') }}"></script>
   </body>
 </html>
