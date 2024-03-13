@@ -292,13 +292,13 @@
                 <label class="block mt-5 mb-2 text-sm font-medium text-gray-900"
                   >Función objetivo:
                 </label>
-                <input
+                <!-- <input`x
                   type="number"
                   placeholder="Ri= (t^-i)/(t^+i+t^-i), i=1,...,m"
                   disabled
                   class="text-center bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                   pattern=""
-                />
+                /> -->
               </div>
               <button
                 type="button"
@@ -316,6 +316,24 @@
           <div class="max-w-2xl mx-auto bg-white p-8">
             <form class="rounded-xl bg-white px-8 py-10 shadow-2xl">
               <h1 class="font-bold mb-1 text-xl">PSO</h1>
+
+              <div>
+                <label
+                  for="ejecucionPso"
+                  class="block mb-2 text-sm font-medium text-gray-900"
+                  >Tiempo de ejecución</label
+                >
+                <input
+                  type="text"
+                  id="ejecucionPso"
+                  disabled
+                  placeholder="Esperando ejecución..."
+                  class="text-center bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  pattern=""
+                  required
+                />
+              </div>
+
               <h2 class="font-semibold mb-3">Últimos 10 resultados</h2>
               <div class="overflow-y-auto h-full">
                 <table
@@ -358,8 +376,94 @@
               </div>
             </form>
               <form class="rounded-xl bg-white px-8 py-10 shadow-2xl mt-10">
-                <h1 class="font-bold mb-1 text-xl">MOORA-PSO (Ejemplo)</h1>
+                <h1 class="font-bold mb-1 text-xl">MOORA-PSO</h1>
+
+                <div>
+                  <label
+                    for="ejecucionMoorapso"
+                    class="block mb-2 text-sm font-medium text-gray-900"
+                    >Tiempo de ejecución</label
+                  >
+                  <input
+                    type="text"
+                    id="ejecucionMoorapso"
+                    disabled
+                    placeholder="Esperando ejecución..."
+                    class="text-center bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    pattern=""
+                    required
+                  />
+                </div>
+
                 <h2 class="font-semibold mb-3">Últimos 10 resultados</h2>
+              <div class="overflow-y-auto h-full">
+                <table
+                  class="w-full table-auto border-separate border border-slate-400"
+                >
+                  <thead>
+                    <tr>
+                      <th
+                        class="border border-slate-300 text-center align-middle"
+                      >
+                        Iteración
+                      </th>
+                      <th
+                        class="border border-slate-300 text-center align-middle"
+                      >
+                        Mejor Alternativa
+                      </th>
+                      <!-- Agrega más encabezados según sea necesario -->
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for i in range (10) %}
+                    <tr>
+                      <td
+                        class="border border-slate-300 text-center align-middle"
+                      >
+                        {{ i + 1 }}
+                      </td>
+                      <td
+                        id="alternativaMoorapso{{ i }}"
+                        class="border border-slate-300 text-center align-middle"
+                      ></td>
+                      <!-- Repite para las otras mejores alternativas -->
+                    </tr>
+                    {% endfor %}
+
+                    <!-- Agrega más filas según sea necesario -->
+                  </tbody>
+                </table>
+              </div>
+              <div class="grid mt-4 gap-6 mb-6 lg:grid-cols-2">
+            </form>
+          </div>
+        </div>
+      </section>
+      <section class="">
+        <div class="flex justify-row-cols-1">
+          <div class="max-w-2xl mx-auto bg-white p-8">
+            <form class="rounded-xl bg-white px-8 py-10 shadow-2xl">
+              <h1 class="font-bold mb-1 text-xl">DA - PSO</h1>
+
+              <div>
+                <label
+                  for="ejecucionDapso"
+                  class="block mb-2 text-sm font-medium text-gray-900"
+                  >Tiempo de ejecución</label
+                >
+                <input
+                  type="text"
+                  id="ejecucionDapso"
+                  disabled
+                  placeholder="Esperando ejecución..."
+                  class="text-center bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  pattern=""
+                  required
+                />
+              </div>
+
+              <h2 class="font-semibold mb-3">Últimos 10 resultados</h2>
               <div class="overflow-y-auto h-full">
                 <table
                   class="w-full table-auto border-separate border border-slate-400"
@@ -399,14 +503,70 @@
                   </tbody>
                 </table>
               </div>
+            </form>
+              <form class="rounded-xl bg-white px-8 py-10 shadow-2xl mt-10">
+                <h1 class="font-bold mb-1 text-xl">TOPSIS-PSO</h1>
+
+                <div>
+                  <label
+                    for="ejecucionTopsispso"
+                    class="block mb-2 text-sm font-medium text-gray-900"
+                    >Tiempo de ejecución</label
+                  >
+                  <input
+                    type="text"
+                    id="ejecucionTopsispso"
+                    disabled
+                    placeholder="Esperando ejecución..."
+                    class="text-center bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    pattern=""
+                    required
+                  />
+                </div>
+
+                <h2 class="font-semibold mb-3">Últimos 10 resultados</h2>
+              <div class="overflow-y-auto h-full">
+                <table
+                  class="w-full table-auto border-separate border border-slate-400"
+                >
+                  <thead>
+                    <tr>
+                      <th
+                        class="border border-slate-300 text-center align-middle"
+                      >
+                        Iteración
+                      </th>
+                      <th
+                        class="border border-slate-300 text-center align-middle"
+                      >
+                        Mejor Alternativa
+                      </th>
+                      <!-- Agrega más encabezados según sea necesario -->
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for i in range (10) %}
+                    <tr>
+                      <td
+                        class="border border-slate-300 text-center align-middle"
+                      >
+                        {{ i + 1 }}
+                      </td>
+                      <td
+                        id="alternativaTopsispso{{ i }}"
+                        class="border border-slate-300 text-center align-middle"
+                      ></td>
+                      <!-- Repite para las otras mejores alternativas -->
+                    </tr>
+                    {% endfor %}
+
+                    <!-- Agrega más filas según sea necesario -->
+                  </tbody>
+                </table>
+              </div>
               <div class="grid mt-4 gap-6 mb-6 lg:grid-cols-2">
             </form>
           </div>
-        </div>
-      </section>
-      <section class="">
-        <div>
-          
         </div>
       </section>
       

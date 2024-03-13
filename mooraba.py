@@ -792,9 +792,9 @@ async def ejecutar_mooraba(w, alpha, gamma, iter_max):
     print("Hora de finalización:", hora_fin.time())
     print("Tiempo de ejecución:", ejecut)
     print()
+
     await asyncio.sleep(0.1)
     alternativas = [int(value) for value in alternativas]
-
 
     datosMooraba = {
         "mejor_alternativa": alternativas,

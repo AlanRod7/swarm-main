@@ -234,14 +234,14 @@
                   </div>
                   <div>
                     <label class="block mb-2 text-sm font-medium text-gray-900"
-                      >Peso de Incercia</label
+                      >Alpha:</label
                     >
                     <input
                       type="number"
                       step="any"
-                      value="0.7"
-                      id="wwi"
-                      name="wwi"
+                      value="2.5"
+                      id="alpha"
+                      name="alpha"
                       class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                       pattern=""
                       required
@@ -249,59 +249,16 @@
                   </div>
                   <div>
                     <label class="block mb-2 text-sm font-medium text-gray-900"
-                      >c1:</label
+                      >Gamma:</label
                     >
                     <input
                       type="number"
                       step="any"
                       value="2.5"
-                      id="c1"
-                      name="c1"
+                      id="gamma"
+                      name="gamma"
                       class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                       pattern=""
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label class="block mb-2 text-sm font-medium text-gray-900"
-                      >c2:</label
-                    >
-                    <input
-                      type="number"
-                      step="any"
-                      value="2.5"
-                      id="c2"
-                      name="c2"
-                      class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                      pattern=""
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label
-                      for="r1"
-                      class="block mb-2 text-sm font-medium text-gray-900"
-                      >R1:</label
-                    >
-                    <input
-                      value="0.4657,0.8956,0.3877,0.4902,0.5039"
-                      id="r1"
-                      name="r1"
-                      class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label
-                      for="r2"
-                      class="block mb-2 text-sm font-medium text-gray-900"
-                      >R2:</label
-                    >
-                    <input
-                      value="0.5319,0.8185,0.8331,0.7677,0.1708"
-                      id="r2"
-                      name="r2"
-                      class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                       required
                     />
                   </div>
@@ -349,6 +306,24 @@
             <div class="max-w-2xl mx-auto bg-white p-8">
               <form class="rounded-xl bg-white px-8 py-10 shadow-2xl">
                 <h1 class="font-bold mb-1 text-xl">BA</h1>
+
+                <div>
+                  <label
+                    for="w3"
+                    class="block mb-2 text-sm font-medium text-gray-900"
+                    >Tiempo de ejecución</label
+                  >
+                  <input
+                    type="text"
+                    id="ejecucionBa"
+                    disabled
+                    placeholder="Esperando ejecución..."
+                    class="text-center bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    pattern=""
+                    required
+                  />
+                </div>
+
                 <h2 class="font-semibold mb-3">Últimos 10 resultados</h2>
                 <div class="overflow-y-auto h-full">
                   <table
@@ -378,7 +353,7 @@
                           {{ i + 1 }}
                         </td>
                         <td
-                          id="alternativaBa{{ i }}"
+                          id="alternativaBa{{i}}"
                           class="border border-slate-300 text-center align-middle"
                         ></td>
                         <!-- Repite para las otras mejores alternativas -->
@@ -391,8 +366,95 @@
                 </div>
               </form>
                 <form class="rounded-xl bg-white px-8 py-10 shadow-2xl mt-10">
-                  <h1 class="font-bold mb-1 text-xl">DA-BA (Ejemplo)</h1>
+                  <h1 class="font-bold mb-1 text-xl">MOORA-BA</h1>
+
+                  <div>
+                    <label
+                      for="w3"
+                      class="block mb-2 text-sm font-medium text-gray-900"
+                      >Tiempo de ejecución</label
+                    >
+                    <input
+                    type="text"
+                    id="ejecucionMooraba"
+                    disabled
+                    placeholder="Esperando ejecución..."
+                    class="text-center bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    pattern=""
+                    required
+                  />
+                  </div>
+
                   <h2 class="font-semibold mb-3">Últimos 10 resultados</h2>
+                <div class="overflow-y-auto h-full">
+                  <table
+                    class="w-full table-auto border-separate border border-slate-400"
+                  >
+                    <thead>
+                      <tr>
+                        <th
+                          class="border border-slate-300 text-center align-middle"
+                        >
+                          Iteración
+                        </th>
+                        <th
+                          class="border border-slate-300 text-center align-middle"
+                        >
+                          Mejor Alternativa
+                        </th>
+                        <!-- Agrega más encabezados según sea necesario -->
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for i in range (10) %}
+                      <tr>
+                        <td
+                          class="border border-slate-300 text-center align-middle"
+                        >
+                          {{ i + 1 }}
+                        </td>
+                        <td
+                          id="alternativaMooraba{{ i }}"
+                          class="border border-slate-300 text-center align-middle"
+                        ></td>
+                        <!-- Repite para las otras mejores alternativas -->
+                      </tr>
+                      {% endfor %}
+  
+                      <!-- Agrega más filas según sea necesario -->
+                    </tbody>
+                  </table>
+                </div>
+                <div class="grid mt-4 gap-6 mb-6 lg:grid-cols-2">
+              </form>
+            </div>
+          </div>
+        </section>
+
+      <section class="">
+        <div class="flex justify-row-cols-1">
+            <div class="max-w-2xl mx-auto bg-white p-8">
+              <form class="rounded-xl bg-white px-8 py-10 shadow-2xl">
+                <h1 class="font-bold mb-1 text-xl">DA - BA</h1>
+
+                <div>
+                  <label
+                    for="w3"
+                    class="block mb-2 text-sm font-medium text-gray-900"
+                    >Tiempo de ejecución</label
+                  >
+                  <input
+                    type="text"
+                    id="ejecucionDaba"
+                    disabled
+                    placeholder="Esperando ejecución..."
+                    class="text-center bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    pattern=""
+                    required
+                  />
+                </div>
+
+                <h2 class="font-semibold mb-3">Últimos 10 resultados</h2>
                 <div class="overflow-y-auto h-full">
                   <table
                     class="w-full table-auto border-separate border border-slate-400"
@@ -432,16 +494,72 @@
                     </tbody>
                   </table>
                 </div>
+              </form>
+                <form class="rounded-xl bg-white px-8 py-10 shadow-2xl mt-10">
+                  <h1 class="font-bold mb-1 text-xl">TOPSIS-BA</h1>
+
+                  <div>
+                    <label
+                      for="w3"
+                      class="block mb-2 text-sm font-medium text-gray-900"
+                      >Tiempo de ejecución</label
+                    >
+                    <input
+                    type="text"
+                    id="ejecucionTopsisba"
+                    disabled
+                    placeholder="Esperando ejecución..."
+                    class="text-center bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    pattern=""
+                    required
+                  />
+                  </div>
+
+                  <h2 class="font-semibold mb-3">Últimos 10 resultados</h2>
+                <div class="overflow-y-auto h-full">
+                  <table
+                    class="w-full table-auto border-separate border border-slate-400"
+                  >
+                    <thead>
+                      <tr>
+                        <th
+                          class="border border-slate-300 text-center align-middle"
+                        >
+                          Iteración
+                        </th>
+                        <th
+                          class="border border-slate-300 text-center align-middle"
+                        >
+                          Mejor Alternativa
+                        </th>
+                        <!-- Agrega más encabezados según sea necesario -->
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for i in range (10) %}
+                      <tr>
+                        <td
+                          class="border border-slate-300 text-center align-middle"
+                        >
+                          {{ i + 1 }}
+                        </td>
+                        <td
+                          id="alternativaTopsisba{{ i }}"
+                          class="border border-slate-300 text-center align-middle"
+                        ></td>
+                        <!-- Repite para las otras mejores alternativas -->
+                      </tr>
+                      {% endfor %}
+  
+                      <!-- Agrega más filas según sea necesario -->
+                    </tbody>
+                  </table>
+                </div>
                 <div class="grid mt-4 gap-6 mb-6 lg:grid-cols-2">
               </form>
             </div>
           </div>
         </section>
-      <section class="">
-        <div>
-          
-        </div>
-      </section>
       
     </div>
     <div class="pb-5 ">

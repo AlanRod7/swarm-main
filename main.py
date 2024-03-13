@@ -26,6 +26,7 @@ from pso import ejecutar_pso
 from topsis import ejecutar_topsis
 from topsispso import ejecutar_topsispso
 from topsisba import ejecutar_topsisba
+from aco import ejecutar_aco
 
 db = SQLAlchemy()
 app = Flask(__name__)
@@ -328,7 +329,7 @@ def calcular_comparacion():
 
         # Llama a la función de PSO en pso.py
         datosPso = asyncio.run(ejecutar_pso(w, wwi, c1, c2, T, r1, r2))
-        datosDapso = asyncio.run(ejecutar_pso(w, wwi, c1, c2, T, r1, r2))
+        datosDapso = asyncio.run(ejecutar_dapso(w, wwi, c1, c2, T, r1, r2))
         datosMoorapso = asyncio.run(ejecutar_moorapso(w, wwi, c1, c2, T, r1, r2))
         datosTopsispso = asyncio.run(ejecutar_topsispso(w, wwi, c1, c2, T, r1, r2))
         print("Resultados de la ejecución:", datosPso) 
@@ -354,20 +355,14 @@ def calcular_comparacion():
 @app.route('/ba')
 def ba():
     try:
-        # Obtén los datos del formulario
-        w_input = [request.form.get(f'w[{i}]', '') for i in range(5)]
+        w_input =  [float(request.form[f'w{i}']) for i in range(1, 6)]
         w = [float(value) for value in w_input if value != '']  # Filtra valores vacíos
-        wwi = float(request.form['wwi'])
-        c1 = float(request.form['c1'])
-        c2 = float(request.form['c2'])
-        T = int(request.form['T'])
-        r1_input = request.form['r1']
-        r2_input = request.form['r2']
-        r1 = [float(num.strip()) for num in r1_input.split(',')]
-        r2 = [float(num.strip()) for num in r2_input.split(',')]
+        alpha = float(request.form['alpha'])
+        gamma = float(request.form['gamma'])
+        iter_max = int(request.form['T'])
         
         # Llama a la función de procesar_datos en pso.py
-        datosBa = asyncio.run(ejecutar_ba(w, wwi, c1, c2, T, r1, r2))
+        datosBa = asyncio.run(ejecutar_ba(w, alpha, gamma, iter_max))
 
         return render_template('ba.html', datosBa=datosBa)
     except Exception as e:
@@ -378,20 +373,14 @@ def ba():
 def calcular_ba():
     try:
         # Obtén los datos del formulario
-        w_input = [request.form.get(f'w[{i}]', '') for i in range(5)]
+        w_input =  [float(request.form[f'w{i}']) for i in range(1, 6)]
         w = [float(value) for value in w_input if value != '']  # Filtra valores vacíos
-        wwi = float(request.form['wwi'])
-        c1 = float(request.form['c1'])
-        c2 = float(request.form['c2'])
-        T = int(request.form['T'])
-        # Divide las cadenas de texto en listas
-        r1_input = request.form['r1']
-        r2_input = request.form['r2']
-        r1 = [float(num.strip()) for num in r1_input.split(',')]
-        r2 = [float(num.strip()) for num in r2_input.split(',')]
+        alpha = float(request.form['alpha'])
+        gamma = float(request.form['gamma'])
+        iter_max = int(request.form['T'])
 
         # Llama a la función de PSO en pso.py
-        datosBa = asyncio.run(ejecutar_ba(w, wwi, c1, c2, T, r1, r2))
+        datosBa = asyncio.run(ejecutar_ba(w, alpha, gamma, iter_max))
         print("Resultados de la ejecución:", datosBa)
 
         # Obtén los resultados específicos que deseas mostrar
@@ -451,6 +440,50 @@ def calcular_daba():
 #-------------------------------------------------------------------------------------------------------------------
 
 #-------------------------------------------------------------------------------------------------------------------
+        #Algoritmo_Ruta ACO
+
+@app.route('/aco')
+def aco():
+    try:
+        # Obtén los datos del formulario
+        w_input =  [float(request.form[f'w{i}']) for i in range(1, 6)]
+        w = [float(value) for value in w_input if value != '']  # Filtra valores vacíos
+        alpha = float(request.form['alpha'])
+        gamma = float(request.form['gamma'])
+        iter_max = int(request.form['T'])
+        
+        # Llama a la función de procesar_datos en pso.py
+        datosAco = asyncio.run(ejecutar_aco(w,alpha,gamma,iter_max))
+
+        return render_template('aco.html', datosAco=datosAco)
+    except Exception as e:
+        return render_template('aco.html', error_message=str(e))
+
+
+@app.route('/aco', methods=['POST'])
+def calcular_aco():
+    try:
+        # Obtén los datos del formulario de la solicitud POST
+        w_input =  [float(request.form[f'w{i}']) for i in range(1, 6)]
+        w = [float(value) for value in w_input if value != '']  # Filtra valores vacíos
+        alpha = float(request.form['alpha'])
+        gamma = float(request.form['gamma'])
+        iter_max = int(request.form['T'])
+
+        # Llama a la función de PSO en pso.py
+        datosAco = asyncio.run(ejecutar_aco(w,alpha,gamma,iter_max))
+        print("Resultados de la ejecución:", datosAco)
+
+        # Devuelve los resultados como JSON
+        return jsonify(datosAco)
+    except Exception as e:
+        # Manejo de errores
+        print(f'Error en calcular_aco: {str(e)}')
+        return jsonify({'error': 'Ocurrió un error en el servidor'}), 500
+#-------------------------------------------------------------------------------------------------------------------
+
+
+#-------------------------------------------------------------------------------------------------------------------
         #Algoritmo_Ruta MOORA - BA
 
 @app.route('/mooraba')
@@ -491,7 +524,7 @@ def calcular_mooraba():
         # Manejo de errores
         print(f'Error en calcular_mooraba: {str(e)}')
         return jsonify({'error': 'Ocurrió un error en el servidor'}), 500
-
+#-------------------------------------------------------------------------------------------------------------------
 
 #-------------------------------------------------------------------------------------------------------------------
 @app.route('/topsisba')
@@ -540,24 +573,23 @@ def calcular_topsisba():
 def comparacionBa():
     try:
         # Obtén los datos del formulario
-        w_input = [request.form.get(f'w[{i}]', '') for i in range(5)]
+        w_input =  [float(request.form[f'w{i}']) for i in range(1, 6)]
         w = [float(value) for value in w_input if value != '']  # Filtra valores vacíos
-        wwi = float(request.form['wwi'])
-        c1 = float(request.form['c1'])
-        c2 = float(request.form['c2'])
-        T = int(request.form['T'])
-        r1_input = request.form['r1']
-        r2_input = request.form['r2']
-        r1 = [float(num.strip()) for num in r1_input.split(',')]
-        r2 = [float(num.strip()) for num in r2_input.split(',')]
+        alpha = float(request.form['alpha'])
+        gamma = float(request.form['gamma'])
+        iter_max = int(request.form['T'])
         
         # Llama a la función de procesar_datos en pso.py
-        datosBa = asyncio.run(ejecutar_ba(w, wwi, c1, c2, T, r1, r2))
-        datosDaba = asyncio.run(ejecutar_daba(w, wwi, c1, c2, T, r1, r2))
-        datosMoorapso = asyncio.run(ejecutar_moorapso(w, wwi, c1, c2, T, r1, r2))
-        datosTopsispso = asyncio.run(ejecutar_topsispso(w, wwi, c1, c2, T, r1, r2))
+        datosBa = asyncio.run(ejecutar_ba(w, alpha, gamma, iter_max))
+        # Llama a la función de procesar_datos en pso.py
+        datosDaba = asyncio.run(ejecutar_daba(w, alpha, gamma, iter_max))
+        datosMooraba = asyncio.run(ejecutar_mooraba(w, alpha, gamma, iter_max))
+        datosTopsisba = asyncio.run(ejecutar_topsisba(w, alpha, gamma, iter_max))
+        
+        
+        
 
-        return render_template('comparacionBa.html', datosPso=datosBa, datosDapso = datosDaba , datosMoorapso = datosMoorapso, datosTopsispso = datosTopsispso)
+        return render_template('comparacionBa.html', datosBa=datosBa, datosDaba = datosDaba , datosMooraba = datosMooraba, datosTopsisba = datosTopsisba)
     except Exception as e:
         return render_template('comparacionBa.html', error_message=str(e))
 
@@ -566,27 +598,25 @@ def comparacionBa():
 def calcular_comparacionBa():
     try:
         # Obtén los datos del formulario
-        w_input = [request.form.get(f'w[{i}]', '') for i in range(5)]
+        w_input =  [float(request.form[f'w{i}']) for i in range(1, 6)]
         w = [float(value) for value in w_input if value != '']  # Filtra valores vacíos
-        wwi = float(request.form['wwi'])
-        c1 = float(request.form['c1'])
-        c2 = float(request.form['c2'])
-        T = int(request.form['T'])
-        # Divide las cadenas de texto en listas
-        r1_input = request.form['r1']
-        r2_input = request.form['r2']
-        r1 = [float(num.strip()) for num in r1_input.split(',')]
-        r2 = [float(num.strip()) for num in r2_input.split(',')]
+        alpha = float(request.form['alpha'])
+        gamma = float(request.form['gamma'])
+        iter_max = int(request.form['T'])
+        
+        # Llama a la función de procesar_datos en pso.py
+        datosBa = asyncio.run(ejecutar_ba(w, alpha, gamma, iter_max))
+        datosDaba = asyncio.run(ejecutar_daba(w, alpha, gamma, iter_max))
+        datosMooraba = asyncio.run(ejecutar_mooraba(w, alpha, gamma, iter_max))
+        datosTopsisba = asyncio.run(ejecutar_topsisba(w, alpha, gamma, iter_max))
 
         # Llama a la función de PSO en pso.py
-        datosBa = asyncio.run(ejecutar_ba(w, wwi, c1, c2, T, r1, r2))
-        datosDaba = asyncio.run(ejecutar_daba(w, wwi, c1, c2, T, r1, r2))
-        datosMoorapso = asyncio.run(ejecutar_moorapso(w, wwi, c1, c2, T, r1, r2))
-        datosTopsispso = asyncio.run(ejecutar_topsispso(w, wwi, c1, c2, T, r1, r2))
+        
+        
         print("Resultados de la ejecución:", datosBa) 
         print("Resultados de la ejecución:", datosDaba) 
-        print("Resultados de la ejecución:", datosMoorapso) 
-        print("Resultados de la ejecución:", datosTopsispso) 
+        print("Resultados de la ejecución:", datosMooraba) 
+        print("Resultados de la ejecución:", datosTopsisba) 
 
         # Obtén los resultados específicos que deseas mostrar
         # dataGBP = resultados['dataGBP']
@@ -594,7 +624,7 @@ def calcular_comparacionBa():
         # dataResult = resultados['dataResult']
 
         # Puedes hacer lo que quieras con los resultados, por ejemplo, pasarlos al template
-        return jsonify(datosBa, datosDaba, datosMoorapso, datosTopsispso)
+        return jsonify(datosBa, datosDaba, datosMooraba, datosTopsisba)
     except Exception as e:
         # Manejo de errores, por ejemplo, mostrar un mensaje de error en la interfaz
        print(f'Error en calcular_comparacion: {str(e)}')

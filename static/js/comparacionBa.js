@@ -1,15 +1,18 @@
+
+
 document.addEventListener('DOMContentLoaded', function () {
-    
+
     const ejecutarComparacion = document.getElementById('ejecutarComparacionBa');
     const formularioComparacion = document.getElementById('comparacionFormBa');
-    
+
     ejecutarComparacion.addEventListener('click', function () {
         console.log('Ejecutar Comparacion clicked');
 
-        solicitudBa(formularioComparacion);
-        solicitudDaba(formularioComparacion);
-        solicitudMoorapso(formularioComparacion);
-        solicitudTopsispso(formularioComparacion);
+
+        solicitudBa(formularioComparacion)
+            .then(() => solicitudDaba(formularioComparacion))
+            .then(() => solicitudMooraba(formularioComparacion))
+            .then(() => solicitudTopsisba(formularioComparacion))
     });
 
     // Evitar el envío tradicional del formulario
@@ -22,93 +25,108 @@ document.addEventListener('DOMContentLoaded', function () {
 //-------------------------Solicitudes------------------------
 
 const solicitudBa = (formularioComparacion) => {
-
     //Obtener datos del formulario
-    const formData = new FormData(formularioComparacion);
 
-     // Realizar la solicitud Ajax
-     fetch('/ba', {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => response.json())  // Parsea la respuesta como JSON
-    .then(data => {
-        console.log('Datos recibidos:', data);
-        // Actualizar los campos de entrada con los nuevos datos
-        const mejoresAlternativas = data.mejor_alternativa;
+    return new Promise((resolve, reject) => {
+        // Realizar la solicitud Ajax
+        const formData = new FormData(formularioComparacion);
 
-        for (let i = 0; i < mejoresAlternativas.length; i++) {
-            document.getElementById(`alternativaBa${i}`).innerText = mejoresAlternativas[i];   
-        }
+        fetch('/ba', {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => response.json())  // Parsea la respuesta como JSON
+            .then(data => {
+                console.log('Datos recibidos:', data);
+                // Actualizar los campos de entrada con los nuevos datos
+                const mejoresAlternativas = data.mejor_alternativa;
+
+                for (let i = 0; i < mejoresAlternativas.length; i++) {
+                    document.getElementById(`alternativaBa${i}`).innerText = mejoresAlternativas[i];
+                }
+
+                document.getElementById('ejecucionBa').value = data.tiempo_ejecucion;
+                resolve();
+
+            })
+            .catch(error => { console.error('Error:', error); reject(error); });
+
     })
-    .catch(error => console.error('Error:', error));
 }
 
 const solicitudDaba = (formularioComparacion) => {
-    //Obtener datos del formulario
-    const formData = new FormData(formularioComparacion);
+    return new Promise((resolve, reject) => {
+        //Obtener datos del formulario
+        const formData = new FormData(formularioComparacion);
 
-     // Realizar la solicitud Ajax
-     fetch('/daba', {
-        method: 'POST',
-        body: formData
+        // Realizar la solicitud Ajax
+        fetch('/daba', {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => response.json())  // Parsea la respuesta como JSON
+            .then(data => {
+                console.log('Datos recibidos:', data);
+                // Actualizar los campos de entrada con los nuevos datos
+                const mejoresAlternativas = data.mejor_alternativa;
+
+                for (let i = 0; i < mejoresAlternativas.length; i++) {
+                    document.getElementById(`alternativaDaba${i}`).innerText = mejoresAlternativas[i];
+                }
+                document.getElementById('ejecucionDaba').value = data.tiempo_ejecucion;
+                resolve();
+            })
+            .catch(error => { console.error('Error:', error); reject(error); });
     })
-    .then(response => response.json())  // Parsea la respuesta como JSON
-    .then(data => {
-        console.log('Datos recibidos:', data);
-        // Actualizar los campos de entrada con los nuevos datos
-        const mejoresAlternativas = data.mejor_alternativa;
+}
+const solicitudMooraba = (formularioComparacion) => {
+    return new Promise((resolve, reject) => {
+        //Obtener datos del formulario
+        const formData = new FormData(formularioComparacion);
 
-        for (let i = 0; i < mejoresAlternativas.length; i++) {
-            document.getElementById(`alternativaDaba${i}`).innerText = mejoresAlternativas[i];   
-        }
+        // Realizar la solicitud Ajax
+        fetch('/mooraba', {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => response.json())  // Parsea la respuesta como JSON
+            .then(data => {
+                console.log('Datos recibidos:', data);
+                // Actualizar los campos de entrada con los nuevos datos
+                const mejoresAlternativas = data.mejor_alternativa;
 
+                for (let i = 0; i < mejoresAlternativas.length; i++) {
+                    document.getElementById(`alternativaMooraba${i}`).innerText = mejoresAlternativas[i];
+                }
+                document.getElementById('ejecucionMooraba').value = data.tiempo_ejecucion;
+                resolve();
+            })
+            .catch(error => { console.error('Error:', error); reject(error); });
     })
-    .catch(error => console.error('Error:', error));
 }
 
-const solicitudMoorapso = (formularioComparacion) => {
-    //Obtener datos del formulario
-    const formData = new FormData(formularioComparacion);
+const solicitudTopsisba = (formularioComparacion) => {
+    return new Promise((resolve, reject) => {
+        //Obtener datos del formulario
+        const formData = new FormData(formularioComparacion);
 
-     // Realizar la solicitud Ajax
-     fetch('/moorapso', {
-        method: 'POST',
-        body: formData
+        // Realizar la solicitud Ajax
+        fetch('/topsisba', {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => response.json())  // Parsea la respuesta como JSON
+            .then(data => {
+                console.log('Datos recibidos:', data);
+                // Actualizar los campos de entrada con los nuevos datos
+                const mejoresAlternativas = data.mejor_alternativa;
+
+                for (let i = 0; i < mejoresAlternativas.length; i++) {
+                    document.getElementById(`alternativaTopsisba${i}`).innerText = mejoresAlternativas[i];
+                }
+                document.getElementById('ejecucionTopsisba').value = data.tiempo_ejecucion;
+                resolve();
+            })
+            .catch(error => { console.error('Error:', error); reject(error); });
     })
-    .then(response => response.json())  // Parsea la respuesta como JSON
-    .then(data => {
-        console.log('Datos recibidos:', data);
-        // Actualizar los campos de entrada con los nuevos datos
-        const mejoresAlternativas = data.mejor_alternativa;
-
-        for (let i = 0; i < mejoresAlternativas.length; i++) {
-            document.getElementById(`alternativaMoorapso${i}`).innerText = mejoresAlternativas[i];   
-        }
-
-    })
-    .catch(error => console.error('Error:', error));
-}
-
-const solicitudTopsispso = (formularioComparacion) => {
-    //Obtener datos del formulario
-    const formData = new FormData(formularioComparacion);
-
-     // Realizar la solicitud Ajax
-     fetch('/topsispso', {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => response.json())  // Parsea la respuesta como JSON
-    .then(data => {
-        console.log('Datos recibidos:', data);
-        // Actualizar los campos de entrada con los nuevos datos
-        const mejoresAlternativas = data.mejor_alternativa;
-
-        for (let i = 0; i < mejoresAlternativas.length; i++) {
-            document.getElementById(`alternativaTopsispso${i}`).innerText = mejoresAlternativas[i];   
-        }
-
-    })
-    .catch(error => console.error('Error:', error));
 }
