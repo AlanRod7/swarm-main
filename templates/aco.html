@@ -40,11 +40,11 @@
     </nav>
     <div class="bg-white pt-8">
         <div class="container mx-auto rounded-xl bg-white px-8 py-10 shadow-2xl">
-            <h1 class="text-center text-3xl font-semibold capitalize text-gray-800 lg:text-4xl">Algoritmo de Murciélago (BA)</h1>
+            <h1 class="text-center text-3xl font-semibold capitalize text-gray-800 lg:text-4xl">Algoritmo de optimización de Colonia de Hormigas (ACO)</h1>
             <p class="mt-6 text-justify">
-              El algoritmo de Murciélago (BA, por sus siglas en inglés, Bat Algorithm) es una técnica de optimización que se inspira en la observación del comportamiento de los murciélagos en la naturaleza, propuesto por Xin-She Yang en 2010.  Este algoritmo simula cómo los murciélagos buscan alimento y se comunican entre sí para encontrar soluciones óptimas a problemas de optimización en diversos dominios, como la ingeniería, la economía y la ciencia de datos. <br>
-              Basándose en la simulación del comportamiento de los murciélagos en su búsqueda de alimento en la naturaleza, el algoritmo de Murciélago destaca por su capacidad para equilibrar la exploración y la explotación en la búsqueda de soluciones. Esto lo convierte en una herramienta versátil para abordar una amplia variedad de problemas de optimización, especialmente en espacios de búsqueda continuos. Su eficacia se ha demostrado en la búsqueda de soluciones aproximadas en situaciones en las que encontrar la solución óptima podría ser computacionalmente costoso o poco realista.
-               <a id="enlace" href="https://link.springer.com/chapter/10.1007/978-3-642-12538-6_6" class="text-cyan-400">Leer más</a>
+              El Algoritmo de Optimización de Colonias de Hormigas (ACO) es una potente técnica de optimización inspirada en el comportamiento de las colonias de hormigas reales. Fue concebido por Marco Dorigo en 1995  y se ha consolidado como una herramienta altamente efectiva para resolver problemas de optimización combinatoria. Estos desafíos involucran la búsqueda de la mejor solución entre múltiples opciones disponibles, y el ACO ha demostrado su utilidad en diversas áreas, desde la logística hasta la planificación de rutas, la asignación de recursos y la programación.
+              La clave del éxito del ACO radica en la habilidad de las feromonas para transmitir información colectiva sobre las soluciones más prometedoras. <br>Conforme las hormigas encuentran soluciones de alta calidad, las feromonas se acumulan en los caminos correspondientes, atrayendo a más hormigas hacia estas soluciones. Este mecanismo facilita que el algoritmo converja hacia soluciones óptimas o cercanas a óptimas en problemas combinatorios complejos.
+              <a id="enlace" href="https://ieeexplore.ieee.org/abstract/document/484436" class="text-cyan-400">Leer más</a>
             </p>
         </div>
     </div>
@@ -57,40 +57,36 @@
                 </div>
                 <div class="container mx-auto rounded-xl bg-white px-8 py-10 shadow-2xl">
                     <h1 class="text-center text-3xl font-semibold capitalize text-gray-800 lg:text-4xl">
-                      A continuación, se describen los aspectos fundamentales de este algoritmo:
+                      El funcionamiento del algoritmo de Colonias de Hormigas se puede resumir en los siguientes pasos:
                     </h1>
                     <p class="text-justify text-gray-500">
                         <div class="mt-10">
-                            <li><strong>Representación de soluciones:</strong></li>
+                            <li><strong>Inicialización de feromonas: </strong></li>
                             <h2>
-                              En el algoritmo de Murciélago, las soluciones se representan como puntos en un espacio de búsqueda multidimensional. Cada punto en este espacio representa una posible solución al problema que se está optimizando.
-                            </h2>
+                              En el inicio del algoritmo, se asigna una cantidad de "feromona" a todas las posibles soluciones o caminos en el espacio de búsqueda. Las feromonas son sustancias químicas que las hormigas reales utilizan para comunicarse entre sí y marcar caminos. En el contexto del ACO, las feromonas representan información compartida entre las soluciones candidatas.                            </h2>
                             <!-- ... (otros elementos li y h2) ... -->
                         </div>
                     </p>
                     <p class="text-justify text-gray-500">
                         <div class="mt-10">
-                            <li><strong>Población de murciélagos:</strong></li>
+                            <li><strong>Construcción de soluciones: </strong></li>
                             <h2>
-                              El algoritmo comienza con una población de murciélagos virtuales, cada uno de los cuales representa una solución potencial. Inicialmente, los murciélagos se distribuyen aleatoriamente en el espacio de búsqueda.
-                            </h2>
+                              Se generan soluciones candidatas de manera probabilística. Cada hormiga (representando una solución) construye su propia solución visitando las opciones disponibles en función de las feromonas y una heurística que evalúa la calidad de las soluciones parciales. Las hormigas siguen caminos que tienen feromonas más fuertes y que parecen prometedores según la heurística.                            </h2>
                             <!-- ... (otros elementos li y h2) ... -->
                         </div>
                     </p>
                     <p class="text-justify text-gray-500">
                         <div class="mt-10">
-                            <li><strong>Comportamiento de los murciélagos: </strong></li>
+                            <li><strongEvaluación y actualización de feromonas: </strong></li>
                             <h2>
-                              Los murciélagos en el algoritmo de Murciélago siguen un comportamiento que incluye la búsqueda de alimento y la comunicación entre sí. Cada murciélago tiene una posición actual en el espacio de búsqueda y una frecuencia de emisión de pulsos ultrasónicos.                            </h2>
-                            <!-- ... (otros elementos li y h2) ... -->
+                              Una vez que una hormiga ha construido una solución completa, se evalúa su calidad utilizando una función objetivo. Las soluciones de alta calidad dejan una cantidad mayor de feromona en los caminos que han seguido. Además, con el tiempo, las feromonas se evaporan gradualmente, lo que simula el proceso de olvido en las hormigas reales.                            <!-- ... (otros elementos li y h2) ... -->
                         </div>
                     </p>
                     <p class="text-justify text-gray-500">
                         <div class="mt-10">
-                            <li><strong>Búsqueda de alimento:</strong></li>
+                            <li><strong>Mejora de las soluciones: </strong></li>
                             <h2>
-                              Los murciélagos buscan alimento emitiendo pulsos ultrasónicos en una dirección determinada. Cuando un murciélago encuentra una solución prometedora, se mueve hacia esa solución en la siguiente iteración. La velocidad de movimiento está influenciada por la calidad de la solución encontrada.                            <!-- ... (otros elementos li y h2) ... -->
-                        </div>
+                              A lo largo de múltiples iteraciones, las hormigas continúan construyendo soluciones, evaluando su calidad y actualizando las feromonas. Con el tiempo, la concentración de feromonas tiende a acumularse en los caminos que conducen a soluciones de alta calidad.                        </div>
                     </p>
                     <p class="text-justify text-gray-500">
                         <div class="mt-10">
@@ -102,17 +98,17 @@
                         <div class="mt-10">
                             <li><strong>Exploración y explotación: </strong></li>
                             <h2>
-                              El algoritmo de Murciélago equilibra la exploración (buscar nuevas áreas del espacio de búsqueda) y la explotación (refinar las áreas prometedoras). Los murciélagos pueden ajustar su comportamiento para enfocarse en áreas de alta calidad o explorar áreas desconocidas según sea necesario.                    
-                    </p>
+                              El ACO equilibra la exploración (buscar nuevas soluciones) y la explotación (refinar las soluciones existentes). Las feromonas guían a las hormigas hacia soluciones prometedoras, pero también permiten cierta exploración de otras posibilidades.                    </p>
                     <p class="text-justify text-gray-500">
                         <div class="mt-10">
                             <li><strong>Criterio de parada: </strong></li>
                             <h2>
-                              El algoritmo de Murciélago se ejecuta durante un número fijo de iteraciones o hasta que se cumpla un criterio de parada predefinido, como alcanzar un valor objetivo o una tolerancia específica.                    </p>
-                    <div class="container mx-auto px-6 py-10">
+                              El algoritmo de Colonias de Hormigas se ejecuta durante un número fijo de iteraciones o hasta que se cumpla un criterio de parada predefinido, como alcanzar un valor objetivo o una tolerancia específica.
+
+                              La clave del éxito del ACO radica en la capacidad de las feromonas para transmitir información colectiva sobre las soluciones prometedoras. A medida que las hormigas encuentran soluciones de alta calidad, las feromonas se acumulan en los caminos correspondientes, atrayendo a más hormigas hacia esas soluciones. Esto permite al algoritmo converger hacia soluciones óptimas o cercanas a óptimas en problemas combinatorios complejos.
+                                                  <div class="container mx-auto px-6 py-10">
                         <p class="mt-6 text-gray-500 text-justify">
-                          En esta página, te ofrecemos acceso al algoritmo BA, junto con tres híbridos que combinan PSO con MCDM (Múltiples Criterios de Toma de Decisiones). En esta sección, tienes la flexibilidad de utilizar los algoritmos de forma independiente. Para hacerlo, simplemente proporciona la matriz de decisión y ajusta los parámetros de entrada según tus necesidades. Los resultados que visualizarás en pantalla corresponden a la última iteración, pero si deseas un análisis más detallado, tienes la opción de descargar un archivo en formato Excel para profundizar en la información proporcionada.
-                        </p>
+                          En esta página, te ofrecemos acceso al algoritmo ACO, junto con tres híbridos que combinan PSO con MCDM (Múltiples Criterios de Toma de Decisiones). En esta sección, tienes la flexibilidad de utilizar los algoritmos de forma independiente. Para hacerlo, simplemente proporciona la matriz de decisión y ajusta los parámetros de entrada según tus necesidades. Los resultados que visualizarás en pantalla corresponden a la última iteración, pero si deseas un análisis más detallado, tienes la opción de descargar un archivo en formato Excel para profundizar en la información proporcionada.                        </p>
                     </div>
                 </div>
             </section>
@@ -123,13 +119,13 @@
           ACO
       </a>
       <a href="/daba" class="text-lg p-8 transition-all duration-100 ease-in-out hover:font-bold nav-link">
-          DA -BA
+          DA - ACO
       </a>
       <a href="/mooraba" class="text-lg p-8 transition-all duration-100 ease-in-out hover:font-bold nav-link">
-          MOORA - BA
+          MOORA - ACO
       </a>
       <a href="/topsisba" class="text-lg p-8 transition-all duration-100 ease-in-out hover:font-bold nav-link">
-          TOPSIS - BA
+          TOPSIS - ACO
       </a>
       <a href="/comparacionBa" class="text-lg p-8 transition-all duration-100 ease-in-out hover:font-bold nav-link">
         COMPARACIÓN
