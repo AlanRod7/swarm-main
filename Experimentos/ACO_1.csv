@@ -1,0 +1,25 @@
+Algoritmo,Cantidad de repeticiones del programa,Hora de inicio,Fecha de inicio,Hora de finalización,Tiempo de ejecución
+ACO,100,20:22:09.594646,2024-03-14,20:22:18.715377,0:00:09.120731
+Ejecución:   ,  Mejor_Alternativa
+1,A3
+2,A3
+3,A2
+4,A3
+5,A3
+6,A3
+7,A1
+8,A2
+9,A1
+10,A4
+C1,C2,C3,C4,C5
+0.048,0.047,0.07,0.087,0.19
+0.053,0.052,0.066,0.081,0.058
+0.057,0.057,0.066,0.076,0.022
+0.062,0.062,0.063,0.058,0.007
+0.066,0.066,0.07,0.085,0.004
+0.07,0.071,0.066,0.058,0.003
+0.075,0.075,0.066,0.047,0.002
+0.079,0.079,0.066,0.035,0.002
+0.083,0.083,0.066,0.051,0.0
+alpha,beta,Tasa de evaporación de feromona(rho),Cantidad de feromona depositada(Q),Número de hormigas(n_ants),No_ejecuciones del programa
+1,2,0.1,100,10,10

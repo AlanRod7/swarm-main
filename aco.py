@@ -88,18 +88,19 @@ async def ejecutar_aco(w,alpha,gamma,iter_max):
     print("Resultados de ACO:") 
     print(resultados)
 
-
-
-
     #####################################################################################
     # Para almacenar tiempo de ejecución
     hora_fin = datetime.datetime.now()
     ejecut = hora_fin - hora_inicio
     tiempo_ejecucion = str(ejecut)
-    arreglo = resultados.index[-10:]
-    arregloInvertido = tuple((arreglo))
-    alternativas = arregloInvertido
-  
+    #arreglo = best_alternative[candidates[-10:]]
+    
+    #alternativas = tuple((arreglo))
+    alternativas = resultados[best_alternative_index][-10:]
+
+
+
+    
 
     # Imprimimos los resultados de tiempo
     print()
@@ -170,7 +171,7 @@ async def ejecutar_aco(w,alpha,gamma,iter_max):
     #alternativas = [int(value) for value in alternativas]
 
     datosAco = {
-        "mejor_alternativa": best_alternative,
+        "mejor_alternativa": alternativas,
         "iteraciones": n_iterations,
         "hora_inicio": hora_inicio.time().strftime('%H:%M:%S'),
         "fecha_inicio": fecha_inicio.isoformat(),
