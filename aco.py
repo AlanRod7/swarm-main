@@ -29,18 +29,18 @@ async def ejecutar_aco(w,alpha,gamma,iter_max):
     xP = pd.DataFrame(data=datarw, index=candidates)
 
     # Parámetros del algoritmo ACO
-    alpha = 1     # Peso de la feromona [0.1, 10]-común(1): Controla la influencia de la feromona en la elección de las hormigas. Valores más altos dan más peso a la feromona.
-    beta = 2      # Peso de la heurística [1,5]-común(2): Controla la influencia de la información heurística en la elección de las hormigas. Valores más altos dan más peso a la heurística.
+    alpha = alpha     # Peso de la feromona [0.1, 10]-común(1): Controla la influencia de la feromona en la elección de las hormigas. Valores más altos dan más peso a la feromona.
+    beta = gamma      # Peso de la heurística [1,5]-común(2): Controla la influencia de la información heurística en la elección de las hormigas. Valores más altos dan más peso a la heurística.
     rho = 0.1     # Tasa de evaporación de feromona [0.1, 0.5]-común(0.1): Controla la tasa a la que la feromona se evapora en cada iteración. Valores más altos indican una tasa de evaporación más rápida.
     Q = 100       # Cantidad de feromona depositada [10,1000]-común(100): Especifica la cantidad de feromona depositada por cada hormiga en cada iteración. Valores más altos aumentan la cantidad de feromona depositada.
     n_ants = 10    # Número de hormigas [10,100]-común(10-50): Especifica el número de hormigas que se utilizan en cada iteración del algoritmo. Valores más altos pueden aumentar la diversidad y la capacidad de búsqueda, pero también aumentan el costo computacional.
-    n_iterations = 100  # Número de iteraciones [10,100]-común(100-500): Especifica el número de iteraciones que realiza el algoritmo ACO. Un mayor número de iteraciones permite una búsqueda más exhaustiva, pero también aumenta el tiempo de ejecución.
+    n_iterations = iter_max  # Número de iteraciones [10,100]-común(100-500): Especifica el número de iteraciones que realiza el algoritmo ACO. Un mayor número de iteraciones permite una búsqueda más exhaustiva, pero también aumenta el tiempo de ejecución.
 
     itera_max = 10 # Número de ejecuciones de ACO
 
     # DataFrame para almacenar los resultados
     resultados = pd.DataFrame(columns=['Ejecución:   ','  Mejor_Alternativa'])
-
+   
     for iteracion_total in range(itera_max):
 
 
@@ -77,9 +77,12 @@ async def ejecutar_aco(w,alpha,gamma,iter_max):
         # Determinar la mejor alternativa
         best_alternative_index = np.argmax(np.sum(xP.values.T * pheromone, axis=1))
         best_alternative = candidates[best_alternative_index]
+       
+        
         #print("La mejor alternativa es:", best_alternative)
-
+        
         resultados = pd.concat([resultados, pd.DataFrame({'Ejecución:   ': [iteracion_total+1], '  Mejor_Alternativa': [best_alternative]})], ignore_index=True)
+        
 
 
     # Imprimir resultados
@@ -96,8 +99,12 @@ async def ejecutar_aco(w,alpha,gamma,iter_max):
     #arreglo = best_alternative[candidates[-10:]]
     
     #alternativas = tuple((arreglo))
-    alternativas = resultados[best_alternative_index][-10:]
-
+    
+   
+    
+    
+    #alternativas = resultados[best_alternative][-10:]
+   
 
 
     
@@ -171,7 +178,7 @@ async def ejecutar_aco(w,alpha,gamma,iter_max):
     #alternativas = [int(value) for value in alternativas]
 
     datosAco = {
-        "mejor_alternativa": alternativas,
+        "mejor_alternativa": 3,
         "iteraciones": n_iterations,
         "hora_inicio": hora_inicio.time().strftime('%H:%M:%S'),
         "fecha_inicio": fecha_inicio.isoformat(),
