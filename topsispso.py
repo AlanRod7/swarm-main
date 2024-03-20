@@ -58,7 +58,7 @@ async def ejecutar_topsispso(w,wwi,c1,c2,T,r1,r2):
     c2=2.5    # Este influye en la pobabilidad hacia
     rangoMin=0 #este rango de valores
     rangoMax=1  
-    T=10    #número de iteraciones para PSO
+    T=T    #número de iteraciones para PSO
     dim=n*a #dimensión del enjambre
 
     print("Grado de preferencia para cada criterio")

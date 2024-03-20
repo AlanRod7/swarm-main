@@ -662,7 +662,7 @@ async def ejecutar_mooraba(w, alpha, gamma, iter_max):
     for i in range(it):
         print("       ",i+1,"        ",Resultados[i])
     print("  ---------------------------------")
-
+    alternativas = Resultados[-10:]
 
 
 
@@ -687,7 +687,7 @@ async def ejecutar_mooraba(w, alpha, gamma, iter_max):
     ####################################################################################
     ### Para guardar información en archivo de EXCEl
 
-    base_filename = 'Experimentos2/MOORABA'# Obtener el nombre del archivo base
+    base_filename = 'Experimentos/MOORABA'# Obtener el nombre del archivo base
     counter = 1 # Inicializar un contador para el nombre del archivo
     excel_filename = f'{base_filename}_{counter}.xlsx'
 
@@ -724,7 +724,7 @@ async def ejecutar_mooraba(w, alpha, gamma, iter_max):
     datarnd= pd.DataFrame(rnd)
     dataOrig=pd.DataFrame(raw_data)
     
-    alternativas = Resultados[-10:]
+    
 
 
     with pd.ExcelWriter(excel_filename, engine='xlsxwriter') as writer:

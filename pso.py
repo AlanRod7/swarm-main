@@ -470,7 +470,7 @@ async def ejecutar_pso(w, wwi, c1, c2, T, r1, r2):
 
     
 
-    with pd.ExcelWriter('Experimentos2/PSO.xlsx', engine='xlsxwriter') as writer:
+    with pd.ExcelWriter('Experimentos/PSO.xlsx', engine='xlsxwriter') as writer:
         dataI.to_excel(writer, sheet_name='Iniciales')
         datar1.to_excel(writer, sheet_name='r1')
         datar2.to_excel(writer, sheet_name='r2')
