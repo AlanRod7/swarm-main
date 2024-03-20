@@ -16,6 +16,8 @@ from openpyxl import load_workbook
 
 from daaco import ejecutar_daaco
 from aco import ejecutar_aco
+from mooraaco import ejecutar_mooraaco
+
 from ba import ejecutar_ba
 from da import ejecutar_da
 from daba import ejecutar_daba
@@ -637,6 +639,48 @@ def calcular_daaco():
         return jsonify({'error': 'Ocurrió un error en el servidor'}), 500
 #-------------------------------------------------------------------------------------------------------------------
 
+#-------------------------------------------------------------------------------------------------------------------
+        #Algoritmo_Ruta MOORA-ACO
+
+@app.route('/mooraaco')
+def mooraaco():
+    try:
+        # Obtén los datos del formulario
+        w_input =  [float(request.form[f'w{i}']) for i in range(1, 6)]
+        w = [float(value) for value in w_input if value != '']  # Filtra valores vacíos
+        alpha = float(request.form['alpha'])
+        gamma = float(request.form['gamma'])
+        iter_max = int(request.form['T'])
+        
+        # Llama a la función de procesar_datos 
+        datosMooraaco = asyncio.run(ejecutar_mooraaco(w,alpha,gamma,iter_max))
+
+        return render_template('mooraaco.html', datosMooraaco=datosMooraaco)
+    except Exception as e:
+        return render_template('mooraaco.html', error_message=str(e))
+
+
+@app.route('/mooraaco', methods=['POST'])
+def calcular_mooraaco():
+    try:
+        # Obtén los datos del formulario de la solicitud POST
+        w_input =  [float(request.form[f'w{i}']) for i in range(1, 6)]
+        w = [float(value) for value in w_input if value != '']  # Filtra valores vacíos
+        alpha = float(request.form['alpha'])
+        gamma = float(request.form['gamma'])
+        iter_max = int(request.form['T'])
+
+        # Llama a la función de PSO en pso.py
+        datosMooraaco = asyncio.run(ejecutar_mooraaco(w,alpha,gamma,iter_max))
+        print("Resultados de la ejecución:", datosMooraaco)
+
+        # Devuelve los resultados como JSON
+        return jsonify(datosMooraaco)
+    except Exception as e:
+        # Manejo de errores
+        print(f'Error en calcular_Mooraaco: {str(e)}')
+        return jsonify({'error': 'Ocurrió un error en el servidor'}), 500
+#-------------------------------------------------------------------------------------------------------------------
 
 #-------------------------------------------------------------------------------------------------------------------
 @app.route('/comparacionBa')
