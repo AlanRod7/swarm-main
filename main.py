@@ -17,6 +17,7 @@ from openpyxl import load_workbook
 from daaco import ejecutar_daaco
 from aco import ejecutar_aco
 from mooraaco import ejecutar_mooraaco
+from topsisaco import ejecutar_topsisaco
 
 from ba import ejecutar_ba
 from da import ejecutar_da
@@ -679,6 +680,49 @@ def calcular_mooraaco():
     except Exception as e:
         # Manejo de errores
         print(f'Error en calcular_Mooraaco: {str(e)}')
+        return jsonify({'error': 'Ocurrió un error en el servidor'}), 500
+#-------------------------------------------------------------------------------------------------------------------
+    
+    #-------------------------------------------------------------------------------------------------------------------
+        #Algoritmo_Ruta TOPSIS-ACO
+
+@app.route('/topsisaco')
+def topsisaco():
+    try:
+        # Obtén los datos del formulario
+        w_input =  [float(request.form[f'w{i}']) for i in range(1, 6)]
+        w = [float(value) for value in w_input if value != '']  # Filtra valores vacíos
+        alpha = float(request.form['alpha'])
+        gamma = float(request.form['gamma'])
+        iter_max = int(request.form['T'])
+        
+        # Llama a la función de procesar_datos 
+        datosTopsisaco = asyncio.run(ejecutar_topsisaco(w,alpha,gamma,iter_max))
+
+        return render_template('topsisaco.html', datosTopsisaco=datosTopsisaco)
+    except Exception as e:
+        return render_template('topsisaco.html', error_message=str(e))
+
+
+@app.route('/topsisaco', methods=['POST'])
+def calcular_topsisaco():
+    try:
+        # Obtén los datos del formulario de la solicitud POST
+        w_input =  [float(request.form[f'w{i}']) for i in range(1, 6)]
+        w = [float(value) for value in w_input if value != '']  # Filtra valores vacíos
+        alpha = float(request.form['alpha'])
+        gamma = float(request.form['gamma'])
+        iter_max = int(request.form['T'])
+
+        # Llama a la función de PSO en pso.py
+        datosTopsisaco = asyncio.run(ejecutar_topsisaco(w,alpha,gamma,iter_max))
+        print("Resultados de la ejecución:", datosTopsisaco)
+
+        # Devuelve los resultados como JSON
+        return jsonify(datosTopsisaco)
+    except Exception as e:
+        # Manejo de errores
+        print(f'Error en calcular_topsisaco: {str(e)}')
         return jsonify({'error': 'Ocurrió un error en el servidor'}), 500
 #-------------------------------------------------------------------------------------------------------------------
 
