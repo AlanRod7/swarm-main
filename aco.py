@@ -36,43 +36,43 @@ async def ejecutar_aco(w,alpha,gamma,iter_max):
     n_ants = 10    # Número de hormigas [10,100]-común(10-50): Especifica el número de hormigas que se utilizan en cada iteración del algoritmo. Valores más altos pueden aumentar la diversidad y la capacidad de búsqueda, pero también aumentan el costo computacional.
     n_iterations = iter_max  # Número de iteraciones [10,100]-común(100-500): Especifica el número de iteraciones que realiza el algoritmo ACO. Un mayor número de iteraciones permite una búsqueda más exhaustiva, pero también aumenta el tiempo de ejecución.
 
-    itera_max = 10 # Número de ejecuciones de ACO
+    #itera_max = 10 # Número de ejecuciones de ACO
 
     # DataFrame para almacenar los resultados
     resultados = pd.DataFrame(columns=['Ejecución:   ','  Mejor_Alternativa'])
    
-    for iteracion_total in range(itera_max):
+    #for iteracion_total in range(itera_max):
 
 
         # Inicialización de feromonas
-        pheromone = np.ones((len(attributes), len(candidates)))
+    pheromone = np.ones((len(attributes), len(candidates)))
 
-        # Función para calcular la probabilidad de selección de una alternativa dado un atributo
-        def calculate_probabilities(attribute, pheromone, heuristic):
-            probabilities = (pheromone[attribute] ** alpha) * (heuristic ** beta)
-            # Asegurar que las probabilidades sean no negativas
-            probabilities[probabilities < 0] = 0
-            # Normalizar las probabilidades
-            probabilities /= np.sum(probabilities)
-            return probabilities
+    # Función para calcular la probabilidad de selección de una alternativa dado un atributo
+    def calculate_probabilities(attribute, pheromone, heuristic):
+        probabilities = (pheromone[attribute] ** alpha) * (heuristic ** beta)
+        # Asegurar que las probabilidades sean no negativas
+        probabilities[probabilities < 0] = 0
+        # Normalizar las probabilidades
+        probabilities /= np.sum(probabilities)
+        return probabilities
 
-        # Ciclo principal del algoritmo ACO
-        for iteration in range(n_iterations):
-            for ant in range(n_ants):
-                heuristic = 1 / (xP.values + 1e-10)  # Heurística simple inversa de la matriz de datos con pequeña constante
-                selected_alternatives = []
-                
-                for attribute in range(len(attributes)):
-                    probabilities = calculate_probabilities(attribute, pheromone, heuristic[:, attribute])
-                    selected_alternative = np.random.choice(len(candidates), p=probabilities)
-                    selected_alternatives.append(selected_alternative)
-                
-                # Actualizar feromonas
-                for attribute, selected_alternative in enumerate(selected_alternatives):
-                    pheromone[attribute, selected_alternative] += Q / (xP.values[selected_alternative, attribute] + 1e-10)
+    # Ciclo principal del algoritmo ACO
+    for iteration in range(n_iterations):
+        for ant in range(n_ants):
+            heuristic = 1 / (xP.values + 1e-10)  # Heurística simple inversa de la matriz de datos con pequeña constante
+            selected_alternatives = []
             
-            # Evaporación de feromonas
-            pheromone *= (1 - rho)
+            for attribute in range(len(attributes)):
+                probabilities = calculate_probabilities(attribute, pheromone, heuristic[:, attribute])
+                selected_alternative = np.random.choice(len(candidates), p=probabilities)
+                selected_alternatives.append(selected_alternative)
+            
+            # Actualizar feromonas
+            for attribute, selected_alternative in enumerate(selected_alternatives):
+                pheromone[attribute, selected_alternative] += Q / (xP.values[selected_alternative, attribute] + 1e-10)
+        
+        # Evaporación de feromonas
+        pheromone *= (1 - rho)
 
         # Determinar la mejor alternativa
         best_alternative_index = np.argmax(np.sum(xP.values.T * pheromone, axis=1))
@@ -81,7 +81,7 @@ async def ejecutar_aco(w,alpha,gamma,iter_max):
         
         #print("La mejor alternativa es:", best_alternative)
         
-        resultados = pd.concat([resultados, pd.DataFrame({'Ejecución:   ': [iteracion_total+1], '  Mejor_Alternativa': [best_alternative]})], ignore_index=True)
+        resultados = pd.concat([resultados, pd.DataFrame({'Ejecución:   ': [iter_max+1], '  Mejor_Alternativa': [best_alternative]})], ignore_index=True)
         
 
 
@@ -135,7 +135,7 @@ async def ejecutar_aco(w,alpha,gamma,iter_max):
 
 
     ### -- Guardar los datos en un archivo xlsx
-    dI = {"alpha": [alpha], "beta": [beta], "Tasa de evaporación de feromona(rho)": [rho], "Cantidad de feromona depositada(Q)": [Q], "Número de hormigas(n_ants)":[n_ants], "No_ejecuciones del programa":[itera_max]}
+    dI = {"alpha": [alpha], "beta": [beta], "Tasa de evaporación de feromona(rho)": [rho], "Cantidad de feromona depositada(Q)": [Q], "Número de hormigas(n_ants)":[n_ants], "No_ejecuciones del programa":[iter_max]}
     dT= {"Algoritmo": ["ACO"],
         "Cantidad de repeticiones del programa": [n_iterations],
         "Hora de inicio": [hora_inicio.time()],
