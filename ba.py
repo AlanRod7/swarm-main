@@ -2,13 +2,14 @@
 #
 # BAT ALGORITHM
 # 
-import pandas as pd
-import numpy as np
-from math import e
+import asyncio
+import datetime
 import math
 import random
-import datetime
-import asyncio
+from math import e
+
+import numpy as np
+import pandas as pd
 
 
 async def ejecutar_ba(w, alpha, gamma, iter_max):

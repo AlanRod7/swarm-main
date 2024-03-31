@@ -1,8 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
-    
     const ejecutarAco = document.getElementById('ejecutarAco');
     const formularioAco = document.getElementById('acoForm');
-    
 
     ejecutarAco.addEventListener('click', function () {
         console.log('ejecutarAco clicked');
@@ -18,18 +16,29 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(response => response.json())  // Parsea la respuesta como JSON
         .then(data => {
             console.log('Datos recibidos:', data);
-            // Actualizar los campos de entrada con los nuevos datos
-            const mejoresAlternativas = data.mejor_alternativa;
-
-            for (let i = 0; i < mejoresAlternativas.length; i++) {
-                document.getElementById(`alternativa${i}`).innerText = mejoresAlternativas[i];
+            
+            // Verificar si hay un error en los datos recibidos
+            if (data.error) {
+                console.error('Error en el servidor:', data.error);
+                return;
             }
 
-            document.getElementById('cantidadIteraciones').value = data.iteraciones;
-            document.getElementById('horaInicio').value = data.hora_inicio;
-            document.getElementById('fechaInicio').value = data.fecha_inicio;
-            document.getElementById('horaFinalizacion').value = data.hora_finalizacion;
-            document.getElementById('tiempoEjecucion').value = data.tiempo_ejecucion;
+            // Verificar si 'mejor_alternativa' está definida y es un array
+            if (data.mejor_alternativa && Array.isArray(data.mejor_alternativa)) {
+                const mejoresAlternativas = data.mejor_alternativa;
+
+                for (let i = 0; i < mejoresAlternativas.length; i++) {
+                    document.getElementById(`alternativa${i}`).innerText = mejoresAlternativas[i];
+                }
+
+                document.getElementById('cantidadIteraciones').value = data.iteraciones;
+                document.getElementById('horaInicio').value = data.hora_inicio;
+                document.getElementById('fechaInicio').value = data.fecha_inicio;
+                document.getElementById('horaFinalizacion').value = data.hora_finalizacion;
+                document.getElementById('tiempoEjecucion').value = data.tiempo_ejecucion;
+            } else {
+                console.error('Datos de respuesta no válidos:', data);
+            }
         })
         .catch(error => console.error('Error:', error));
     });
@@ -38,6 +47,4 @@ document.addEventListener('DOMContentLoaded', function () {
     formularioAco.addEventListener('submit', function (event) {
         event.preventDefault();
     });
-
-    
 });

@@ -14,21 +14,20 @@ from flask_sqlalchemy import SQLAlchemy
 from numpy import ndarray
 from openpyxl import load_workbook
 
-from daaco import ejecutar_daaco
 from aco import ejecutar_aco
-from mooraaco import ejecutar_mooraaco
-from topsisaco import ejecutar_topsisaco
-
 from ba import ejecutar_ba
 from da import ejecutar_da
+from daaco import ejecutar_daaco
 from daba import ejecutar_daba
 from dapso import ejecutar_dapso
+from mooraaco import ejecutar_mooraaco
 from mooraba import ejecutar_mooraba
 from moorapso import ejecutar_moorapso
 from moorav import ejecutar_moorav
 #importacion de algoritmos
 from pso import ejecutar_pso
 from topsis import ejecutar_topsis
+from topsisaco import ejecutar_topsisaco
 from topsisba import ejecutar_topsisba
 from topsispso import ejecutar_topsispso
 
@@ -861,14 +860,15 @@ def calcular_comparacionAco():
 def aco():
     try:
         # Obtén los datos del formulario
-        w_input =  [float(request.form[f'w{i}']) for i in range(1, 6)]
-        w = [float(value) for value in w_input if value != '']  # Filtra valores vacíos
         alpha = float(request.form['alpha'])
         gamma = float(request.form['gamma'])
-        iter_max = int(request.form['T'])
+        rho = float(request.form['rho'])
+        Q = float(request.form['Q'])
+        n_ants = float(request.form['n_ants'])
+        iter_max = int(request.form['iter_max'])
         
         # Llama a la función de procesar_datos en pso.py
-        datosAco = asyncio.run(ejecutar_aco(w,alpha,gamma,iter_max))
+        datosAco = asyncio.run(ejecutar_aco(alpha, gamma, rho, Q, n_ants, iter_max))
 
         return render_template('aco.html', datosAco=datosAco)
     except Exception as e:
@@ -879,14 +879,15 @@ def aco():
 def calcular_aco():
     try:
         # Obtén los datos del formulario de la solicitud POST
-        w_input =  [float(request.form[f'w{i}']) for i in range(1, 6)]
-        w = [float(value) for value in w_input if value != '']  # Filtra valores vacíos
         alpha = float(request.form['alpha'])
         gamma = float(request.form['gamma'])
-        iter_max = int(request.form['T'])
+        rho = float(request.form['rho'])
+        Q = float(request.form['Q'])
+        n_ants = float(request.form['n_ants'])
+        iter_max = int(request.form['iter_max'])
 
         # Llama a la función de PSO en pso.py
-        datosAco = asyncio.run(ejecutar_aco(w,alpha,gamma,iter_max))
+        datosAco = asyncio.run(ejecutar_aco(alpha, gamma, rho, Q, n_ants, iter_max))
         print("Resultados de la ejecución:", datosAco)
 
         # Devuelve los resultados como JSON

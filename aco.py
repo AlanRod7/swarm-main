@@ -3,14 +3,16 @@
 # Universidad Autónoma de ciudad Juárez
 # ACtualizado 27-Feb-2024
 
+import asyncio
+import datetime
+import os
+
 import numpy as np
 import pandas as pd
-import datetime
 from openpyxl import load_workbook
-import os
-import asyncio
 
-async def ejecutar_aco(w,alpha,gamma,iter_max):
+
+async def ejecutar_aco(alpha, gamma, rho, Q, n_ants, iter_max):
 
     hora_inicio = datetime.datetime.now()
     fecha_inicio = hora_inicio.date()
@@ -178,7 +180,7 @@ async def ejecutar_aco(w,alpha,gamma,iter_max):
     #alternativas = [int(value) for value in alternativas]
 
     datosAco = {
-        "mejor_alternativa": 3,
+        "mejor_alternativa": best_alternative,
         "iteraciones": n_iterations,
         "hora_inicio": hora_inicio.time().strftime('%H:%M:%S'),
         "fecha_inicio": fecha_inicio.isoformat(),
