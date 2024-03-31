@@ -5,6 +5,7 @@
 
 import asyncio
 import datetime
+import json
 import os
 
 import numpy as np
@@ -17,10 +18,11 @@ async def ejecutar_aco(alpha, gamma, rho, Q, n_ants, iter_max):
     hora_inicio = datetime.datetime.now()
     fecha_inicio = hora_inicio.date()
     Resultados=[]
-
+    ress = []
     # Datos de entrada
     attributes = ["C1", "C2", "C3", "C4", "C5"]
-    candidates = ["A1", "A2", "A3", "A4", "A5", "A6", "A7", "A8", "A9"]
+    # candidates = ["A1", "A2", "A3", "A4", "A5", "A6", "A7", "A8", "A9"]
+    candidates = [1, 2, 3, 4, 5, 6, 7, 8, 9]
     datarw = {
         'C1': [0.048, 0.053, 0.057, 0.062, 0.066, 0.070, 0.075, 0.079, 0.083],
         'C2': [0.047, 0.052, 0.057, 0.062, 0.066, 0.071, 0.075, 0.079, 0.083],
@@ -79,7 +81,7 @@ async def ejecutar_aco(alpha, gamma, rho, Q, n_ants, iter_max):
         # Determinar la mejor alternativa
         best_alternative_index = np.argmax(np.sum(xP.values.T * pheromone, axis=1))
         best_alternative = candidates[best_alternative_index]
-       
+        ress.append(best_alternative)
         
         #print("La mejor alternativa es:", best_alternative)
         
@@ -178,9 +180,17 @@ async def ejecutar_aco(alpha, gamma, rho, Q, n_ants, iter_max):
 
     await asyncio.sleep(0.1)
     #alternativas = [int(value) for value in alternativas]
-
+    resultadosJSON = resultados.iloc[2]
+    print(resultadosJSON)
+    for n_iterations in resultadosJSON:
+        if n_iterations == '  Mejor_Alternativa':
+            pass
+        else:
+            resultadosBuenos = resultadosJSON
+            print(resultadosBuenos)
+    #print(resultadosJSON)
     datosAco = {
-        "mejor_alternativa": best_alternative,
+        "mejor_alternativa": ress,
         "iteraciones": n_iterations,
         "hora_inicio": hora_inicio.time().strftime('%H:%M:%S'),
         "fecha_inicio": fecha_inicio.isoformat(),
