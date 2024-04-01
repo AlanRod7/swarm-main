@@ -662,15 +662,28 @@ def calcular_daaco():
 @app.route('/mooraaco')
 def mooraaco():
     try:
+        ev_input = request.form['ev']  # Obtén el valor
+        
+        ev_values = ev_input.split(',')
+        
+        EV = [str(value) for value in ev_values if value.strip() != '']
         # Obtén los datos del formulario
-        w_input =  [float(request.form[f'w{i}']) for i in range(1, 6)]
-        w = [float(value) for value in w_input if value != '']  # Filtra valores vacíos
-        alpha = float(request.form['alpha'])
-        gamma = float(request.form['gamma'])
-        iter_max = int(request.form['T'])
+        w_input = request.form['w']  # Obtén el valor seleccionado del menú desplegable desde el formulario
+
+        # Divide la cadena en una lista de valores usando la coma como separador
+        w_values = w_input.split(',')
+
+        # Convierte cada valor en la lista a un número flotante, filtrando valores vacíos
+        w = [float(value) for value in w_values if value.strip() != '']
+        alpha = int(request.form['alpha'])
+        beta = int(request.form['beta'])
+        rho = float(request.form['rho'])
+        Q = int(request.form['Q'])
+        n_ants = int(request.form['n_ants'])
+        n_iterations = int(request.form['n_iterations'])
         
         # Llama a la función de procesar_datos 
-        datosMooraaco = asyncio.run(ejecutar_mooraaco(w,alpha,gamma,iter_max))
+        datosMooraaco = asyncio.run(ejecutar_mooraaco(EV,w,alpha,beta,rho,Q,n_ants,n_iterations))
 
         return render_template('mooraaco.html', datosMooraaco=datosMooraaco)
     except Exception as e:
@@ -680,15 +693,28 @@ def mooraaco():
 @app.route('/mooraaco', methods=['POST'])
 def calcular_mooraaco():
     try:
-        # Obtén los datos del formulario de la solicitud POST
-        w_input =  [float(request.form[f'w{i}']) for i in range(1, 6)]
-        w = [float(value) for value in w_input if value != '']  # Filtra valores vacíos
-        alpha = float(request.form['alpha'])
-        gamma = float(request.form['gamma'])
-        iter_max = int(request.form['T'])
+        ev_input = request.form['ev']  # Obtén el valor
+        
+        ev_values = ev_input.split(',')
+        
+        EV = [str(value) for value in ev_values if value.strip() != '']
+        # Obtén los datos del formulario
+        w_input = request.form['w']  # Obtén el valor seleccionado del menú desplegable desde el formulario
+
+        # Divide la cadena en una lista de valores usando la coma como separador
+        w_values = w_input.split(',')
+
+        # Convierte cada valor en la lista a un número flotante, filtrando valores vacíos
+        w = [float(value) for value in w_values if value.strip() != '']
+        alpha = int(request.form['alpha'])
+        beta = int(request.form['beta'])
+        rho = float(request.form['rho'])
+        Q = int(request.form['Q'])
+        n_ants = int(request.form['n_ants'])
+        n_iterations = int(request.form['n_iterations'])
 
         # Llama a la función de PSO en pso.py
-        datosMooraaco = asyncio.run(ejecutar_mooraaco(w,alpha,gamma,iter_max))
+        datosMooraaco = asyncio.run(ejecutar_mooraaco(EV,w,alpha,beta,rho,Q,n_ants,n_iterations))
         print("Resultados de la ejecución:", datosMooraaco)
 
         # Devuelve los resultados como JSON
