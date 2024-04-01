@@ -180,14 +180,6 @@ async def ejecutar_aco(alpha, gamma, rho, Q, n_ants, iter_max):
 
     await asyncio.sleep(0.1)
     #alternativas = [int(value) for value in alternativas]
-    resultadosJSON = resultados.iloc[2]
-    print(resultadosJSON)
-    for n_iterations in resultadosJSON:
-        if n_iterations == '  Mejor_Alternativa':
-            pass
-        else:
-            resultadosBuenos = resultadosJSON
-            print(resultadosBuenos)
     #print(resultadosJSON)
     datosAco = {
         "mejor_alternativa": ress,
