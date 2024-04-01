@@ -732,14 +732,28 @@ def calcular_mooraaco():
 def topsisaco():
     try:
         # Obtén los datos del formulario
-        w_input =  [float(request.form[f'w{i}']) for i in range(1, 6)]
-        w = [float(value) for value in w_input if value != '']  # Filtra valores vacíos
-        alpha = float(request.form['alpha'])
-        gamma = float(request.form['gamma'])
-        iter_max = int(request.form['T'])
+        w_input = request.form['w']  # Obtén el valor seleccionado del menú desplegable desde el formulario
+
+        # Divide la cadena en una lista de valores usando la coma como separador
+        w_values = w_input.split(',')
+
+        # Convierte cada valor en la lista a un número flotante, filtrando valores vacíos
+        w = [float(value) for value in w_values if value.strip() != '']
+        alpha = int(request.form['alpha'])
+        beta = int(request.form['beta'])
+        rho = float(request.form['rho'])
+        Q = int(request.form['Q'])
+        n_ants = int(request.form['n_ants'])
+        n_iterations = int(request.form['n_iterations'])
+        
+        # benefit_input = request.form['be']  # Obtén el valor
+        
+        # benefit_values = benefit_input.split(',')
+        
+        # benefit_attributes = [int(value) for value in benefit_values if value.strip() != '']
         
         # Llama a la función de procesar_datos 
-        datosTopsisaco = asyncio.run(ejecutar_topsisaco(w,alpha,gamma,iter_max))
+        datosTopsisaco = asyncio.run(ejecutar_topsisaco(w,alpha,beta,rho,Q,n_ants,n_iterations))
 
         return render_template('topsisaco.html', datosTopsisaco=datosTopsisaco)
     except Exception as e:
@@ -749,15 +763,29 @@ def topsisaco():
 @app.route('/topsisaco', methods=['POST'])
 def calcular_topsisaco():
     try:
-        # Obtén los datos del formulario de la solicitud POST
-        w_input =  [float(request.form[f'w{i}']) for i in range(1, 6)]
-        w = [float(value) for value in w_input if value != '']  # Filtra valores vacíos
-        alpha = float(request.form['alpha'])
-        gamma = float(request.form['gamma'])
-        iter_max = int(request.form['T'])
+        # Obtén los datos del formulario
+        w_input = request.form['w']  # Obtén el valor seleccionado del menú desplegable desde el formulario
+
+        # Divide la cadena en una lista de valores usando la coma como separador
+        w_values = w_input.split(',')
+
+        # Convierte cada valor en la lista a un número flotante, filtrando valores vacíos
+        w = [float(value) for value in w_values if value.strip() != '']
+        alpha = int(request.form['alpha'])
+        beta = int(request.form['beta'])
+        rho = float(request.form['rho'])
+        Q = int(request.form['Q'])
+        n_ants = int(request.form['n_ants'])
+        n_iterations = int(request.form['n_iterations'])
+        
+        # benefit_input = request.form['be']  # Obtén el valor
+        
+        # benefit_values = benefit_input.split(',')
+        
+        # benefit_attributes = [int(value) for value in benefit_values if value.strip() != '']
 
         # Llama a la función de PSO en pso.py
-        datosTopsisaco = asyncio.run(ejecutar_topsisaco(w,alpha,gamma,iter_max))
+        datosTopsisaco = asyncio.run(ejecutar_topsisaco(w,alpha,beta,rho,Q,n_ants,n_iterations))
         print("Resultados de la ejecución:", datosTopsisaco)
 
         # Devuelve los resultados como JSON
