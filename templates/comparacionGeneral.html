@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Comparacion General</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  </head>
+  <body>
+    <nav class="bg-light p-4">
+      <div class="container mx-auto flex justify-between items-center">
+        <a class="navbar-brand" href="/">Algorithms App</a>
+        <div class="flex">
+          <ul class="flex space-x-4">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/topsis">MCDM</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/pso">PSO</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/ba">BA</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/aco">ACO</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/comparacionGeneral">Comparación</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/acercade">Acerca De</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+  
+      <div class="flex justify-center">
+        <section class="">
+          <div>
+            <div class="max-w-2xl mx-auto bg-white p-8">
+              <form
+                method="POST"
+                id="comparacionGeneral"
+                class="rounded-xl bg-white px-8 py-10 shadow-2xl"
+              >
+                <h1 class="font-semibold mb-3">Pesos por criterio</h1>
+                <div class="grid gap-6 mb-6 lg:grid-cols-2">
+                  <div>
+                    <label
+                      for="w1"
+                      class="block mb-2 text-sm font-medium text-gray-900"
+                      >C1</label
+                    >
+                    <input
+                      type="number"
+                      step="any"
+                      value="0.400"
+                      id="w1"
+                      name="w1"
+                      class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                      pattern=""
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label
+                      for="w2"
+                      class="block mb-2 text-sm font-medium text-gray-900"
+                      >C2</label
+                    >
+                    <input
+                      type="number"
+                      step="any"
+                      value="0.200"
+                      id="w2"
+                      name="w2"
+                      class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                      pattern=""
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label
+                      for="w3"
+                      class="block mb-2 text-sm font-medium text-gray-900"
+                      >C3</label
+                    >
+                    <input
+                      type="number"
+                      step="any"
+                      value="0.030"
+                      id="w3"
+                      name="w3"
+                      class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                      pattern=""
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label
+                      for="w4"
+                      class="block mb-2 text-sm font-medium text-gray-900"
+                      >C4</label
+                    >
+                    <input
+                      type="number"
+                      step="any"
+                      value="0.070"
+                      id="w4"
+                      name="w4"
+                      class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                      pattern=""
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label
+                      for="w5"
+                      class="block mb-2 text-sm font-medium text-gray-900"
+                      >C5</label
+                    >
+                    <input
+                      type="number"
+                      step="any"
+                      value="0.300"
+                      id="w5"
+                      name="w5"
+                      class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                      pattern=""
+                      required
+                    />
+                  </div>
+                </div>
+                <h1 class="font-semibold mb-3">PSO</h1>
+                <div class="grid gap-6 mb-6 lg:grid-cols-2">
+                  <div>
+                    <label class="block mb-2 text-sm font-medium text-gray-900"
+                      >Peso de Incercia</label
+                    >
+                    <input
+                      type="number"
+                      step="any"
+                      value="0.7"
+                      id="wwi"
+                      name="wwi"
+                      class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                      pattern=""
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label class="block mb-2 text-sm font-medium text-gray-900"
+                      >c1:</label
+                    >
+                    <input
+                      type="number"
+                      step="any"
+                      value="2.5"
+                      id="c1"
+                      name="c1"
+                      class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                      pattern=""
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label class="block mb-2 text-sm font-medium text-gray-900"
+                      >c2:</label
+                    >
+                    <input
+                      type="number"
+                      step="any"
+                      value="2.5"
+                      id="c2"
+                      name="c2"
+                      class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                      pattern=""
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label
+                      for="r1"
+                      class="block mb-2 text-sm font-medium text-gray-900"
+                      >R1:</label
+                    >
+                    <input
+                      value="0.4657,0.8956,0.3877,0.4902,0.5039"
+                      id="r1"
+                      name="r1"
+                      class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label
+                      for="r2"
+                      class="block mb-2 text-sm font-medium text-gray-900"
+                      >R2:</label
+                    >
+                    <input
+                      value="0.5319,0.8185,0.8331,0.7677,0.1708"
+                      id="r2"
+                      name="r2"
+                      class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                      required
+                    />
+                  </div>
+                </div>
+
+                  <h1 class="font-semibold mb-3">BA</h1>
+                <div class="grid gap-6 mb-6 lg:grid-cols-2">
+                  
+                  <div>
+                    <label class="block mb-2 text-sm font-medium text-gray-900"
+                      >Alpha:</label
+                    >
+                    <input
+                      type="number"
+                      step="any"
+                      value="2.5"
+                      id="alpha"
+                      name="alpha"
+                      class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                      pattern=""
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label class="block mb-2 text-sm font-medium text-gray-900"
+                      >Gamma:</label
+                    >
+                    <input
+                      type="number"
+                      step="any"
+                      value="2.5"
+                      id="gamma"
+                      name="gamma"
+                      class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                      pattern=""
+                      required
+                    />
+                  </div>
+                
+                </div>
+                <h1 class="font-semibold mb-3">ACO</h1>
+                <div class="grid gap-6 mb-6 lg:grid-cols-2">
+                  <div>
+                    <label for="ev" class="block mb-2 text-sm font-medium text-gray-900">Evaluaciones cardinales</label>
+                    <select id="ev" name="ev" class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
+                        <option value="Min","Min","Min","Min","Min">Min</option>
+                        <option value="Max","Max","Max","Max","Max">Max</option>
+                    </select>
+                </div>
+                  <div>
+                    <label for="alph" class="block mb-2 text-sm font-medium text-gray-900">Peso de la feromona</label>
+                    <input type="float" step="any" value="1" id="alph" name="alphaAco" class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" pattern="" required />
+                  </div>
+                  <div>
+                    <label for="beta" class="block mb-2 text-sm font-medium text-gray-900">Peso de la heurística</label>
+                    <input type="float" step="any" value="2" id="beta" name="beta" class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" pattern="" required />
+                  </div>
+                  <div>
+                    <label for="rho" class="block mb-2 text-sm font-medium text-gray-900">Tasa de evaporación de feromona</label>
+                    <input type="float" step="any" value="0.1" id="rho" name="rho" class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" pattern="" required />
+                  </div>
+                  <div>
+                    <label for="Q" class="block mb-2 text-sm font-medium text-gray-900">Cantidad de feromona depositada</label>
+                    <input type="float" step="any" value="100" id="Q" name="Q" class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" pattern="" required />
+                  </div>
+                  <div>
+                    <label class="block mb-2 text-sm font-medium text-gray-900">Número de hormigas</label>
+                    <input type="float" step="any" value="5" id="n_ants" name="n_ants" class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" pattern="" required />
+                  </div>
+                </div>
+                <div>
+
+                <div>
+                  <label class="block mb-2 text-sm font-medium text-gray-900"
+                    >Cantidad de Iteraciones:
+                  </label>
+                  <input
+                    type="number"
+                    step="any"
+                    value="10"
+                    id="T"
+                    name="T"
+                    class="text-center bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    pattern=""
+                    required
+                  />
+                </div>
+                <div>
+                  <!-- <label class="block mt-5 mb-2 text-sm font-medium text-gray-900"
+                    >Función objetivo:
+                  </label>
+                  <input
+                    type="number"
+                    placeholder="Ri= (t^-i)/(t^+i+t^-i), i=1,...,m"
+                    disabled
+                    class="text-center bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    pattern=""
+                  /> -->
+                </div>
+                <button
+                  type="button"
+                  id="ejecutarComparacionGeneral"
+                  class="text-black mt-5 hover:bg-blue focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center bg-slate-400"
+                >
+                  Calcular
+                </button>
+              </form>
+            </div>
+          </div>
+        </section>
+      <section class="">
+        <div class="flex justify-col-rows-3">
+            <div class="max-w-2xl mx-auto bg-white p-8">
+              <form class="rounded-xl bg-white px-8 py-10 shadow-2xl mb-3">
+                <h1 class="font-bold mb-1 text-xl">DA-PSO</h1>
+
+                <div>
+                  <label
+                    for="w3"
+                    class="block mb-2 text-sm font-medium text-gray-900"
+                    >Tiempo de ejecución</label
+                  >
+                  <input
+                    type="text"
+                    id="ejecucionDapso"
+                    disabled
+                    placeholder="Esperando ejecución..."
+                    class="text-center bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    pattern=""
+                    required
+                  />
+                </div>
+
+                <h2 class="font-semibold mb-3">Últimos 10 resultados</h2>
+                <div class="overflow-y-auto h-full">
+                  <table
+                    class="w-full table-auto border-separate border border-slate-400"
+                  >
+                    <thead>
+                      <tr>
+                        <th
+                          class="border border-slate-300 text-center align-middle"
+                        >
+                          Iteración
+                        </th>
+                        <th
+                          class="border border-slate-300 text-center align-middle"
+                        >
+                          Mejor Alternativa
+                        </th>
+                        <!-- Agrega más encabezados según sea necesario -->
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for i in range (10) %}
+                      <tr>
+                        <td
+                          class="border border-slate-300 text-center align-middle"
+                        >
+                          {{ i + 1 }}
+                        </td>
+                        <td
+                          id="alternativaDapso{{i}}"
+                          class="border border-slate-300 text-center align-middle"
+                        ></td>
+                        <!-- Repite para las otras mejores alternativas -->
+                      </tr>
+                      {% endfor %}
+  
+                      <!-- Agrega más filas según sea necesario -->
+                    </tbody>
+                  </table>
+                </div>
+              </form>
+              
+              <form class="rounded-xl bg-white px-8 py-10 shadow-2xl mt-10">
+                <h1 class="font-bold mb-1 text-xl">DA-BA</h1>
+
+                <div>
+                  <label
+                    for="w3"
+                    class="block mb-2 text-sm font-medium text-gray-900"
+                    >Tiempo de ejecución</label
+                  >
+                  <input
+                    type="text"
+                    id="ejecucionDaba"
+                    disabled
+                    placeholder="Esperando ejecución..."
+                    class="text-center bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    pattern=""
+                    required
+                  />
+                </div>
+
+                <h2 class="font-semibold mb-3">Últimos 10 resultados</h2>
+                <div class="overflow-y-auto h-full">
+                  <table
+                    class="w-full table-auto border-separate border border-slate-400"
+                  >
+                    <thead>
+                      <tr>
+                        <th
+                          class="border border-slate-300 text-center align-middle"
+                        >
+                          Iteración
+                        </th>
+                        <th
+                          class="border border-slate-300 text-center align-middle"
+                        >
+                          Mejor Alternativa
+                        </th>
+                        <!-- Agrega más encabezados según sea necesario -->
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for i in range (10) %}
+                      <tr>
+                        <td
+                          class="border border-slate-300 text-center align-middle"
+                        >
+                          {{ i + 1 }}
+                        </td>
+                        <td
+                          id="alternativaDaba{{i}}"
+                          class="border border-slate-300 text-center align-middle"
+                        ></td>
+                        <!-- Repite para las otras mejores alternativas -->
+                      </tr>
+                      {% endfor %}
+  
+                      <!-- Agrega más filas según sea necesario -->
+                    </tbody>
+                  </table>
+                </div>
+              </form>
+                <form class="rounded-xl bg-white px-8 py-10 shadow-2xl mt-10">
+                  <h1 class="font-bold mb-1 text-xl">DA-ACO</h1>
+
+                  <div>
+                    <label
+                      for="w3"
+                      class="block mb-2 text-sm font-medium text-gray-900"
+                      >Tiempo de ejecución</label
+                    >
+                    <input
+                    type="text"
+                    id="ejecucionDaaco"
+                    disabled
+                    placeholder="Esperando ejecución..."
+                    class="text-center bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    pattern=""
+                    required
+                  />
+                  </div>
+
+                  <h2 class="font-semibold mb-3">Últimos 10 resultados</h2>
+                <div class="overflow-y-auto h-full">
+                  <table
+                    class="w-full table-auto border-separate border border-slate-400"
+                  >
+                    <thead>
+                      <tr>
+                        <th
+                          class="border border-slate-300 text-center align-middle"
+                        >
+                          Iteración
+                        </th>
+                        <th
+                          class="border border-slate-300 text-center align-middle"
+                        >
+                          Mejor Alternativa
+                        </th>
+                        <!-- Agrega más encabezados según sea necesario -->
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for i in range (10) %}
+                      <tr>
+                        <td
+                          class="border border-slate-300 text-center align-middle"
+                        >
+                          {{ i + 1 }}
+                        </td>
+                        <td
+                          id="alternativaDaaco{{ i }}"
+                          class="border border-slate-300 text-center align-middle"
+                        ></td>
+                        <!-- Repite para las otras mejores alternativas -->
+                      </tr>
+                      {% endfor %}
+  
+                      <!-- Agrega más filas según sea necesario -->
+                    </tbody>
+                  </table>
+                </div>
+                
+              </form>
+            </div>
+          </div>
+        </section>
+
+        <section class="">
+          <div class="flex justify-col-rows-3">
+              <div class="max-w-2xl mx-auto bg-white p-8">
+                <form class="rounded-xl bg-white px-8 py-10 shadow-2xl">
+                  <h1 class="font-bold mb-1 text-xl">MOORA-PSO</h1>
+  
+                  <div>
+                    <label
+                      for="w3"
+                      class="block mb-2 text-sm font-medium text-gray-900"
+                      >Tiempo de ejecución</label
+                    >
+                    <input
+                      type="text"
+                      id="ejecucionMoorapso"
+                      disabled
+                      placeholder="Esperando ejecución..."
+                      class="text-center bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                      pattern=""
+                      required
+                    />
+                  </div>
+  
+                  <h2 class="font-semibold mb-3">Últimos 10 resultados</h2>
+                  <div class="overflow-y-auto h-full">
+                    <table
+                      class="w-full table-auto border-separate border border-slate-400"
+                    >
+                      <thead>
+                        <tr>
+                          <th
+                            class="border border-slate-300 text-center align-middle"
+                          >
+                            Iteración
+                          </th>
+                          <th
+                            class="border border-slate-300 text-center align-middle"
+                          >
+                            Mejor Alternativa
+                          </th>
+                          <!-- Agrega más encabezados según sea necesario -->
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for i in range (10) %}
+                        <tr>
+                          <td
+                            class="border border-slate-300 text-center align-middle"
+                          >
+                            {{ i + 1 }}
+                          </td>
+                          <td
+                            id="alternativaMoorapso{{i}}"
+                            class="border border-slate-300 text-center align-middle"
+                          ></td>
+                          <!-- Repite para las otras mejores alternativas -->
+                        </tr>
+                        {% endfor %}
+    
+                        <!-- Agrega más filas según sea necesario -->
+                      </tbody>
+                    </table>
+                  </div>
+                </form>
+                <form class="rounded-xl bg-white px-8 py-10 shadow-2xl mt-10">
+                  <h1 class="font-bold mb-1 text-xl">MOORA-BA</h1>
+  
+                  <div>
+                    <label
+                      for="w3"
+                      class="block mb-2 text-sm font-medium text-gray-900"
+                      >Tiempo de ejecución</label
+                    >
+                    <input
+                      type="text"
+                      id="ejecucionMooraba"
+                      disabled
+                      placeholder="Esperando ejecución..."
+                      class="text-center bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                      pattern=""
+                      required
+                    />
+                  </div>
+  
+                  <h2 class="font-semibold mb-3">Últimos 10 resultados</h2>
+                  <div class="overflow-y-auto h-full">
+                    <table
+                      class="w-full table-auto border-separate border border-slate-400"
+                    >
+                      <thead>
+                        <tr>
+                          <th
+                            class="border border-slate-300 text-center align-middle"
+                          >
+                            Iteración
+                          </th>
+                          <th
+                            class="border border-slate-300 text-center align-middle"
+                          >
+                            Mejor Alternativa
+                          </th>
+                          <!-- Agrega más encabezados según sea necesario -->
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for i in range (10) %}
+                        <tr>
+                          <td
+                            class="border border-slate-300 text-center align-middle"
+                          >
+                            {{ i + 1 }}
+                          </td>
+                          <td
+                            id="alternativaMooraba{{i}}"
+                            class="border border-slate-300 text-center align-middle"
+                          ></td>
+                          <!-- Repite para las otras mejores alternativas -->
+                        </tr>
+                        {% endfor %}
+    
+                        <!-- Agrega más filas según sea necesario -->
+                      </tbody>
+                    </table>
+                  </div>
+                </form>
+                
+                  <form class="rounded-xl bg-white px-8 py-10 shadow-2xl mt-10">
+                    <h1 class="font-bold mb-1 text-xl">MOORA-ACO</h1>
+  
+                    <div>
+                      <label
+                        for="w3"
+                        class="block mb-2 text-sm font-medium text-gray-900"
+                        >Tiempo de ejecución</label
+                      >
+                      <input
+                      type="text"
+                      id="ejecucionMooraaco"
+                      disabled
+                      placeholder="Esperando ejecución..."
+                      class="text-center bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                      pattern=""
+                      required
+                    />
+                    </div>
+  
+                    <h2 class="font-semibold mb-3">Últimos 10 resultados</h2>
+                  <div class="overflow-y-auto h-full">
+                    <table
+                      class="w-full table-auto border-separate border border-slate-400"
+                    >
+                      <thead>
+                        <tr>
+                          <th
+                            class="border border-slate-300 text-center align-middle"
+                          >
+                            Iteración
+                          </th>
+                          <th
+                            class="border border-slate-300 text-center align-middle"
+                          >
+                            Mejor Alternativa
+                          </th>
+                          <!-- Agrega más encabezados según sea necesario -->
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for i in range (10) %}
+                        <tr>
+                          <td
+                            class="border border-slate-300 text-center align-middle"
+                          >
+                            {{ i + 1 }}
+                          </td>
+                          <td
+                            id="alternativaMooraaco{{ i }}"
+                            class="border border-slate-300 text-center align-middle"
+                          ></td>
+                          <!-- Repite para las otras mejores alternativas -->
+                        </tr>
+                        {% endfor %}
+    
+                        <!-- Agrega más filas según sea necesario -->
+                      </tbody>
+                    </table>
+                  </div>
+                  
+                </form>
+              </div>
+            </div>
+          </section>
+
+          <section class="">
+            <div class="flex justify-col-rows-3">
+                <div class="max-w-2xl mx-auto bg-white p-8">
+                  <form class="rounded-xl bg-white px-8 py-10 shadow-2xl">
+                    <h1 class="font-bold mb-1 text-xl">TOPSIS-PSO</h1>
+    
+                    <div>
+                      <label
+                        for="w3"
+                        class="block mb-2 text-sm font-medium text-gray-900"
+                        >Tiempo de ejecución</label
+                      >
+                      <input
+                        type="text"
+                        id="ejecucionTopsispso"
+                        disabled
+                        placeholder="Esperando ejecución..."
+                        class="text-center bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                        pattern=""
+                        required
+                      />
+                    </div>
+    
+                    <h2 class="font-semibold mb-3">Últimos 10 resultados</h2>
+                    <div class="overflow-y-auto h-full">
+                      <table
+                        class="w-full table-auto border-separate border border-slate-400"
+                      >
+                        <thead>
+                          <tr>
+                            <th
+                              class="border border-slate-300 text-center align-middle"
+                            >
+                              Iteración
+                            </th>
+                            <th
+                              class="border border-slate-300 text-center align-middle"
+                            >
+                              Mejor Alternativa
+                            </th>
+                            <!-- Agrega más encabezados según sea necesario -->
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {% for i in range (10) %}
+                          <tr>
+                            <td
+                              class="border border-slate-300 text-center align-middle"
+                            >
+                              {{ i + 1 }}
+                            </td>
+                            <td
+                              id="alternativaTopsispso{{i}}"
+                              class="border border-slate-300 text-center align-middle"
+                            ></td>
+                            <!-- Repite para las otras mejores alternativas -->
+                          </tr>
+                          {% endfor %}
+      
+                          <!-- Agrega más filas según sea necesario -->
+                        </tbody>
+                      </table>
+                    </div>
+                  </form>
+
+                  <form class="rounded-xl bg-white px-8 py-10 shadow-2xl mt-10">
+                    <h1 class="font-bold mb-1 text-xl">TOPSIS-BA</h1>
+    
+                    <div>
+                      <label
+                        for="w3"
+                        class="block mb-2 text-sm font-medium text-gray-900"
+                        >Tiempo de ejecución</label
+                      >
+                      <input
+                        type="text"
+                        id="ejecucionTopsisba"
+                        disabled
+                        placeholder="Esperando ejecución..."
+                        class="text-center bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                        pattern=""
+                        required
+                      />
+                    </div>
+    
+                    <h2 class="font-semibold mb-3">Últimos 10 resultados</h2>
+                    <div class="overflow-y-auto h-full">
+                      <table
+                        class="w-full table-auto border-separate border border-slate-400"
+                      >
+                        <thead>
+                          <tr>
+                            <th
+                              class="border border-slate-300 text-center align-middle"
+                            >
+                              Iteración
+                            </th>
+                            <th
+                              class="border border-slate-300 text-center align-middle"
+                            >
+                              Mejor Alternativa
+                            </th>
+                            <!-- Agrega más encabezados según sea necesario -->
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {% for i in range (10) %}
+                          <tr>
+                            <td
+                              class="border border-slate-300 text-center align-middle"
+                            >
+                              {{ i + 1 }}
+                            </td>
+                            <td
+                              id="alternativaTopsisba{{i}}"
+                              class="border border-slate-300 text-center align-middle"
+                            ></td>
+                            <!-- Repite para las otras mejores alternativas -->
+                          </tr>
+                          {% endfor %}
+      
+                          <!-- Agrega más filas según sea necesario -->
+                        </tbody>
+                      </table>
+                    </div>
+                  </form>
+                  
+                    <form class="rounded-xl bg-white px-8 py-10 shadow-2xl mt-10">
+                      <h1 class="font-bold mb-1 text-xl">TOPSIS-ACO</h1>
+    
+                      <div>
+                        <label
+                          for="w3"
+                          class="block mb-2 text-sm font-medium text-gray-900"
+                          >Tiempo de ejecución</label
+                        >
+                        <input
+                        type="text"
+                        id="ejecucionTopsisaco"
+                        disabled
+                        placeholder="Esperando ejecución..."
+                        class="text-center bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                        pattern=""
+                        required
+                      />
+                      </div>
+    
+                      <h2 class="font-semibold mb-3">Últimos 10 resultados</h2>
+                    <div class="overflow-y-auto h-full">
+                      <table
+                        class="w-full table-auto border-separate border border-slate-400"
+                      >
+                        <thead>
+                          <tr>
+                            <th
+                              class="border border-slate-300 text-center align-middle"
+                            >
+                              Iteración
+                            </th>
+                            <th
+                              class="border border-slate-300 text-center align-middle"
+                            >
+                              Mejor Alternativa
+                            </th>
+                            <!-- Agrega más encabezados según sea necesario -->
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {% for i in range (10) %}
+                          <tr>
+                            <td
+                              class="border border-slate-300 text-center align-middle"
+                            >
+                              {{ i + 1 }}
+                            </td>
+                            <td
+                              id="alternativaTopsisaco{{ i }}"
+                              class="border border-slate-300 text-center align-middle"
+                            ></td>
+                            <!-- Repite para las otras mejores alternativas -->
+                          </tr>
+                          {% endfor %}
+      
+                          <!-- Agrega más filas según sea necesario -->
+                        </tbody>
+                      </table>
+                    </div>
+                    
+                  </form>
+                </div>
+              </div>
+            </section>
+      
+    </div>
+    <div class="pb-5 ">
+      <button
+        class="text-black mt-5 ml-9 hover:bg-blue focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center bg-slate-400"
+      >
+        Descargar XLSX
+      </button>
+      <button
+      class="text-black mt-5 ml-9 hover:bg-blue focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center bg-slate-400"
+    >
+      Swarm Analyzer
+    </button>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/comparacionGeneral.js') }}"></script>
+  </body>
+</html>
