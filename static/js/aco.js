@@ -14,10 +14,12 @@ document.addEventListener('DOMContentLoaded', function () {
         fetch('/aco', {
             method: 'POST',
             body: formData
+            
         })
         .then(response => response.json())  // Parsea la respuesta como JSON
         .then(data => {
             console.log('Datos recibidos:', data);
+            
             // Actualizar los campos de entrada con los nuevos datos
             const mejoresAlternativas = data.mejor_alternativa;
 

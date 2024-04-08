@@ -1,17 +1,19 @@
 
 import asyncio
-import numpy as np
-import pandas as pd
 import datetime
-from openpyxl import load_workbook
 import os
 
+import numpy as np
+import pandas as pd
+from openpyxl import load_workbook
 
-async def ejecutar_daaco(w,alpha,gamma,iter_max):
+
+async def ejecutar_daaco(w, alpha, beta, rho, Q, n_ants, n_iterations):
 
     hora_inicio = datetime.datetime.now()
     fecha_inicio = hora_inicio.date()
     Resultados=[]
+    ress = []
 
     print()
     print("-------------------------------------------")
@@ -40,7 +42,7 @@ async def ejecutar_daaco(w,alpha,gamma,iter_max):
     print("Controles iniciales")
 
     ### -- Pesos por cada criterio
-    w = [0.400, 0.200, 0.030, 0.070, 0.300]
+    #w = [0.400, 0.200, 0.030, 0.070, 0.300]
     #w = [0.300, 0.200, 0.200, 0.150, 0.150] 
     #w = [0.200, 0.200, 0.200, 0.200, 0.200]
     #w = [0.123, 0.099, 0.043, 0.343, 0.392]
@@ -48,12 +50,12 @@ async def ejecutar_daaco(w,alpha,gamma,iter_max):
     print("Pesos por cada criterio")
     print(weights)
 
-    alpha = 1     # Peso de la feromona
-    beta = 2      # Peso de la heurística
-    rho = 0.1     # Tasa de evaporación de feromona
-    Q = 100       # Cantidad de feromona depositada
-    n_ants = 10   # Número de hormigas
-    n_iterations = 100  # Número de iteraciones
+    #alpha = 1     # Peso de la feromona
+    #beta = 2      # Peso de la heurística
+    #rho = 0.1     # Tasa de evaporación de feromona
+    #Q = 100       # Cantidad de feromona depositada
+    #n_ants = 10   # Número de hormigas
+    #n_iterations = 100  # Número de iteraciones
 
     itera_max = 10      # Número de ejecuciones de ACO
 
@@ -178,6 +180,7 @@ async def ejecutar_daaco(w,alpha,gamma,iter_max):
         # Determinar la mejor alternativa
         best_alternative_index = np.argmax(np.sum(x.values.T * pheromone, axis=1))
         best_alternative = candidates[best_alternative_index]
+        ress.append(best_alternative)
 
         resultados = pd.concat([resultados, pd.DataFrame({'Ejecución:   ': [iteracion_total+1], '  Mejor_Alternativa': [best_alternative]})], ignore_index=True)
 
@@ -279,8 +282,8 @@ async def ejecutar_daaco(w,alpha,gamma,iter_max):
     await asyncio.sleep(0.1)
 
     datosDaaco = {
-        "mejor_alternativa": 3,
-        "iteraciones": n,
+        "mejor_alternativa": ress,
+        "iteraciones": n_iterations,
         "hora_inicio": hora_inicio.time().strftime('%H:%M:%S'),
         "fecha_inicio": fecha_inicio.isoformat(),
         "hora_finalizacion": hora_fin.time().strftime('%H:%M:%S'),

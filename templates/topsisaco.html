@@ -115,7 +115,7 @@
         </div>
     </div>
     <div class="mt-1 flex items-center justify-center">
-      <a href="/aco" class="text-lg font-bold p-8 transition-all duration-100 ease-in-out hover:font-bold nav-link">
+      <a href="/aco" class="text-lg p-8 transition-all duration-100 ease-in-out hover:font-bold nav-link">
           ACO
       </a>
       <a href="/daaco" class="text-lg p-8 transition-all duration-100 ease-in-out hover:font-bold nav-link">
@@ -124,7 +124,7 @@
       <a href="/mooraaco" class="text-lg p-8 transition-all duration-100 ease-in-out hover:font-bold nav-link">
           MOORA - ACO
       </a>
-      <a href="/topsisaco" class="text-lg p-8 transition-all duration-100 ease-in-out hover:font-bold nav-link">
+      <a href="/topsisaco" class="text-lg font-bold p-8 transition-all duration-100 ease-in-out hover:font-bold nav-link">
           TOPSIS - ACO
       </a>
       <a href="/comparacionBa" class="text-lg p-8 transition-all duration-100 ease-in-out hover:font-bold nav-link">
@@ -143,148 +143,50 @@
             >
               <h1 class="font-semibold mb-3">Ingrese parámetros de control</h1>
               <div class="grid gap-6 mb-6 lg:grid-cols-2">
+                <!-- No se si este incluirlo, lo dejare por si se requiere
+                  <div>
+                  <label for="ev" class="block mb-2 text-sm font-medium text-gray-900">Índices de los atributos</label>
+                  <select id="ev" name="ev" class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
+                      <option value="Min","Min","Min","Min","Min">Min</option>
+                      <option value="Max","Max","Max","Max","Max">Max</option>
+                  </select>
+              </div> --> 
+              
                 <div>
-                  <label
-                    for="w1"
-                    class="block mb-2 text-sm font-medium text-gray-900"
-                    >C1</label
-                  >
-                  <input
-                    type="number"
-                    step="any"
-                    value="0.400"
-                    id="w1"
-                    name="w1"
-                    class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                    pattern=""
-                    required
-                  />
+                  <div>
+                    <label for="w" class="block mb-2 text-sm font-medium text-gray-900">Pesos por cada criterio</label>
+                    <select id="w" name="w" class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                      <option value="0.400,0.200,0.030,0.070,0.300">0.400, 0.200, 0.030, 0.070, 0.300</option>
+                      <option value="0.300,0.200,0.200,0.150,0.150">0.300, 0.200, 0.200, 0.150, 0.150</option>
+                      <option value="0.200,0.200,0.200,0.200,0.200">0.200, 0.200, 0.200, 0.200, 0.200</option>
+                      <option value="0.123,0.099,0.043,0.343,0.392">0.123, 0.099, 0.043, 0.343, 0.392</option>
+                    </select>
+                  </div>
                 </div>
                 <div>
-                  <label
-                    for="w2"
-                    class="block mb-2 text-sm font-medium text-gray-900"
-                    >C2</label
-                  >
-                  <input
-                    type="number"
-                    step="any"
-                    value="0.200"
-                    id="w2"
-                    name="w2"
-                    class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                    pattern=""
-                    required
-                  />
+                  <label for="alpha" class="block mb-2 text-sm font-medium text-gray-900">Peso de la feromona</label>
+                  <input type="float" step="any" value="1" id="alpha" name="alpha" class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" pattern="" required />
                 </div>
                 <div>
-                  <label
-                    for="w3"
-                    class="block mb-2 text-sm font-medium text-gray-900"
-                    >C3</label
-                  >
-                  <input
-                    type="number"
-                    step="any"
-                    value="0.030"
-                    id="w3"
-                    name="w3"
-                    class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                    pattern=""
-                    required
-                  />
+                  <label for="beta" class="block mb-2 text-sm font-medium text-gray-900">Peso de la heurística</label>
+                  <input type="float" step="any" value="2" id="beta" name="beta" class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" pattern="" required />
                 </div>
                 <div>
-                  <label
-                    for="w4"
-                    class="block mb-2 text-sm font-medium text-gray-900"
-                    >C4</label
-                  >
-                  <input
-                    type="number"
-                    step="any"
-                    value="0.070"
-                    id="w4"
-                    name="w4"
-                    class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                    pattern=""
-                    required
-                  />
+                  <label for="rho" class="block mb-2 text-sm font-medium text-gray-900">Tasa de evaporación de feromona</label>
+                  <input type="float" step="any" value="0.1" id="rho" name="rho" class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" pattern="" required />
                 </div>
                 <div>
-                  <label
-                    for="w5"
-                    class="block mb-2 text-sm font-medium text-gray-900"
-                    >C5</label
-                  >
-                  <input
-                    type="number"
-                    step="any"
-                    value="0.300"
-                    id="w5"
-                    name="w5"
-                    class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                    pattern=""
-                    required
-                  />
+                  <label for="Q" class="block mb-2 text-sm font-medium text-gray-900">Cantidad de feromona depositada</label>
+                  <input type="float" step="any" value="100" id="Q" name="Q" class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" pattern="" required />
                 </div>
                 <div>
-                  <label class="block mb-2 text-sm font-medium text-gray-900"
-                    >Alpha:</label
-                  >
-                  <input
-                    type="number"
-                    step="any"
-                    value="1"
-                    id="alpha"
-                    name="alpha"
-                    class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                    pattern=""
-                    required
-                  />
-                </div>
-                <div>
-                  <label class="block mb-2 text-sm font-medium text-gray-900"
-                    >Gamma:</label
-                  >
-                  <input
-                    type="number"
-                    step="any"
-                    value="2"
-                    id="gamma"
-                    name="gamma"
-                    class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                    pattern=""
-                    required
-                  />
+                  <label class="block mb-2 text-sm font-medium text-gray-900">Número de hormigas</label>
+                  <input type="float" step="any" value="5" id="n_ants" name="n_ants" class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" pattern="" required />
                 </div>
               </div>
               <div>
-                <label class="block mb-2 text-sm font-medium text-gray-900"
-                  >Cantidad de Iteraciones:
-                </label>
-                <input
-                  type="number"
-                  step="any"
-                  value="10"
-                  id="T"
-                  name="T"
-                  class="text-center bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                  pattern=""
-                  required
-                />
-              </div>
-              <div>
-                <!-- <label class="block mt-5 mb-2 text-sm font-medium text-gray-900"
-                  >Función objetivo:
-                </label>
-                <input
-                  type="number"
-                  placeholder="Ri= (t^-i)/(t^+i+t^-i), i=1,...,m"
-                  disabled
-                  class="text-center bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                  pattern=""
-                /> -->
+                <label class="block mb-2 text-sm font-medium text-gray-900">Cantidad de Iteraciones:</label>
+                <input type="float" step="any" value="100" id="n_iterations" name="n_iterations" class="text-center bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" pattern="" required />
               </div>
               <button
                 type="button"

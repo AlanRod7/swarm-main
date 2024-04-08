@@ -118,7 +118,7 @@
       <a href="/aco" class="text-lg font-bold p-8 transition-all duration-100 ease-in-out hover:font-bold nav-link">
           ACO
       </a>
-      <a href="/daba" class="text-lg p-8 transition-all duration-100 ease-in-out hover:font-bold nav-link">
+      <a href="/daaco" class="text-lg p-8 transition-all duration-100 ease-in-out hover:font-bold nav-link">
           DA - ACO
       </a>
       <a href="/mooraba" class="text-lg p-8 transition-all duration-100 ease-in-out hover:font-bold nav-link">
@@ -145,92 +145,9 @@
               <div class="grid gap-6 mb-6 lg:grid-cols-2">
                 <div>
                   <label
-                    for="w1"
+                    for="alpha"
                     class="block mb-2 text-sm font-medium text-gray-900"
-                    >C1</label
-                  >
-                  <input
-                    type="number"
-                    step="any"
-                    value="0.400"
-                    id="w1"
-                    name="w1"
-                    class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                    pattern=""
-                    required
-                  />
-                </div>
-                <div>
-                  <label
-                    for="w2"
-                    class="block mb-2 text-sm font-medium text-gray-900"
-                    >C2</label
-                  >
-                  <input
-                    type="number"
-                    step="any"
-                    value="0.200"
-                    id="w2"
-                    name="w2"
-                    class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                    pattern=""
-                    required
-                  />
-                </div>
-                <div>
-                  <label
-                    for="w3"
-                    class="block mb-2 text-sm font-medium text-gray-900"
-                    >C3</label
-                  >
-                  <input
-                    type="number"
-                    step="any"
-                    value="0.030"
-                    id="w3"
-                    name="w3"
-                    class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                    pattern=""
-                    required
-                  />
-                </div>
-                <div>
-                  <label
-                    for="w4"
-                    class="block mb-2 text-sm font-medium text-gray-900"
-                    >C4</label
-                  >
-                  <input
-                    type="number"
-                    step="any"
-                    value="0.070"
-                    id="w4"
-                    name="w4"
-                    class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                    pattern=""
-                    required
-                  />
-                </div>
-                <div>
-                  <label
-                    for="w5"
-                    class="block mb-2 text-sm font-medium text-gray-900"
-                    >C5</label
-                  >
-                  <input
-                    type="number"
-                    step="any"
-                    value="0.300"
-                    id="w5"
-                    name="w5"
-                    class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                    pattern=""
-                    required
-                  />
-                </div>
-                <div>
-                  <label class="block mb-2 text-sm font-medium text-gray-900"
-                    >Alpha:</label
+                    >Peso de la feromona</label
                   >
                   <input
                     type="number"
@@ -244,8 +161,10 @@
                   />
                 </div>
                 <div>
-                  <label class="block mb-2 text-sm font-medium text-gray-900"
-                    >Gamma:</label
+                  <label
+                    for="gamma"
+                    class="block mb-2 text-sm font-medium text-gray-900"
+                    >Peso de la heurística</label
                   >
                   <input
                     type="number"
@@ -258,21 +177,73 @@
                     required
                   />
                 </div>
-              </div>
-              <div>
-                <label class="block mb-2 text-sm font-medium text-gray-900"
-                  >Cantidad de Iteraciones:
-                </label>
-                <input
-                  type="number"
-                  step="any"
-                  value="10"
-                  id="T"
-                  name="T"
-                  class="text-center bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                  pattern=""
-                  required
-                />
+                <div>
+                  <label
+                    for="rho"
+                    class="block mb-2 text-sm font-medium text-gray-900"
+                    >Tasa de evaporación de feromona</label
+                  >
+                  <input
+                    type="number"
+                    step="any"
+                    value="0.1"
+                    id="rho"
+                    name="rho"
+                    class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    pattern=""
+                    required
+                  />
+                </div>
+                <div>
+                  <label
+                    for="Q"
+                    class="block mb-2 text-sm font-medium text-gray-900"
+                    >Cantidad de feromona depositada</label
+                  >
+                  <input
+                    type="number"
+                    step="any"
+                    value="100"
+                    id="Q"
+                    name="Q"
+                    class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    pattern=""
+                    required
+                  />
+                </div>
+                <div>
+                  <label
+                    for="n_ants"
+                    class="block mb-2 text-sm font-medium text-gray-900"
+                    >Número de hormigas</label
+                  >
+                  <input
+                    type="number"
+                    step="any"
+                    value="5"
+                    id="n_ants"
+                    name="n_ants"
+                    class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    pattern=""
+                    required
+                  />
+                </div>
+                <div>
+                  <div>
+                    <label class="block mb-2 text-sm font-medium text-gray-900"
+                      >Cantidad de Iteraciones:
+                    </label>
+                    <input
+                      type="number"
+                      step="any"
+                      value="10"
+                      id="iter_max"
+                      name="iter_max"
+                      class="text-center bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                      pattern=""
+                      required
+                    />
+                  </div>
               </div>
               <div>
                 <!-- <label class="block mt-5 mb-2 text-sm font-medium text-gray-900"

@@ -3,22 +3,26 @@
 # Universidad Autónoma de ciudad Juárez
 # ACtualizado 27-Feb-2024
 
+import asyncio
+import datetime
+import json
+import os
+
 import numpy as np
 import pandas as pd
-import datetime
 from openpyxl import load_workbook
-import os
-import asyncio
 
-async def ejecutar_aco(w,alpha,gamma,iter_max):
+
+async def ejecutar_aco(alpha, gamma, rho, Q, n_ants, iter_max):
 
     hora_inicio = datetime.datetime.now()
     fecha_inicio = hora_inicio.date()
     Resultados=[]
-
+    ress = []
     # Datos de entrada
     attributes = ["C1", "C2", "C3", "C4", "C5"]
-    candidates = ["A1", "A2", "A3", "A4", "A5", "A6", "A7", "A8", "A9"]
+    # candidates = ["A1", "A2", "A3", "A4", "A5", "A6", "A7", "A8", "A9"]
+    candidates = [1, 2, 3, 4, 5, 6, 7, 8, 9]
     datarw = {
         'C1': [0.048, 0.053, 0.057, 0.062, 0.066, 0.070, 0.075, 0.079, 0.083],
         'C2': [0.047, 0.052, 0.057, 0.062, 0.066, 0.071, 0.075, 0.079, 0.083],
@@ -82,6 +86,11 @@ async def ejecutar_aco(w,alpha,gamma,iter_max):
         # Determinar la mejor alternativa
         best_alternative_index = np.argmax(np.sum(xP.values.T * pheromone, axis=1))
         best_alternative = candidates[best_alternative_index]
+# <<<<<<< HEAD
+# =======
+        ress.append(best_alternative)
+        
+# >>>>>>> 709a5f9ef699b5ebaef2a7fa857cda83ae15c73d
         #print("La mejor alternativa es:", best_alternative)
 
         resultados = pd.concat([resultados, pd.DataFrame({'Ejecución:   ': [iteration+1], '  Mejor_Alternativa': [best_alternative]})], ignore_index=True)
@@ -173,9 +182,13 @@ async def ejecutar_aco(w,alpha,gamma,iter_max):
 
     await asyncio.sleep(0.1)
     #alternativas = [int(value) for value in alternativas]
-
+    #print(resultadosJSON)
     datosAco = {
+
         "mejor_alternativa": alternativas,
+
+        "mejor_alternativa": ress,
+
         "iteraciones": n_iterations,
         "hora_inicio": hora_inicio.time().strftime('%H:%M:%S'),
         "fecha_inicio": fecha_inicio.isoformat(),
