@@ -1,346 +1,253 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <nav class="bg-light p-4">
-      <div class="container mx-auto flex justify-between items-center">
-        <a class="navbar-brand" href="/">Algorithms App</a>
-        <div class="flex">
-          <ul class="flex space-x-4">
-            <li class="nav-item active">
-              <a class="nav-link" href="/">Inicio</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/topsis">MCDM</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/pso">PSO</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/ba">BA</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">ACO</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/comparacion">Comparación</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/acercade">Acerca De</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <h1 class="font-semibold text-4xl text-center mt-10">Acerca de Nosotros</h1>
-    <div class="border-t-2 border-gray-300 my-8 mx-96"></div>
-    <h3 class="text-xl text-center mt-10 mx-96 mb-8">
-      El equipo de desarrollo se organiza en tres grupos fundamentales: uno
-      enfocado en la investigación, otro especializado en el frontend
-      (desarrollo de la interfaz de usuario) y un tercer equipo encargado del
-      backend (desarrollo de la lógica y la infraestructura que respalda la
-      aplicación).
-    </h3>
-    <h1 class="font-semibold text-2xl text-center mt-10 mb-8">
-      Investigadores
-    </h1>
-    <div class="border-t-2 border-gray-300 my-8 mx-96"></div>
-    <div
-      class="flex justify-center grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-    >
-      <!-- Card para cada persona -->
-      <div
-        class="bg-white shadow-md rounded-lg p-10 flex flex-col items-center justify-center"
-      >
-        <h2 class="text-lg font-semibold mb-2">
-          M.I.S.C. Dynhora Danheyda Ramírez Ochoa
-        </h2>
-        <span class="text-gray-600 mb-2">Conceptualización</span>
-        <span class="text-gray-600 mb-2">Metodología</span>
-        <span class="text-gray-600 mb-2">Experimentación</span>
-        <span class="text-gray-600 mb-2">Evaluación de experimentos</span>
-        <div class="flex items-center justify-center space-x-4">
-          <!-- Iconos de redes sociales -->
-          <a
-            href="https://www.linkedin.com/in/dynhora-danheyda-ram%C3%ADrez-ochoa-86b0733a"
-            class="text-gray-600 hover:text-gray-900 text-3xl"
-          >
-            <i class="fab fa-linkedin"></i>
-          </a>
-          <a
-            href="https://scholar.google.com/citations?user=4HAFFT0AAAAJ&hl=es&oi=ao"
-            class="text-gray-600 hover:text-gray-900 text-3xl"
-          >
-            <i class="fab fa-google"></i>
-          </a>
-          <a
-            href="https://orcid.org/orcid-search/search?searchQuery=0000-0002-1326-908X"
-            class="text-gray-600 hover:text-gray-900 text-3xl"
-          >
-            <i class="fab fa-orcid"></i>
-          </a>
-        </div>
-      </div>
-      <div
-        class="bg-white shadow-md rounded-lg p-10 flex flex-col items-center justify-center"
-      >
-        <h2 class="text-lg font-semibold mb-2">
-          Dr. Luis Asunción Pérez Domínguez
-        </h2>
-        <span class="text-gray-600 mb-2">Conceptualización</span>
-        <span class="text-gray-600 mb-2">Supervisión</span>
-        <span class="text-gray-600 mb-2">Evaluación de experimentos</span>
-        <div class="flex items-center justify-center space-x-4">
-          <!-- Iconos de redes sociales -->
-          <a
-            href="https://www.linkedin.com/in/luis-p%C3%A9rez-dom%C3%ADnguez-15228432"
-            class="text-gray-600 hover:text-gray-900 text-3xl"
-          >
-            <i class="fab fa-linkedin"></i>
-          </a>
-          <a
-            href="https://scholar.google.com/citations?hl=es&user=iuXlWr4AAAAJ&view_op=list_works&sortby=pubdate"
-            class="text-gray-600 hover:text-gray-900 text-3xl"
-          >
-            <i class="fab fa-google"></i>
-          </a>
-          <a
-            href="https://orcid.org/orcid-search/search?searchQuery=0000-0003-2541-4595"
-            class="text-gray-600 hover:text-gray-900 text-3xl"
-          >
-            <i class="fab fa-orcid"></i>
-          </a>
-        </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+</head>
+
+<body>
+  <nav class="bg-light p-4">
+    <div class="container mx-auto flex justify-between items-center">
+      <a class="navbar-brand" href="/">Algorithms App</a>
+      <div class="flex">
+        <ul class="flex space-x-4">
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/topsis">MCDM</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/pso">PSO</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/ba">BA</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">ACO</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/comparacion">Comparación</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/acercade">Acerca De</a>
+          </li>
+        </ul>
       </div>
     </div>
-    <!-- Sección para el equipo Backend -->
-    <h1 class="font-semibold text-2xl text-center mt-10 mb-8">Backend</h1>
-    <div class="border-t-2 border-gray-300 my-8 mx-96"></div>
-    <div
-      class="p-5 flex justify-center grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-    >
-      <!-- Aquí van las tarjetas del equipo Backend -->
-      <div
-        class="bg-white shadow-md rounded-lg p-10 flex flex-col items-center justify-center"
-      >
-        <h2 class="text-lg font-semibold mb-2">M.S.I. Alfonso Barroso</h2>
-        <span class="text-gray-600 mb-2">(Nov 2022-a la fecha)</span>
-        <!-- Otros detalles -->
-        <div class="flex items-center justify-center space-x-4">
-          <!-- Iconos de redes sociales -->
-          <a
-            href="https://www.linkedin.com/in/alfonso-jos%C3%A9-barroso-barajas-9030541aa"
-            class="text-gray-600 hover:text-gray-900 text-3xl"
-            ><i class="fab fa-linkedin"></i
-          ></a>
-          <a href="#" class="text-gray-600 hover:text-gray-900 text-3xl"
-            ><i class="fab fa-github"></i
-          ></a>
-        </div>
-      </div>
-      <div
-        class="bg-white shadow-md rounded-lg p-10 flex flex-col items-center justify-center"
-      >
-        <h2 class="text-lg font-semibold mb-2">I.D.S.M. Raúl Aguirre</h2>
-        <span class="text-gray-600 mb-2">(Nov-May 2022)</span>
-        <!-- Otros detalles -->
-        <div class="flex items-center justify-center space-x-4">
-          <!-- Iconos de redes sociales -->
-          <a
-            href="https://www.linkedin.com/in/raul-hermosillo"
-            class="text-gray-600 hover:text-gray-900 text-3xl"
-            ><i class="fab fa-linkedin"></i
-          ></a>
-        </div>
-      </div>
-      <div
-        class="bg-white shadow-md rounded-lg p-10 flex flex-col items-center justify-center"
-      >
-        <h2 class="text-lg font-semibold mb-2">Abraham Isaí García Piñón</h2>
-        <span class="text-gray-600 mb-2">(Sep 2023- a la fecha)</span>
-        <!-- Otros detalles -->
-        <div class="flex items-center justify-center space-x-4">
-          <!-- Iconos de redes sociales -->
-          <a
-            href="https://www.linkedin.com/in/abraham-isaí-garcía-2306b7265/"
-            class="text-gray-600 hover:text-gray-900 text-3xl"
-            ><i class="fab fa-linkedin"></i
-          ></a>
-          <a
-            href="https://github.com/IsaiGp96"
-            class="text-gray-600 hover:text-gray-900 text-3xl"
-            ><i class="fab fa-github"></i
-          ></a>
-        </div>
-      </div>
-      <div
-        class="bg-white shadow-md rounded-lg p-10 flex flex-col items-center justify-center"
-      >
-        <h2 class="text-lg font-semibold mb-2">
-          Alan Enrique Rodriguez Fernandez
-        </h2>
-        <span class="text-gray-600 mb-2">(Nov 2023-a la fecha)</span>
-        <!-- Otros detalles -->
-        <div class="flex items-center justify-center space-x-4">
-          <!-- Iconos de redes sociales -->
-          <a
-            href="https://www.linkedin.com/in/alan-rodriguez-146a62280/"
-            class="text-gray-600 hover:text-gray-900 text-3xl"
-            ><i class="fab fa-linkedin"></i
-          ></a>
-          <a
-            href="https://github.com/AlanRod7"
-            class="text-gray-600 hover:text-gray-900 text-3xl"
-            ><i class="fab fa-github"></i
-          ></a>
-        </div>
-      </div>
-      <div
-        class="bg-white shadow-md rounded-lg p-10 flex flex-col items-center justify-center"
-      >
-        <h2 class="text-lg font-semibold mb-2">César Armando Marines Licón</h2>
-        <span class="text-gray-600 mb-2">(Nov 2023-a la fecha)</span>
-        <!-- Otros detalles -->
-        <div class="flex items-center justify-center space-x-4">
-          <!-- Iconos de redes sociales -->
-          <a
-            href="https://www.linkedin.com/in/cmarines/"
-            class="text-gray-600 hover:text-gray-900 text-3xl"
-            ><i class="fab fa-linkedin"></i
-          ></a>
-          <a
-            href="https://github.com/Commmodore64"
-            class="text-gray-600 hover:text-gray-900 text-3xl"
-            ><i class="fab fa-github"></i
-          ></a>
-        </div>
+  </nav>
+  <h1 class="font-semibold text-4xl text-center mt-10">Acerca de Nosotros</h1>
+  <div class="border-t-2 border-gray-300 my-8" style="width: 80rem; align-items: center; margin-left: 1rem;">
+    <h3 class="text-xl text-justify mt-10 mx-auto mb-8">
+      El equipo de desarrollo se organiza considerando la taxonomía CRediT (Contributor Roles Taxonomy), observandose
+      dos
+      grupos fundamentales: uno enfocado a la investgación y el otro especializado en el desarrollo del
+      Software(Frontend):
+      <ol>1 Conceptualización: Ideas, formulación o evolución de los objetivos y metas generales de la investigación.
+      </ol>
+      <ol>2 Curación de datos: Actividades de gestión para anotar (producir metadatos), depurar datos y mantener los
+        datos
+        de la investigación (incluido el código de software, cuando sea necesario para interpretar los propios datos)
+        para
+        su uso inicial y su posterior reutilización.</ol>
+      <ol>3 Análisis formal: Aplicación de técnicas estadísticas, matemáticas, computacionales u otras técnicas formales
+        para analizar o sintetizar datos de estudio.</ol>
+      <ol>4 Adquisición de fondos: Adquisición del apoyo financiero para el proyecto que conduce a esta publicación.
+      </ol>
+      <ol>5 Investigación Realización de una investigación y proceso de investigación, realizando específicamente los
+        experimentos, o la recolección de datos / evidencia.</ol>
+      <ol>5 Investigación Realización de una investigación y proceso de investigación, realizando específicamente los
+        <ol>6 Metodología: Desarrollo o diseño de la metodología y creación de modelos.</ol>
+        <ol>7 Administración del proyecto: Responsabilidad de gestión y coordinación de la planificación de las
+          actividades del investigación.</ol>
+        <ol>8 Adquisición de financiación y recursos: Suministro de materiales de estudio, herramientas para el análisis
+          y
+          documentación, así como la Financiación para las publicaciones.</ol>
+        <ol>9 Supervisión: Responsabilidad de supervisión y liderazgo en la planificación, así como de la realización de
+          actividades de investigación, lo que incluye la tutoría externa al equipo central.</ol>
+        <ol>10 Validación: Verificación, ya sea como parte de la actividad o por separado, de la replicabilidad /
+          reproducción general de los resultados / experimentos u otros productos de la investigación.</ol>
+        <ol>11 Visualización: Preparación, creación o presentación del trabajo publicado, específicamente la
+          visualización
+          / presentación de datos.</ol>
+        <ol>12 Redacción (borrador original): Preparación, creación o presentación del trabajo publicado,
+          específicamente
+          la redacción del borrador inicial (se incluye la traducción sustantiva).</ol>
+        <ol>13 Redacción (revisión y edición): Preparación, creación o presentación del trabajo publicado por los
+          miembros
+          del grupo de investigación original, específicamente revisión crítica, comentario o revisión - se deben
+          incluir
+          las etapas previas o posteriores a la publicación.</ol>
+        <ol>14 Software: Programación, desarrollo de software, diseño de programas informáticos, implementación del
+          código
+          informático y de los algoritmos de apoyo, pruebas de los componentes de código existentes. Este se divide en
+          Backend y Frontend. El Backend se encarga del desarrollo de la lógica, el procesamiento de datos de entrada,
+          codificación de algoritmos y producir salidas. Mientras que el Frontend se encarga del desarrollo de la
+          interfaz
+          de usuario, es decir lo que el usuario ve y con lo que interactua.
+        </ol>
+
+  </div>
+
+  </h3>
+  <h1 class="font-semibold text-2xl text-center mt-10 mb-8">
+    Investigadores
+  </h1>
+  <div class="border-t-2 border-gray-300 my-8 mx-96"></div>
+  <div class="flex justify-center grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <!-- Card para cada persona -->
+    <div class="bg-white shadow-md rounded-lg p-10 flex flex-col items-center justify-center">
+      <h2 class="text-lg font-semibold mb-2">
+        M.I.S.C. Dynhora Danheyda Ramírez Ochoa
+      </h2>
+      <span class="text-gray-600 mb-2">Conceptualización, Conceptualización, Metodología</span>
+      <span class="text-gray-600 mb-2">Investigación, Curación de datos, Análisis formal</span>
+      <span class="text-gray-600 mb-2">Visualización, Redacción(borrador original), Software(Backend)</span>
+      <div class="flex items-center justify-center space-x-4">
+        <!-- Iconos de redes sociales -->
+        <a href="https://www.linkedin.com/in/dynhora-danheyda-ram%C3%ADrez-ochoa-86b0733a"
+          class="text-gray-600 hover:text-gray-900 text-3xl">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://scholar.google.com/citations?user=4HAFFT0AAAAJ&hl=es&oi=ao"
+          class="text-gray-600 hover:text-gray-900 text-3xl">
+          <i class="fab fa-google"></i>
+        </a>
+        <a href="https://orcid.org/orcid-search/search?searchQuery=0000-0002-1326-908X"
+          class="text-gray-600 hover:text-gray-900 text-3xl">
+          <i class="fab fa-orcid"></i>
+        </a>
       </div>
     </div>
-    <!-- Sección para el equipo Frontend -->
-    <h1 class="font-semibold text-2xl text-center mt-10 mb-8">Frontend</h1>
-    <div class="border-t-2 border-gray-300 my-8 mx-96"></div>
-    <div
-      class="p-5 flex justify-center grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-5"
-    >
-      <!-- Aquí puedes agregar las tarjetas del equipo Frontend -->
-      <div
-        class="bg-white shadow-md rounded-lg p-10 flex flex-col items-center justify-center"
-      >
-        <h2 class="text-lg font-semibold mb-2">
-          M.I.S.C. Dynhora Danheyda Ramírez Ochoa
-        </h2>
-        <span class="text-gray-600 mb-2">(Ene 2021-a la fecha)</span>
-        <div class="flex items-center justify-center space-x-4">
-          <!-- Iconos de redes sociales -->
-          <a
-            href="https://www.linkedin.com/in/dynhora-danheyda-ram%C3%ADrez-ochoa-86b0733a"
-            class="text-gray-600 hover:text-gray-900 text-3xl"
-          >
-            <i class="fab fa-linkedin"></i>
-          </a>
-          <a
-            href="https://scholar.google.com/citations?user=4HAFFT0AAAAJ&hl=es&oi=ao"
-            class="text-gray-600 hover:text-gray-900 text-3xl"
-          >
-            <i class="fab fa-google"></i>
-          </a>
-          <a
-            href="https://orcid.org/orcid-search/search?searchQuery=0000-0002-1326-908X"
-            class="text-gray-600 hover:text-gray-900 text-3xl"
-          >
-            <i class="fab fa-orcid"></i>
-          </a>
-        </div>
-      </div>
-      <div
-        class="bg-white shadow-md rounded-lg p-10 flex flex-col items-center justify-center"
-      >
-        <h2 class="text-lg font-semibold mb-2">I.D.S.M. Raúl Aguirre</h2>
-        <span class="text-gray-600 mb-2">(May - Ago 2022)</span>
-        <!-- Otros detalles -->
-        <div class="flex items-center justify-center space-x-4">
-          <!-- Iconos de redes sociales -->
-          <a
-            href="https://www.linkedin.com/in/raul-hermosillo"
-            class="text-gray-600 hover:text-gray-900 text-3xl"
-            ><i class="fab fa-linkedin"></i
-          ></a>
-        </div>
-      </div>
-      <div
-        class="bg-white shadow-md rounded-lg p-10 flex flex-col items-center justify-center"
-      >
-        <h2 class="text-lg font-semibold mb-2">Abraham Isaí García Piñón</h2>
-        <span class="text-gray-600 mb-2">(Sep 2023- a la fecha)</span>
-        <!-- Otros detalles -->
-        <div class="flex items-center justify-center space-x-4">
-          <!-- Iconos de redes sociales -->
-          <a
-            href="https://www.linkedin.com/in/abraham-isaí-garcía-2306b7265/"
-            class="text-gray-600 hover:text-gray-900 text-3xl"
-            ><i class="fab fa-linkedin"></i
-          ></a>
-          <a
-            href="https://github.com/IsaiGp96"
-            class="text-gray-600 hover:text-gray-900 text-3xl"
-            ><i class="fab fa-github"></i
-          ></a>
-        </div>
-      </div>
-      <div
-        class="bg-white shadow-md rounded-lg p-10 flex flex-col items-center justify-center"
-      >
-        <h2 class="text-lg font-semibold mb-2">
-          Alan Enrique Rodriguez Fernandez
-        </h2>
-        <span class="text-gray-600 mb-2">(Nov 2023-a la fecha)</span>
-        <!-- Otros detalles -->
-        <div class="flex items-center justify-center space-x-4">
-          <!-- Iconos de redes sociales -->
-          <a
-            href="https://www.linkedin.com/in/alan-rodriguez-146a62280/"
-            class="text-gray-600 hover:text-gray-900 text-3xl"
-            ><i class="fab fa-linkedin"></i
-          ></a>
-          <a
-            href="https://github.com/AlanRod7"
-            class="text-gray-600 hover:text-gray-900 text-3xl"
-            ><i class="fab fa-github"></i
-          ></a>
-        </div>
-      </div>
-      <div
-        class="bg-white shadow-md rounded-lg p-10 flex flex-col items-center justify-center"
-      >
-        <h2 class="text-lg font-semibold mb-2">César Armando Marines Licón</h2>
-        <span class="text-gray-600 mb-2">(Nov 2023-a la fecha)</span>
-        <!-- Otros detalles -->
-        <div class="flex items-center justify-center space-x-4">
-          <!-- Iconos de redes sociales -->
-          <a
-            href="https://www.linkedin.com/in/cmarines/"
-            class="text-gray-600 hover:text-gray-900 text-3xl"
-            ><i class="fab fa-linkedin"></i
-          ></a>
-          <a
-            href="https://github.com/Commmodore64"
-            class="text-gray-600 hover:text-gray-900 text-3xl"
-            ><i class="fab fa-github"></i
-          ></a>
-        </div>
+  </div>
+  <div class="flex justify-center grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-10">
+    <!-- Card para cada persona -->
+    <div class="bg-white shadow-md rounded-lg p-10 flex flex-col items-center justify-center">
+      <h2 class="text-lg font-semibold mb-2">
+        Dr. Luis Asunción Pérez Domínguez
+      </h2>
+      <span class="text-gray-600 mb-2">Conceptualización, Metodología, Supervisión</span>
+      <span class="text-gray-600 mb-2">Administración del proyecto</span>
+      <span class="text-gray-600 mb-2">Supervisión, Redacción (revisión y edición)</span>
+      <span class="text-gray-600 mb-2">Adquisición de financiación y recursos</span>
+      <span class="text-gray-600 mb-2"> Evaluación de experimentos, Validación</span>
+      <div class="flex items-center justify-center space-x-4">
+        <!-- Iconos de redes sociales -->
+        <a href="https://www.linkedin.com/in/luis-p%C3%A9rez-dom%C3%ADnguez-15228432"
+          class="text-gray-600 hover:text-gray-900 text-3xl">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://scholar.google.com/citations?hl=es&user=iuXlWr4AAAAJ&view_op=list_works&sortby=pubdate"
+          class="text-gray-600 hover:text-gray-900 text-3xl">
+          <i class="fab fa-google"></i>
+        </a>
+        <a href="https://orcid.org/orcid-search/search?searchQuery=0000-0003-2541-4595"
+          class="text-gray-600 hover:text-gray-900 text-3xl">
+          <i class="fab fa-orcid"></i>
+        </a>
       </div>
     </div>
-  </body>
+    <div class="bg-white shadow-md rounded-lg p-10 flex flex-col items-center justify-center">
+      <h2 class="text-lg font-semibold mb-2">
+        Dr. Erwin Adán Martínez Gómez
+      </h2>
+      <span class="text-gray-600 mb-2">Conceptualización, Metodología, Supervisión</span>
+      <span class="text-gray-600 mb-2">Redacción (revisión y edición), Validación</span>
+      <div class="flex items-center justify-center space-x-4">
+        <!-- Iconos de redes sociales -->
+        <a href="https://orcid.org/0000-0002-7753-2545"
+          class="text-gray-600 hover:text-gray-900 text-3xl">
+          <i class="fab fa-orcid"></i>
+        </a>
+      </div>
+    </div>
+    <div class="bg-white shadow-md rounded-lg p-10 flex flex-col items-center justify-center">
+      <h2 class="text-lg font-semibold mb-2">
+        Dra. Linda Lucila Lucero Landeros Martínez  
+      </h2>
+      <span class="text-gray-600 mb-2">Validación, Redacción  (revisión y edición)</span>
+      <div class="flex items-center justify-center space-x-4">
+        <!-- Iconos de redes sociales -->
+        <a href="https://scholar.google.com/citations?user=eK2n0UgAAAAJ&hl=es&oi=ao"
+          class="text-gray-600 hover:text-gray-900 text-3xl">
+          <i class="fab fa-google"></i>
+        </a>
+        <a href="https://orcid.org/0000-0002-7240-1458"
+          class="text-gray-600 hover:text-gray-900 text-3xl">
+          <i class="fab fa-orcid"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- Sección para el equipo Backend -->
+  <h1 class="font-semibold text-2xl text-center mt-10 mb-8">Frontend</h1>
+  <div class="border-t-2 border-gray-300 my-8 mx-96"></div>
+  <div class="p-5 flex justify-center grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <!-- Aquí van las tarjetas del equipo Backend -->
+    <div class="bg-white shadow-md rounded-lg p-10 flex flex-col items-center justify-center">
+      <h2 class="text-lg font-semibold mb-2">M.S.I. Alfonso Barroso</h2>
+      <span class="text-gray-600 mb-2">(Nov 2022-a la fecha)</span>
+      <!-- Otros detalles -->
+      <div class="flex items-center justify-center space-x-4">
+        <!-- Iconos de redes sociales -->
+        <a href="https://www.linkedin.com/in/alfonso-jos%C3%A9-barroso-barajas-9030541aa"
+          class="text-gray-600 hover:text-gray-900 text-3xl"><i class="fab fa-linkedin"></i></a>
+        <a href="#" class="text-gray-600 hover:text-gray-900 text-3xl"><i class="fab fa-github"></i></a>
+      </div>
+    </div>
+    <div class="bg-white shadow-md rounded-lg p-10 flex flex-col items-center justify-center">
+      <h2 class="text-lg font-semibold mb-2">I.D.S.M. Raúl Aguirre</h2>
+      <span class="text-gray-600 mb-2">(Nov-May 2022)</span>
+      <!-- Otros detalles -->
+      <div class="flex items-center justify-center space-x-4">
+        <!-- Iconos de redes sociales -->
+        <a href="https://www.linkedin.com/in/raul-hermosillo" class="text-gray-600 hover:text-gray-900 text-3xl"><i
+            class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
+    <div class="bg-white shadow-md rounded-lg p-10 flex flex-col items-center justify-center">
+      <h2 class="text-lg font-semibold mb-2">Abraham Isaí García Piñón</h2>
+      <span class="text-gray-600 mb-2">(Sep 2023- a la fecha)</span>
+      <!-- Otros detalles -->
+      <div class="flex items-center justify-center space-x-4">
+        <!-- Iconos de redes sociales -->
+        <a href="https://www.linkedin.com/in/abraham-isaí-garcía-2306b7265/"
+          class="text-gray-600 hover:text-gray-900 text-3xl"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/IsaiGp96" class="text-gray-600 hover:text-gray-900 text-3xl"><i
+            class="fab fa-github"></i></a>
+      </div>
+    </div>
+    <div class="bg-white shadow-md rounded-lg p-10 flex flex-col items-center justify-center">
+      <h2 class="text-lg font-semibold mb-2">
+        Alan Enrique Rodriguez Fernandez
+      </h2>
+      <span class="text-gray-600 mb-2">(Nov 2023-a la fecha)</span>
+      <!-- Otros detalles -->
+      <div class="flex items-center justify-center space-x-4">
+        <!-- Iconos de redes sociales -->
+        <a href="https://www.linkedin.com/in/alan-rodriguez-146a62280/"
+          class="text-gray-600 hover:text-gray-900 text-3xl"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/AlanRod7" class="text-gray-600 hover:text-gray-900 text-3xl"><i
+            class="fab fa-github"></i></a>
+      </div>
+    </div>
+    <div class="bg-white shadow-md rounded-lg p-10 flex flex-col items-center justify-center">
+      <h2 class="text-lg font-semibold mb-2">César Armando Marines Licón</h2>
+      <span class="text-gray-600 mb-2">(Nov 2023-a la fecha)</span>
+      <!-- Otros detalles -->
+      <div class="flex items-center justify-center space-x-4">
+        <!-- Iconos de redes sociales -->
+        <a href="https://www.linkedin.com/in/cmarines/" class="text-gray-600 hover:text-gray-900 text-3xl"><i
+            class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/Commmodore64" class="text-gray-600 hover:text-gray-900 text-3xl"><i
+            class="fab fa-github"></i></a>
+      </div>
+    </div>
+  </div>
+</body>
+
 </html>
