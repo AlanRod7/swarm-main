@@ -1,14 +1,13 @@
 
 
 document.addEventListener('DOMContentLoaded', function () {
-
-    const ejecutarComparacion = document.getElementById('ejecutarComparacionBa');
-    const formularioComparacion = document.getElementById('comparacionFormBa');
+    const ejecutarComparacion = document.getElementById('ejecutarcomparacionAco');
+    const formularioComparacion = document.getElementById('comparacionFormAco');
     ejecutarComparacion.addEventListener('click', function () {
-        solicitudBa(formularioComparacion)
-            .then(() => solicitudDaba(formularioComparacion))
-            .then(() => solicitudMooraba(formularioComparacion))
-            .then(() => solicitudTopsisba(formularioComparacion))
+        solicitudPso(formularioComparacion)
+            .then(() => solicitudDapso(formularioComparacion))
+            //.then(() => solicitudMoorapso(formularioComparacion))
+            //.then(() => solicitudTopsispso(formularioComparacion))
     });
     // Evitar el envío tradicional del formulario
     formularioComparacion.addEventListener('submit', function (event) {
@@ -16,16 +15,13 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-
 //-------------------------Solicitudes------------------------
-
-const solicitudBa = (formularioComparacion) => {
+const solicitudPso = (formularioComparacion) => {
     //Obtener datos del formulario
-
     return new Promise((resolve, reject) => {
         // Realizar la solicitud Ajax
         const formData = new FormData(formularioComparacion);
-        fetch('/ba', {
+        fetch('/aco', {
             method: 'POST',
             body: formData
         })
@@ -34,61 +30,16 @@ const solicitudBa = (formularioComparacion) => {
                 // Actualizar los campos de entrada con los nuevos datos
                 const mejoresAlternativas = data.mejor_alternativa;
                 for (let i = 0; i < mejoresAlternativas.length; i++) {
-                    document.getElementById(`alternativaBa${i}`).innerText = mejoresAlternativas[i];
+                    document.getElementById(`alternativaAco${i}`).innerText = mejoresAlternativas[i];
                 }
-                document.getElementById('ejecucionBa').value = data.tiempo_ejecucion;
+                document.getElementById('ejecucionAco').value = data.tiempo_ejecucion;
                 resolve();
             })
             .catch(error => { console.error('Error:', error); reject(error); });
     })
 }
 
-const solicitudDaba = (formularioComparacion) => {
-    return new Promise((resolve, reject) => {
-        //Obtener datos del formulario
-        const formData = new FormData(formularioComparacion);
-        // Realizar la solicitud Ajax
-        fetch('/daba', {
-            method: 'POST',
-            body: formData
-        })
-            .then(response => response.json())  // Parsea la respuesta como JSON
-            .then(data => {
-                // Actualizar los campos de entrada con los nuevos datos
-                const mejoresAlternativas = data.mejor_alternativa;
-                for (let i = 0; i < mejoresAlternativas.length; i++) {
-                    document.getElementById(`alternativaDaba${i}`).innerText = mejoresAlternativas[i];
-                }
-                document.getElementById('ejecucionDaba').value = data.tiempo_ejecucion;
-                resolve();
-            })
-            .catch(error => { console.error('Error:', error); reject(error); });
-    })
-}
-const solicitudMooraba = (formularioComparacion) => {
-    return new Promise((resolve, reject) => {
-        //Obtener datos del formulario
-        const formData = new FormData(formularioComparacion);
-        // Realizar la solicitud Ajax
-        fetch('/mooraba', {
-            method: 'POST',
-            body: formData
-        })
-            .then(response => response.json())  // Parsea la respuesta como JSON
-            .then(data => {
-                // Actualizar los campos de entrada con los nuevos datos
-                const mejoresAlternativas = data.mejor_alternativa;
-                for (let i = 0; i < mejoresAlternativas.length; i++) {
-                    document.getElementById(`alternativaMooraba${i}`).innerText = mejoresAlternativas[i];
-                }
-                document.getElementById('ejecucionMooraba').value = data.tiempo_ejecucion;
-                resolve();
-            })
-            .catch(error => { console.error('Error:', error); reject(error); });
-    })
-}
-
-const solicitudTopsisba = (formularioComparacion) => {
+const solicitudDapso = (formularioComparacion) => {
     return new Promise((resolve, reject) => {
         //Obtener datos del formulario
         const formData = new FormData(formularioComparacion);
@@ -102,9 +53,54 @@ const solicitudTopsisba = (formularioComparacion) => {
                 // Actualizar los campos de entrada con los nuevos datos
                 const mejoresAlternativas = data.mejor_alternativa;
                 for (let i = 0; i < mejoresAlternativas.length; i++) {
-                    document.getElementById(`alternativaTopsisba${i}`).innerText = mejoresAlternativas[i];
+                    document.getElementById(`alternativaDaaco${i}`).innerText = mejoresAlternativas[i];
                 }
-                document.getElementById('ejecucionTopsisba').value = data.tiempo_ejecucion;
+                document.getElementById('ejecucionDaaco').value = data.tiempo_ejecucion;
+                resolve();
+            })
+            .catch(error => { console.error('Error:', error); reject(error); });
+    })
+}
+const solicitudMoorapso = (formularioComparacion) => {
+    return new Promise((resolve, reject) => {
+        //Obtener datos del formulario
+        const formData = new FormData(formularioComparacion);
+        // Realizar la solicitud Ajax
+        fetch('/moorapso', {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => response.json())  // Parsea la respuesta como JSON
+            .then(data => {
+                // Actualizar los campos de entrada con los nuevos datos
+                const mejoresAlternativas = data.mejor_alternativa;
+                for (let i = 0; i < mejoresAlternativas.length; i++) {
+                    document.getElementById(`alternativaMoorapso${i}`).innerText = mejoresAlternativas[i];
+                }
+                document.getElementById('ejecucionMoorapso').value = data.tiempo_ejecucion;
+                resolve();
+            })
+            .catch(error => { console.error('Error:', error); reject(error); });
+    })
+}
+
+const solicitudTopsispso = (formularioComparacion) => {
+    return new Promise((resolve, reject) => {
+        //Obtener datos del formulario
+        const formData = new FormData(formularioComparacion);
+        // Realizar la solicitud Ajax
+        fetch('/topsispso', {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => response.json())  // Parsea la respuesta como JSON
+            .then(data => {
+                // Actualizar los campos de entrada con los nuevos datos
+                const mejoresAlternativas = data.mejor_alternativa;
+                for (let i = 0; i < mejoresAlternativas.length; i++) {
+                    document.getElementById(`alternativaTopsispso${i}`).innerText = mejoresAlternativas[i];
+                }
+                document.getElementById('ejecucionTopsispso').value = data.tiempo_ejecucion;
                 resolve();
             })
             .catch(error => { console.error('Error:', error); reject(error); });

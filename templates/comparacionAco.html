@@ -3,42 +3,43 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ACO</title>
+    <title>Comparación ACO</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   </head>
   <body>
     <nav class="bg-light p-4">
-      <div class="container mx-auto flex justify-between items-center">
-        <a class="navbar-brand" href="/">Algorithms App</a>
-        <div class="flex">
-          <ul class="flex space-x-4">
-            <li class="nav-item">
-              <a class="nav-link" href="/">Inicio</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/topsis">MCDM</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/pso">PSO</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/ba">BA</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="/aco">ACO</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/comparacion">Comparación</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/acercade">Acerca De</a>
-            </li>
-          </ul>
+        <div class="container mx-auto flex justify-between items-center">
+          <a class="navbar-brand" href="/">Algorithms App</a>
+          <div class="flex">
+            <ul class="flex space-x-4">
+              <li class="nav-item active">
+                <a class="nav-link" href="/">Inicio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/topsis">MCDM</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/pso">PSO</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/ba">BA</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/aco">ACO</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/comparacioGeneral">Comparación</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/acercade">Acerca De</a>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
-    </nav>
-    <div class="bg-white pt-8">
+      </nav>
+
+      <div class="bg-white pt-8">
         <div class="container mx-auto rounded-xl bg-white px-8 py-10 shadow-2xl">
             <h1 class="text-center text-3xl font-semibold capitalize text-gray-800 lg:text-4xl">Algoritmo de optimización de Colonia de Hormigas (ACO)</h1>
             <p class="mt-6 text-justify">
@@ -48,8 +49,8 @@
             </p>
         </div>
     </div>
-    
-    <div class="mt-16 text-center mx-auto max-w-5xl overflow-hidden rounded-xl bg-white">
+
+      <div class="mt-16 text-center mx-auto max-w-5xl overflow-hidden rounded-xl bg-white">
         <div class="flex justify-center">
             <section class="mt-20">
                 <div class="mx-auto max-w-lg">
@@ -114,24 +115,25 @@
             </section>
         </div>
     </div>
-    <div class="mt-1 flex items-center justify-center">
-      <a href="/aco" class="text-lg p-8 transition-all duration-100 ease-in-out hover:font-bold nav-link">
-          ACO
-      </a>
-      <a href="/daba" class="text-lg p-8 transition-all duration-100 ease-in-out hover:font-bold nav-link">
-          DA - ACO
-      </a>
-      <a href="/mooraba" class="text-lg p-8 transition-all duration-100 ease-in-out hover:font-bold nav-link">
-          MOORA - ACO
-      </a>
-      <a href="/topsisba" class="text-lg p-8 transition-all duration-100 ease-in-out hover:font-bold nav-link">
-          TOPSIS - ACO
-      </a>
-      <a href="/comparacionBa" class="text-lg font-bold  p-8 transition-all duration-100 ease-in-out hover:font-bold nav-link">
-        COMPARACIÓN
-      </a>
-  </div>
-  
+
+      <div class="mt-1 flex items-center justify-center">
+        <a href="/aco" class="text-lg font-bold p-8 transition-all duration-100 ease-in-out hover:font-bold nav-link">
+            ACO
+        </a>
+        <a href="/daaco" class="text-lg p-8 transition-all duration-100 ease-in-out hover:font-bold nav-link">
+            DA - ACO
+        </a>
+        <a href="/mooraaco" class="text-lg p-8 transition-all duration-100 ease-in-out hover:font-bold nav-link">
+            MOORA - ACO
+        </a>
+        <a href="/topsisaco" class="text-lg p-8 transition-all duration-100 ease-in-out hover:font-bold nav-link">
+            TOPSIS - ACO
+        </a>
+        <a href="/comparacionaco" class="text-lg p-8 transition-all duration-100 ease-in-out hover:font-bold nav-link">
+          COMPARACIÓN
+        </a>
+    </div>
+      
       <div class="flex justify-center">
         <section class="">
           <div>
@@ -229,70 +231,58 @@
                     />
                   </div>
                   <div>
-                    <label class="block mb-2 text-sm font-medium text-gray-900"
-                      >Alpha:</label
-                    >
-                    <input
-                      type="number"
-                      step="any"
-                      value="2.5"
-                      id="alpha"
-                      name="alpha"
-                      class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                      pattern=""
-                      required
-                    />
+                    <label for="ev" class="block mb-2 text-sm font-medium text-gray-900">Evaluaciones cardinales</label>
+                    <select id="ev" name="ev" class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
+                        <option value="Min","Min","Min","Min","Min">Min</option>
+                        <option value="Max","Max","Max","Max","Max">Max</option>
+                    </select>
+                </div>
+                  <div>
+                    <label for="alpha" class="block mb-2 text-sm font-medium text-gray-900">Peso de la feromona</label>
+                    <input type="float" step="any" value="1" id="alphab" name="alphab" class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" pattern="" required />
                   </div>
                   <div>
-                    <label class="block mb-2 text-sm font-medium text-gray-900"
-                      >Gamma:</label
-                    >
-                    <input
-                      type="number"
-                      step="any"
-                      value="2.5"
-                      id="gamma"
-                      name="gamma"
-                      class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                      pattern=""
-                      required
-                    />
+                    <label for="beta" class="block mb-2 text-sm font-medium text-gray-900">Peso de la heurística</label>
+                    <input type="float" step="any" value="2" id="beta" name="beta" class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" pattern="" required />
                   </div>
-                </div>
-                <div>
-                  <label class="block mb-2 text-sm font-medium text-gray-900"
-                    >Cantidad de Iteraciones:
-                  </label>
-                  <input
-                    type="number"
-                    step="any"
-                    value="10"
-                    id="T"
-                    name="T"
-                    class="text-center bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                    pattern=""
-                    required
-                  />
-                </div>
-                <div>
-                  <!-- <label class="block mt-5 mb-2 text-sm font-medium text-gray-900"
-                    >Función objetivo:
-                  </label>
-                  <input
-                    type="number"
-                    placeholder="Ri= (t^-i)/(t^+i+t^-i), i=1,...,m"
-                    disabled
-                    class="text-center bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                    pattern=""
-                  /> -->
-                </div>
-                <button
+                  <div>
+                    <label for="rho" class="block mb-2 text-sm font-medium text-gray-900">Tasa de evaporación de feromona</label>
+                    <input type="float" step="any" value="0.1" id="rho" name="rho" class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" pattern="" required />
+                  </div>
+                  <div>
+                    <label for="Q" class="block mb-2 text-sm font-medium text-gray-900">Cantidad de feromona depositada</label>
+                    <input type="float" step="any" value="100" id="Q" name="Q" class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" pattern="" required />
+                  </div>
+                  <div>
+                    <label class="block mb-2 text-sm font-medium text-gray-900">Número de hormigas</label>
+                    <input type="float" step="any" value="5" id="n_ants" name="n_ants" class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" pattern="" required />
+                  </div>
+                  <div>
+                    <label class="block mb-2 text-sm font-medium text-gray-900">Cantidad de Iteraciones:</label>
+                    <input type="number" step="any" value="10" id="T" name="T" class="text-center bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" pattern="" required>
+                  </div>
+                  <button
                   type="button"
                   id="ejecutarComparacionBa"
                   class="text-black mt-5 hover:bg-blue focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center bg-slate-400"
                 >
                   Calcular
                 </button>
+
+                  <!-- Hidden -->
+                  <div hidden>
+                    <label hidden class="block mb-2 text-sm font-medium text-gray-900" >Alpha:</label>
+                    <input hidden type="number" step="any" value="2.5" id="alpha" name="alpha" class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" pattern="" required
+                    />
+                  </div>
+                  <div hidden>
+                    <label class="block mb-2 text-sm font-medium text-gray-900">Gamma:</label>
+                    <input type="number" step="any" value="2.5" id="gamma" name="gamma" class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" pattern="" required/>
+                  </div>
+                </div>
+                
+                
+                
               </form>
               <div class="pb-5 ">
                 <button

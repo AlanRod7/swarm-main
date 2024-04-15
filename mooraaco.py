@@ -289,7 +289,7 @@ async def ejecutar_mooraaco(EV,w,alpha,beta,rho,Q,n_ants,n_iterations):
     await asyncio.sleep(0.1)
 
     datosMooraaco = {
-        "mejor_alternativa": ress,
+        "mejor_alternativa": ress[-10:],
         "iteraciones": n_iterations,
         "hora_inicio": hora_inicio.time().strftime('%H:%M:%S'),
         "fecha_inicio": fecha_inicio.isoformat(),

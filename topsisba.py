@@ -20,7 +20,7 @@ from math import e
 import asyncio
 
 
-async def ejecutar_topsisba(w, alpha, gamma, iter_max):
+async def ejecutar_topsisba(w, alphaBa, gamma, iter_max):
 
     hora_inicio = datetime.datetime.now()
     fecha_inicio = hora_inicio.date()
@@ -88,7 +88,7 @@ async def ejecutar_topsisba(w, alpha, gamma, iter_max):
     weights = pd.Series(w, index=attributes)
     #print(weights,"          \n")
 
-    alpha=alpha   # Valor para actualizar Ai Loudness 
+    alpha=alphaBa   # Valor para actualizar Ai Loudness 
     gamma=gamma  # Valor para actualizar ri Pulse Rate
 
     # ----Iteraciones

@@ -2,24 +2,24 @@
 import asyncio
 import datetime
 import os
-
 import numpy as np
 import pandas as pd
 from openpyxl import load_workbook
 
 
-async def ejecutar_daaco(w, alpha, beta, rho, Q, n_ants, n_iterations):
+async def ejecutar_daaco(w, alpha, beta, rho, Q, n_ants, iter_max):
 
     hora_inicio = datetime.datetime.now()
     fecha_inicio = hora_inicio.date()
     Resultados=[]
     ress = []
+    best_ress = []
 
     print()
     print("-------------------------------------------")
     print("Construcción de la matriz de decisión")
     attributes = ["C1", "C2", "C3", "C4", "C5"]
-    candidates = ["A1", "A2", "A3", "A4", "A5", "A6", "A7", "A8", "A9"]
+    candidates = [1, 2, 3, 4, 5, 6, 7, 8, 9]
     n = 5
     a = 9
     raw_data = [
@@ -57,7 +57,7 @@ async def ejecutar_daaco(w, alpha, beta, rho, Q, n_ants, n_iterations):
     #n_ants = 10   # Número de hormigas
     #n_iterations = 100  # Número de iteraciones
 
-    itera_max = 10      # Número de ejecuciones de ACO
+    #itera_max = n_iterations      # Número de ejecuciones de ACO
 
     # DataFrame para almacenar los resultados
     resultados = pd.DataFrame(columns=['Ejecución:   ','  Mejor_Alternativa'])
@@ -137,7 +137,7 @@ async def ejecutar_daaco(w, alpha, beta, rho, Q, n_ants, n_iterations):
 
     ##########################################################################
     # ACO
-    for iteracion_total in range(itera_max):
+    for iteracion_total in range(iter_max):
 
         # Inicialización de feromonas con la mejor puntuación global de DA
         pheromone = np.ones((len(attributes), len(candidates))) * best_score  
@@ -156,7 +156,7 @@ async def ejecutar_daaco(w, alpha, beta, rho, Q, n_ants, n_iterations):
             return probabilities
 
         # Ciclo principal del algoritmo ACO
-        for iteration in range(n_iterations):
+        for iteration in range(iter_max):
             for ant in range(n_ants):
                 heuristic = 1 / (x.values + 1e-10)  # Heurística simple inversa de la matriz de datos con pequeña constante
                 selected_alternatives = []
@@ -181,6 +181,7 @@ async def ejecutar_daaco(w, alpha, beta, rho, Q, n_ants, n_iterations):
         best_alternative_index = np.argmax(np.sum(x.values.T * pheromone, axis=1))
         best_alternative = candidates[best_alternative_index]
         ress.append(best_alternative)
+        #best_ress.appendbest_alternative
 
         resultados = pd.concat([resultados, pd.DataFrame({'Ejecución:   ': [iteracion_total+1], '  Mejor_Alternativa': [best_alternative]})], ignore_index=True)
 
@@ -191,9 +192,6 @@ async def ejecutar_daaco(w, alpha, beta, rho, Q, n_ants, n_iterations):
     print()
     print("Resultados de DA-ACO:") 
     print(resultados)
-
-    alternativas = resultados[-10:]
-
 
     #####################################################################################
     # Para almacenar tiempo de ejecución
@@ -277,13 +275,11 @@ async def ejecutar_daaco(w, alpha, beta, rho, Q, n_ants, n_iterations):
     print(f'Datos guardados en el archivo: {csv_filename}')
     print()
 
-
-
     await asyncio.sleep(0.1)
 
     datosDaaco = {
-        "mejor_alternativa": ress,
-        "iteraciones": n_iterations,
+        "mejor_alternativa": ress[-10:],
+        "iteraciones": iter_max,
         "hora_inicio": hora_inicio.time().strftime('%H:%M:%S'),
         "fecha_inicio": fecha_inicio.isoformat(),
         "hora_finalizacion": hora_fin.time().strftime('%H:%M:%S'),

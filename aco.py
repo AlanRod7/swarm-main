@@ -13,7 +13,7 @@ import pandas as pd
 from openpyxl import load_workbook
 
 
-async def ejecutar_aco(alpha, gamma, rho, Q, n_ants, iter_max):
+async def ejecutar_aco(alpha, beta, rho, Q, n_ants, iter_max):
 
     hora_inicio = datetime.datetime.now()
     fecha_inicio = hora_inicio.date()
@@ -33,14 +33,14 @@ async def ejecutar_aco(alpha, gamma, rho, Q, n_ants, iter_max):
     xP = pd.DataFrame(data=datarw, index=candidates)
 
     # Parámetros del algoritmo ACO
-    alpha = 9     # Peso de la feromona [0.1, 10]-común(1): Controla la influencia de la feromona en la elección de las hormigas. Valores más altos dan más peso a la feromona.
-    beta = 4      # Peso de la heurística [1,5]-común(2): Controla la influencia de la información heurística en la elección de las hormigas. Valores más altos dan más peso a la heurística.
-    rho = 0.5     # Tasa de evaporación de feromona [0.1, 0.5]-común(0.1): Controla la tasa a la que la feromona se evapora en cada iteración. Valores más altos indican una tasa de evaporación más rápida.
-    Q = 1000       # Cantidad de feromona depositada [10,1000]-común(100): Especifica la cantidad de feromona depositada por cada hormiga en cada iteración. Valores más altos aumentan la cantidad de feromona depositada.
+    #alpha = 9     # Peso de la feromona [0.1, 10]-común(1): Controla la influencia de la feromona en la elección de las hormigas. Valores más altos dan más peso a la feromona.
+    #beta = 4      # Peso de la heurística [1,5]-común(2): Controla la influencia de la información heurística en la elección de las hormigas. Valores más altos dan más peso a la heurística.
+    #rho = 0.5     # Tasa de evaporación de feromona [0.1, 0.5]-común(0.1): Controla la tasa a la que la feromona se evapora en cada iteración. Valores más altos indican una tasa de evaporación más rápida.
+    #Q = 1000       # Cantidad de feromona depositada [10,1000]-común(100): Especifica la cantidad de feromona depositada por cada hormiga en cada iteración. Valores más altos aumentan la cantidad de feromona depositada.
 
 
-    n_ants = 100    # Número de hormigas [10,100]-común(10-50): Especifica el número de hormigas que se utilizan en cada iteración del algoritmo. Valores más altos pueden aumentar la diversidad y la capacidad de búsqueda, pero también aumentan el costo computacional.
-    n_iterations = 200  # Número de iteraciones [10,100]-común(100-500): Especifica el número de iteraciones que realiza el algoritmo ACO. Un mayor número de iteraciones permite una búsqueda más exhaustiva, pero también aumenta el tiempo de ejecución.
+    #n_ants = 100    # Número de hormigas [10,100]-común(10-50): Especifica el número de hormigas que se utilizan en cada iteración del algoritmo. Valores más altos pueden aumentar la diversidad y la capacidad de búsqueda, pero también aumentan el costo computacional.
+    #n_iterations = 200  # Número de iteraciones [10,100]-común(100-500): Especifica el número de iteraciones que realiza el algoritmo ACO. Un mayor número de iteraciones permite una búsqueda más exhaustiva, pero también aumenta el tiempo de ejecución.
 
 
     # DataFrame para almacenar los resultados
@@ -61,7 +61,7 @@ async def ejecutar_aco(alpha, gamma, rho, Q, n_ants, iter_max):
 
 
     # Ciclo principal del algoritmo ACO
-    for iteration in range(n_iterations):
+    for iteration in range(iter_max):
         for ant in range(n_ants):
             heuristic = 1 / (xP.values + 1e-10)  # Heurística simple inversa de la matriz de datos con pequeña constante
             selected_alternatives = []
@@ -102,14 +102,6 @@ async def ejecutar_aco(alpha, gamma, rho, Q, n_ants, iter_max):
     print("Resultados de ACO:") 
     print(resultados)
 
-    arreglo = candidates
-    arregloInvertido = tuple((arreglo))
-    alternativas = arregloInvertido
-
-    #alternativas = selected_alternatives[-10:]
-
-
-
     #####################################################################################
     # Para almacenar tiempo de ejecución
     hora_fin = datetime.datetime.now()
@@ -142,9 +134,9 @@ async def ejecutar_aco(alpha, gamma, rho, Q, n_ants, iter_max):
 
 
     ### -- Guardar los datos en un archivo xlsx
-    dI = {"alpha": [alpha], "beta": [beta], "Tasa de evaporación de feromona(rho)": [rho], "Cantidad de feromona depositada(Q)": [Q], "Número de hormigas(n_ants)":[n_ants], "No_ejecuciones del programa":[n_iterations]}
+    dI = {"alpha": [alpha], "beta": [beta], "Tasa de evaporación de feromona(rho)": [rho], "Cantidad de feromona depositada(Q)": [Q], "Número de hormigas(n_ants)":[n_ants], "No_ejecuciones del programa":[iter_max]}
     dT= {"Algoritmo": ["ACO"],
-        "Cantidad de repeticiones del programa": [n_iterations],
+        "Cantidad de repeticiones del programa": [iter_max],
         "Hora de inicio": [hora_inicio.time()],
         "Fecha de inicio": [fecha_inicio],
         "Hora de finalización": [hora_fin.time()],
@@ -181,15 +173,10 @@ async def ejecutar_aco(alpha, gamma, rho, Q, n_ants, iter_max):
     print()
 
     await asyncio.sleep(0.1)
-    #alternativas = [int(value) for value in alternativas]
-    #print(resultadosJSON)
+    
     datosAco = {
-
-        "mejor_alternativa": alternativas,
-
-        "mejor_alternativa": ress,
-
-        "iteraciones": n_iterations,
+        "mejor_alternativa": ress[-10:],
+        "iteraciones": iter_max,
         "hora_inicio": hora_inicio.time().strftime('%H:%M:%S'),
         "fecha_inicio": fecha_inicio.isoformat(),
         "hora_finalizacion": hora_fin.time().strftime('%H:%M:%S'),
