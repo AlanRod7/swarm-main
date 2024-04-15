@@ -15,7 +15,7 @@ import matplotlib.pyplot as plt
 import datetime
 
 
-async def ejecutar_da(w, n):
+async def ejecutar_da(w):
 
     hora_inicio = datetime.datetime.now()
     fecha_inicio = hora_inicio.date()
@@ -146,14 +146,15 @@ async def ejecutar_da(w, n):
     print("Tiempo de ejecución:",hora_fin-hora_inicio)
     print("Tiempo de ejecución:", ejecut)
     print()
-    arreglo = RankFin.index[-10:]
-    alternativas = tuple((arreglo))
+    arreglo = RankFin.index[::-1]
+    arregloInvertido = tuple((arreglo))
+    alternativas = arregloInvertido
     
 
     ####################################################################################
     ### Para guardar información en archivo de EXCEL
 
-    base_filename = 'Experimentos2/DA'# Obtener el nombre del archivo base
+    base_filename = 'Experimentos/DA'# Obtener el nombre del archivo base
     counter = 1 # Inicializar un contador para el nombre del archivo
     excel_filename = f'{base_filename}_{counter}.xlsx'
 
@@ -211,7 +212,7 @@ async def ejecutar_da(w, n):
 
     datosDa = {
         "mejor_alternativa": alternativas,
-        "iteraciones": n,
+        "iteraciones": 10,
         "hora_inicio": hora_inicio.time().strftime('%H:%M:%S'),
         "fecha_inicio": fecha_inicio.isoformat(),
         "hora_finalizacion": hora_fin.time().strftime('%H:%M:%S'),

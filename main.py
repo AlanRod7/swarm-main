@@ -1079,10 +1079,10 @@ def topsis():
         # Obtén los datos del formulario
         w_input = float(request.form.get('w', '')) 
         w = [float(value) for value in w_input if value != '']  # Filtra valores vacíos
-        n = int(request.form['T'])  #Iteraciones
+       
         
         # Llama a la función de procesar_datos en pso.py
-        datosTopsis = asyncio.run(ejecutar_topsis(w,n))
+        datosTopsis = asyncio.run(ejecutar_topsis(w))
 
         return render_template('topsis.html', datosTopsis=datosTopsis)
     except Exception as e:
@@ -1097,14 +1097,8 @@ def calcular_topsis():
         w_values = w_input.split(",")  # Divide la cadena en valores individuales
         w = [float(value.strip()) for value in w_values if value.strip()]  # Convierte cada valor a flotante
 
-        n = int(request.form.get('T', ''))  # Obtiene el valor de 'T' del formulario como entero
-
-        # Verifica si w o n no se proporcionaron correctamente
-        if not w or n is None:
-            return jsonify({'error': 'Los datos de entrada no fueron proporcionados correctamente'}), 400
-
         # Llama a la función de PSO en pso.py
-        datosTopsis = asyncio.run(ejecutar_topsis(w, n))
+        datosTopsis = asyncio.run(ejecutar_topsis(w))
         print("Resultados de la ejecución:", datosTopsis)
 
         # Devuelve los resultados
@@ -1127,10 +1121,10 @@ def moorav():
         w_input = request.form.get('w', '')  # Obtiene el valor de 'w' del formulario
         w_values = w_input.split(",")  # Divide la cadena en valores individuales
         w = [float(value.strip()) for value in w_values if value.strip()]  # Convierte cada valor a flotante
-        n = int(request.form['T'])
+        
         
         # Llama a la función de procesar_datos en pso.py
-        datosMoorav = asyncio.run(ejecutar_moorav(w,n))
+        datosMoorav = asyncio.run(ejecutar_moorav(w))
 
         return render_template('moorav.html', datosMoorav=datosMoorav)
     except Exception as e:
@@ -1144,10 +1138,10 @@ def calcular_moorav():
         w_input = request.form.get('w', '')  # Obtiene el valor de 'w' del formulario
         w_values = w_input.split(",")  # Divide la cadena en valores individuales
         w = [float(value.strip()) for value in w_values if value.strip()]  # Convierte cada valor a flotante
-        n = int(request.form['T'])#Iteraciones
+        
 
         # Llama a la función de PSO en pso.py
-        datosMoorav = asyncio.run(ejecutar_moorav(w,n))
+        datosMoorav = asyncio.run(ejecutar_moorav(w,))
         print("Resultados de la ejecución:", datosMoorav)
 
         # Obtén los resultados específicos que deseas mostrar
@@ -1173,10 +1167,10 @@ def da():
         w_input = request.form.get('w', '')  # Obtiene el valor de 'w' del formulario
         w_values = w_input.split(",")  # Divide la cadena en valores individuales
         w = [float(value.strip()) for value in w_values if value.strip()]  # Convierte cada valor a flotante
-        n = int(request.form['T'])
+        
         
         # Llama a la función de procesar_datos en pso.py
-        datosDa = asyncio.run(ejecutar_da(w,n))
+        datosDa = asyncio.run(ejecutar_da(w))
 
         return render_template('da.html', datosDa=datosDa)
     except Exception as e:
@@ -1190,10 +1184,9 @@ def calcular_da():
         w_input = request.form.get('w', '')  # Obtiene el valor de 'w' del formulario
         w_values = w_input.split(",")  # Divide la cadena en valores individuales
         w = [float(value.strip()) for value in w_values if value.strip()]  # Convierte cada valor a flotante
-        n = int(request.form['T'])#Iteraciones
 
         # Llama a la función de PSO en pso.py
-        datosDa = asyncio.run(ejecutar_da(w,n))
+        datosDa = asyncio.run(ejecutar_da(w))
         print("Resultados de la ejecución:", datosDa)
 
         # Obtén los resultados específicos que deseas mostrar

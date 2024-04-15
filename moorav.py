@@ -19,7 +19,7 @@ from flask import Flask
 from openpyxl import load_workbook
 
 
-async def ejecutar_moorav(w, n):
+async def ejecutar_moorav(w):
         
     hora_inicio = datetime.datetime.now()
     fecha_inicio = hora_inicio.date()
@@ -29,7 +29,7 @@ async def ejecutar_moorav(w, n):
     print("Construcción de la matriz de decisión")
     attributes = ["C1", "C2", "C3", "C4", "C5"]
     candidates = ["A1", "A2", "A3", "A4", "A5", "A6", "A7", "A8", "A9"]
-    #n = 5
+    n = 5
     a = 9
     raw_data = [
         [0.048, 0.047, 0.070, 0.087, 0.190],

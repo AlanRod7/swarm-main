@@ -14,7 +14,7 @@ from openpyxl import load_workbook
 from scipy.stats import rankdata
 
 
-async def ejecutar_topsis(w,n):
+async def ejecutar_topsis(w):
     hora_inicio = datetime.datetime.now()
     fecha_inicio = hora_inicio.date()
 
@@ -23,7 +23,7 @@ async def ejecutar_topsis(w,n):
     print("Construcción de la matriz de decisión" )
     attributes = ["C1", "C2", "C3", "C4", "C5"]
     candidates = ["A1", "A2", "A3", "A4", "A5", "A6","A7","A8","A9"]
-    #n=6
+    n=5
     a=9
     raw_data = [
         [0.048, 0.047, 0.070, 0.087, 0.190],
@@ -245,7 +245,7 @@ async def ejecutar_topsis(w,n):
 
     datosTopsis = {
         "mejor_alternativa": alternativas,
-        "iteraciones": n,
+        "iteraciones": 10,
         "hora_inicio": hora_inicio.time().strftime('%H:%M:%S'),
         "fecha_inicio": fecha_inicio.isoformat(),
         "hora_finalizacion": hora_fin.time().strftime('%H:%M:%S'),

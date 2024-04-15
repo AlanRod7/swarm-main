@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 
             }
 
-            document.getElementById('cantidadIteraciones').value = data.iteraciones;
+            
             document.getElementById('horaInicio').value = data.hora_inicio;
             document.getElementById('fechaInicio').value = data.fecha_inicio;
             document.getElementById('horaFinalizacion').value = data.hora_finalizacion;

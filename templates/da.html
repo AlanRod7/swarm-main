@@ -139,10 +139,7 @@
             <label for="w" class="block mb-2 text-sm font-medium text-gray-900">W:</label>
             <input value="0.400, 0.200, 0.030, 0.070, 0.300" id="w" name="w" class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
           </div>
-          <div>
-            <label class="block mb-2 text-sm font-medium text-gray-900">Cantidad de Iteraciones:</label>
-            <input type="number" step="any" value="10" id="T" name="T" class="text-center bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" pattern="" required />
-          </div>
+          
           <div>
             <!-- <label class="block mt-5 mb-2 text-sm font-medium text-gray-900">Función objetivo:</label>
             <input type="number" placeholder="Ri= (t^-i)/(t^+i+t^-i), i=1,...,m" disabled class="text-center bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" pattern="" /> -->
@@ -155,18 +152,18 @@
     <section class="mx-4">
       <div class="max-w-2xl mx-auto bg-white p-8">
         <form class="rounded-xl bg-white px-8 py-10 shadow-2xl">
-          <h1 class="font-semibold mb-3">Últimos 10 resultados</h1>
+          <h1 class="font-semibold mb-3">Clasificación</h1>
           <div class="overflow-y-auto h-full">
             <table class="w-full table-auto border-separate border border-slate-400">
               <thead>
                 <tr>
-                  <th class="border border-slate-300 text-center align-middle">Iteración</th>
-                  <th class="border border-slate-300 text-center align-middle">Mejor Alternativa</th>
+                  <th class="border border-slate-300 text-center align-middle">Orden</th>
+                  <th class="border border-slate-300 text-center align-middle">Alternativa</th>
                   <!-- Agrega más encabezados según sea necesario -->
                 </tr>
               </thead>
               <tbody>
-                {% for i in range (10) %}
+                {% for i in range (9) %}
                 <tr>
                   <td class="border border-slate-300 text-center align-middle">{{ i + 1 }}</td>
                   <td id="alternativa{{ i }}" class="border border-slate-300 text-center align-middle"></td>
@@ -189,20 +186,7 @@
         <div class="max-w-2xl mx-auto bg-white p-8">
           <form class="rounded-xl bg-white px-8 py-10 shadow-2xl">
             <div class="grid mt-4 gap-6 mb-6">
-              <div>
-                <label class="block mb-2 text-sm font-medium text-gray-900"
-                  >Cantidad de Iteraciones:
-                </label>
-                <input
-                  type="text"
-                  id="cantidadIteraciones"
-                  placeholder="Esperando ejecución..."
-                  disabled
-                  class="text-center bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                  pattern=""
-                  required
-                />
-              </div>
+              
               <div>
                 <label class="block mb-2 text-sm font-medium text-gray-900"
                   >Hora de inicio</label
