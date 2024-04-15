@@ -45,7 +45,7 @@ async def ejecutar_da(w, n):
     print("Grado de preferencia para cada alternativa")
     ### -- Pesos por cada criterio
     #w=[float(0.200),float(0.200),float(0.200),float(0.200),float(0.200)]
-    w=[float(0.400),float(0.200),float(0.030),float(0.070),float(0.300)]
+    #w=[float(0.400),float(0.200),float(0.030),float(0.070),float(0.300)]
     #w=[float(0.123),float(0.099),float(0.043),float(0.343),float(0.392)]
     print(w,"\n")
 
@@ -146,7 +146,7 @@ async def ejecutar_da(w, n):
     print("Tiempo de ejecución:",hora_fin-hora_inicio)
     print("Tiempo de ejecución:", ejecut)
     print()
-    arreglo = RankFin.index[:10]
+    arreglo = RankFin.index[-10:]
     alternativas = tuple((arreglo))
     
 

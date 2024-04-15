@@ -663,7 +663,7 @@ async def ejecutar_mooraba(w, alpha, gamma, iter_max):
         print("       ",i+1,"        ",Resultados[i])
     print("  ---------------------------------")
     alternativas = Resultados[-10:]
-
+    alternativas = [int(value) for value in alternativas]
 
 
 
@@ -794,7 +794,7 @@ async def ejecutar_mooraba(w, alpha, gamma, iter_max):
     print()
 
     await asyncio.sleep(0.1)
-    alternativas = [int(value) for value in alternativas]
+    
 
     datosMooraba = {
         "mejor_alternativa": alternativas,

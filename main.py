@@ -910,7 +910,6 @@ def comparacionBa():
         
         # Llama a la función de procesar_datos en pso.py
         datosBa = asyncio.run(ejecutar_ba(w, alpha, gamma, iter_max))
-        # Llama a la función de procesar_datos en pso.py
         datosDaba = asyncio.run(ejecutar_daba(w, alpha, gamma, iter_max))
         datosMooraba = asyncio.run(ejecutar_mooraba(w, alpha, gamma, iter_max))
         datosTopsisba = asyncio.run(ejecutar_topsisba(w, alpha, gamma, iter_max))

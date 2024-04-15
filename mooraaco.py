@@ -181,7 +181,7 @@ async def ejecutar_mooraaco(EV,w,alpha,beta,rho,Q,n_ants,n_iterations):
         best_alternative_index = np.argmax(np.sum(x.values.T * pheromone, axis=1))
         best_alternative = candidates[best_alternative_index]
         ress.append(best_alternative)
-
+        
         resultados = pd.concat([resultados, pd.DataFrame({'Ejecución:   ': [iteracion_total+1], '  Mejor_Alternativa': [best_alternative]})], ignore_index=True)
 
     # Imprimir resultados
@@ -192,8 +192,10 @@ async def ejecutar_mooraaco(EV,w,alpha,beta,rho,Q,n_ants,n_iterations):
     print("Resultados de MOORA-ACO:") 
     print(resultados)
 
+    
 
-
+    numeros = [int(caracter) for elemento in ress for caracter in elemento if caracter.isdigit()]
+    numeros=numeros[-10:]
     #####################################################################################
     # Para almacenar tiempo de ejecución
     hora_fin = datetime.datetime.now()
@@ -289,7 +291,7 @@ async def ejecutar_mooraaco(EV,w,alpha,beta,rho,Q,n_ants,n_iterations):
     await asyncio.sleep(0.1)
 
     datosMooraaco = {
-        "mejor_alternativa": ress[-10:],
+        "mejor_alternativa": numeros,
         "iteraciones": n_iterations,
         "hora_inicio": hora_inicio.time().strftime('%H:%M:%S'),
         "fecha_inicio": fecha_inicio.isoformat(),
