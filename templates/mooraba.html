@@ -39,52 +39,85 @@
       </div>
     </nav>
     <div class="bg-white pt-8">
-        <div class="container mx-auto rounded-xl bg-white px-8 py-10 shadow-2xl">
-            <h1 class="text-center text-3xl font-semibold capitalize text-gray-800 lg:text-4xl">Optimización de Enjambre de partículas (PSO)</h1>
-            <p class="mt-6 text-justify">
-                La Optimización por Enjambre de Partículas (PSO, por sus siglas en inglés, Particle Swarm Optimization) es un fascinante algoritmo de
-                optimización inspirado en el comportamiento de enjambres y bandadas de aves en la naturaleza. Desarrollado en 1995 por James Kennedy
-                y Russell Eberhart, el PSO se ha convertido en una valiosa técnica para encontrar soluciones aproximadas a problemas de optimización
-                en espacios multidimensionales, donde se busca el valor mínimo o máximo de una función. <a id="enlace" href="https://ieeexplore.ieee.org/document/494215" class="text-cyan-400">Leer más</a>
-            </p>
-        </div>
-    </div>
-    
-    <div class="mt-16 text-center mx-auto max-w-5xl overflow-hidden rounded-xl bg-white">
-        <div class="flex justify-center">
-            <section class="mt-20">
-                <div class="mx-auto max-w-lg">
-                    <!-- <h1 class="text-3xl font-bold text-gray-800 lg:text-4xl"></h1> -->
-                </div>
-                <div class="container mx-auto rounded-xl bg-white px-8 py-10 shadow-2xl">
-                    <h1 class="text-center text-3xl font-semibold capitalize text-gray-800 lg:text-4xl">
-                        ¿Cómo funciona el algoritmo PSO? Aquí te lo explicamos:
-                    </h1>
-                    <p class="text-justify text-gray-500">
-                        <div class="mt-10">
-                            <li><strong>Partículas:</strong></li>
-                            <h2>
-                                En el corazón del PSO se encuentra una población de "partículas" virtuales,
-                                cada una representando una solución candidata al problema de optimización.
-                                Estas partículas se colocan inicialmente de manera aleatoria en el espacio de búsqueda.
-                            </h2>
-                            <!-- ... (otros elementos li y h2) ... -->
-                        </div>
-                    </p>
-                    <div class="container mx-auto px-6 py-10">
-                        <p class="mt-6 text-gray-500 text-justify">
-                            El PSO es especialmente efectivo en problemas de optimización continua y multidimensional, como la
-                            optimización de funciones matemáticas complejas o la sintonización de parámetros en algoritmos de
-                            aprendizaje automático. Su capacidad para mantener un equilibrio entre la exploración y la explotación
-                            lo hace útil en una amplia gama de aplicaciones, desde la ingeniería hasta la optimización de carteras
-                            de inversión y la búsqueda de rutas óptimas. Este enfoque, inspirado en la naturaleza, ha demostrado ser
-                            una valiosa herramienta en la resolución de problemas de optimización.
-                        </p>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </div>
+      <div class="container mx-auto rounded-xl bg-white px-8 py-10 shadow-2xl">
+          <h1 class="text-center text-3xl font-semibold capitalize text-gray-800 lg:text-4xl">Algoritmo de Murciélago (BA)</h1>
+          <p class="mt-6 text-justify">
+            El algoritmo de Murciélago (BA, por sus siglas en inglés, Bat Algorithm) es una técnica de optimización que se inspira en la observación del comportamiento de los murciélagos en la naturaleza, propuesto por Xin-She Yang en 2010.  Este algoritmo simula cómo los murciélagos buscan alimento y se comunican entre sí para encontrar soluciones óptimas a problemas de optimización en diversos dominios, como la ingeniería, la economía y la ciencia de datos. <br>
+            Basándose en la simulación del comportamiento de los murciélagos en su búsqueda de alimento en la naturaleza, el algoritmo de Murciélago destaca por su capacidad para equilibrar la exploración y la explotación en la búsqueda de soluciones. Esto lo convierte en una herramienta versátil para abordar una amplia variedad de problemas de optimización, especialmente en espacios de búsqueda continuos. Su eficacia se ha demostrado en la búsqueda de soluciones aproximadas en situaciones en las que encontrar la solución óptima podría ser computacionalmente costoso o poco realista.
+             <a id="enlace" href="https://link.springer.com/chapter/10.1007/978-3-642-12538-6_6" class="text-cyan-400">Leer más</a>
+          </p>
+      </div>
+  </div>
+  
+  <div class="mt-16 text-center mx-auto max-w-5xl overflow-hidden rounded-xl bg-white">
+      <div class="flex justify-center">
+          <section class="mt-20">
+              <div class="mx-auto max-w-lg">
+                  <!-- <h1 class="text-3xl font-bold text-gray-800 lg:text-4xl"></h1> -->
+              </div>
+              <div class="container mx-auto rounded-xl bg-white px-8 py-10 shadow-2xl">
+                  <h1 class="text-center text-3xl font-semibold text-gray-800 lg:text-4xl">
+                    A continuación, se describen los aspectos fundamentales de este algoritmo:
+                  </h1>
+                  <p class="text-justify text-gray-500">
+                      <div class="mt-10">
+                          <li><strong>Representación de soluciones:</strong></li>
+                          <h2>
+                            En el algoritmo de Murciélago, las soluciones se representan como puntos en un espacio de búsqueda multidimensional. Cada punto en este espacio representa una posible solución al problema que se está optimizando.
+                          </h2>
+                          <!-- ... (otros elementos li y h2) ... -->
+                      </div>
+                  </p>
+                  <p class="text-justify text-gray-500">
+                      <div class="mt-10">
+                          <li><strong>Población de murciélagos:</strong></li>
+                          <h2>
+                            El algoritmo comienza con una población de murciélagos virtuales, cada uno de los cuales representa una solución potencial. Inicialmente, los murciélagos se distribuyen aleatoriamente en el espacio de búsqueda.
+                          </h2>
+                          <!-- ... (otros elementos li y h2) ... -->
+                      </div>
+                  </p>
+                  <p class="text-justify text-gray-500">
+                      <div class="mt-10">
+                          <li><strong>Comportamiento de los murciélagos: </strong></li>
+                          <h2>
+                            Los murciélagos en el algoritmo de Murciélago siguen un comportamiento que incluye la búsqueda de alimento y la comunicación entre sí. Cada murciélago tiene una posición actual en el espacio de búsqueda y una frecuencia de emisión de pulsos ultrasónicos.                            </h2>
+                          <!-- ... (otros elementos li y h2) ... -->
+                      </div>
+                  </p>
+                  <p class="text-justify text-gray-500">
+                      <div class="mt-10">
+                          <li><strong>Búsqueda de alimento:</strong></li>
+                          <h2>
+                            Los murciélagos buscan alimento emitiendo pulsos ultrasónicos en una dirección determinada. Cuando un murciélago encuentra una solución prometedora, se mueve hacia esa solución en la siguiente iteración. La velocidad de movimiento está influenciada por la calidad de la solución encontrada.                            <!-- ... (otros elementos li y h2) ... -->
+                      </div>
+                  </p>
+                  <p class="text-justify text-gray-500">
+                      <div class="mt-10">
+                          <li><strong>Comunicación: </strong></li>
+                          <h2>
+                            Los murciélagos también pueden comunicarse entre sí emitiendo llamadas de frecuencia ultrasónica. Esta comunicación permite a los murciélagos compartir información sobre soluciones prometedoras y, en consecuencia, converger más rápidamente hacia soluciones óptimas.                        </div>
+                  </p>
+                  <p class="text-justify text-gray-500">
+                      <div class="mt-10">
+                          <li><strong>Exploración y explotación: </strong></li>
+                          <h2>
+                            El algoritmo de Murciélago equilibra la exploración (buscar nuevas áreas del espacio de búsqueda) y la explotación (refinar las áreas prometedoras). Los murciélagos pueden ajustar su comportamiento para enfocarse en áreas de alta calidad o explorar áreas desconocidas según sea necesario.                    
+                  </p>
+                  <p class="text-justify text-gray-500">
+                      <div class="mt-10">
+                          <li><strong>Criterio de parada: </strong></li>
+                          <h2>
+                            El algoritmo de Murciélago se ejecuta durante un número fijo de iteraciones o hasta que se cumpla un criterio de parada predefinido, como alcanzar un valor objetivo o una tolerancia específica.                    </p>
+                  <div class="container mx-auto px-6 py-10">
+                      <p class="mt-6 text-gray-500 text-justify">
+                        En esta página, te ofrecemos acceso al algoritmo BA, junto con tres híbridos que combinan PSO con MCDM (Múltiples Criterios de Toma de Decisiones). En esta sección, tienes la flexibilidad de utilizar los algoritmos de forma independiente. Para hacerlo, simplemente proporciona la matriz de decisión y ajusta los parámetros de entrada según tus necesidades. Los resultados que visualizarás en pantalla corresponden a la última iteración, pero si deseas un análisis más detallado, tienes la opción de descargar un archivo en formato Excel para profundizar en la información proporcionada.
+                      </p>
+                  </div>
+              </div>
+          </section>
+      </div>
+  </div>
     <div class="mt-1 flex items-center justify-center">
       <a href="/ba" class="text-lg p-8 transition-all duration-100 ease-in-out hover:font-bold nav-link">
           BA
