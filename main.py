@@ -10,6 +10,7 @@ import mysql.connector
 import numpy as np
 from flask import (Flask, jsonify, make_response, render_template, request,
                    session)
+from flask import send_from_directory
 from flask_sqlalchemy import SQLAlchemy
 from numpy import ndarray
 from openpyxl import load_workbook
@@ -1612,6 +1613,14 @@ def sign_validation():
             return render_template("/signup.html", listaErrores=listaErrores)
 
     return render_template("/signup.html", listaErrores=listaErrores)
+
+
+@app.route('/descargar-excel')
+def descargar_excel():
+    directorio = 'Experimentos'  # Asegúrate de que este directorio exista y sea accesible
+    filename = 'PSO.xlsx'
+    return send_from_directory(directorio, filename, as_attachment=True)
+
 
 if '__main__' == __name__:
     app.run(port=5000, debug=True)
