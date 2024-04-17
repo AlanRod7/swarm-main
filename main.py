@@ -1615,12 +1615,95 @@ def sign_validation():
     return render_template("/signup.html", listaErrores=listaErrores)
 
 
-@app.route('/descargar-excel')
-def descargar_excel():
+@app.route('/descargar-pso')
+def descargar_excel_pso():
     directorio = 'Experimentos'  # Asegúrate de que este directorio exista y sea accesible
     filename = 'PSO.xlsx'
     return send_from_directory(directorio, filename, as_attachment=True)
 
+@app.route('/descargar-dapso')
+def descargar_excel_dapso():
+    directorio = 'Experimentos'  # Asegúrate de que este directorio exista y sea accesible
+    filename = 'DAPSO_1.xlsx'
+    return send_from_directory(directorio, filename, as_attachment=True)
+
+@app.route('/descargar-moorapso')
+def descargar_excel_moorapso():
+    directorio = 'Experimentos'  # Asegúrate de que este directorio exista y sea accesible
+    filename = 'MOORAPSO_1.xlsx'
+    return send_from_directory(directorio, filename, as_attachment=True)
+
+@app.route('/descargar-topsispso')
+def descargar_excel_topsispso():
+    directorio = 'Experimentos'  # Asegúrate de que este directorio exista y sea accesible
+    filename = 'TOPSISPSO_1.xlsx'
+    return send_from_directory(directorio, filename, as_attachment=True)
+
+@app.route('/descargar-ba')
+def descargar_excel_ba():
+    directorio = 'Experimentos'  # Asegúrate de que este directorio exista y sea accesible
+    filename = 'BA.xlsx'
+    return send_from_directory(directorio, filename, as_attachment=True)
+
+@app.route('/descargar-daba')
+def descargar_excel_daba():
+    directorio = 'Experimentos'  # Asegúrate de que este directorio exista y sea accesible
+    filename = 'DABA_1.xlsx'
+    return send_from_directory(directorio, filename, as_attachment=True)
+
+@app.route('/descargar-mooraba')
+def descargar_excel_mooraba():
+    directorio = 'Experimentos'  # Asegúrate de que este directorio exista y sea accesible
+    filename = 'MOORABA_1.xlsx'
+    return send_from_directory(directorio, filename, as_attachment=True)
+
+@app.route('/descargar-topsisba')
+def descargar_excel_topsisba():
+    directorio = 'Experimentos'  # Asegúrate de que este directorio exista y sea accesible
+    filename = 'TOPSISBA_1.xlsx'
+    return send_from_directory(directorio, filename, as_attachment=True)
+
+@app.route('/descargar-aco')
+def descargar_excel_aco():
+    directorio = 'Experimentos'  # Asegúrate de que este directorio exista y sea accesible
+    filename = 'ACO_1.xlsx'
+    return send_from_directory(directorio, filename, as_attachment=True)
+#Aquí hubo un error
+@app.route('/descargar-daaco')
+def descargar_excel_daaco():
+    directorio = 'Experimentos'  # Asegúrate de que este directorio exista y sea accesible
+    filename = 'DAACO_1.xlsx'
+    return send_from_directory(directorio, filename, as_attachment=True)
+
+@app.route('/descargar-mooraaco')
+def descargar_excel_mooraaco():
+    directorio = 'Experimentos'  # Asegúrate de que este directorio exista y sea accesible
+    filename = 'MOORAACO_1.xlsx'
+    return send_from_directory(directorio, filename, as_attachment=True)
+
+@app.route('/descargar-topsisaco')
+def descargar_excel_topsisaco():
+    directorio = 'Experimentos'  # Asegúrate de que este directorio exista y sea accesible
+    filename = 'TOPSISACO_1.xlsx'
+    return send_from_directory(directorio, filename, as_attachment=True)
+
+@app.route('/descargar-topsis')
+def descargar_excel_topsis():
+    directorio = 'Experimentos'  # Asegúrate de que este directorio exista y sea accesible
+    filename = 'TOPSIS_1.xlsx'
+    return send_from_directory(directorio, filename, as_attachment=True)
+
+@app.route('/descargar-moorav')
+def descargar_excel_moorav():
+    directorio = 'Experimentos'  # Asegúrate de que este directorio exista y sea accesible
+    filename = 'MOORA_1.xlsx'
+    return send_from_directory(directorio, filename, as_attachment=True)
+
+@app.route('/descargar-da')
+def descargar_excel_da():
+    directorio = 'Experimentos'  # Asegúrate de que este directorio exista y sea accesible
+    filename = 'DA_1.xlsx'
+    return send_from_directory(directorio, filename, as_attachment=True)
 
 if '__main__' == __name__:
     app.run(port=5000, debug=True)
