@@ -1705,5 +1705,11 @@ def descargar_excel_da():
     filename = 'DA_1.xlsx'
     return send_from_directory(directorio, filename, as_attachment=True)
 
+@app.route('/descargar-zip')
+def descargar_zip():
+    directorio = ''  # Asegúrate de que este directorio exista y sea accesible
+    filename = 'Compara.zip'
+    return send_from_directory(directorio, filename, as_attachment=True)
+
 if '__main__' == __name__:
     app.run(port=5000, debug=True)
