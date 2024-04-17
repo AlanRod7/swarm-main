@@ -19,7 +19,7 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="/">Algorithms App</a>
+        <a class="navbar-brand" href="/">Algorithms App</a> <div id="bienvenida"></div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -56,6 +56,7 @@
     
     <section class="dark:bg-gray-900">
         <div class="h-[10rem] bg-gray-100 dark:bg-gray-800">
+            
             <div class="container mx-auto px-6 py-10">
                 <h1 class="text-center text-3xl font-semibold capitalize text-gray-800 dark:text-white lg:text-4xl">Toma de decisiones avanzadas con inteligencia de enjambre en un ambiente multicriterio</h1>
                 <p class="mt-6 text-gray-500 dark:text-gray-300 text-justify">Este sitio web ha sido diseñado con el propósito de asistir tanto a individuos como a organizaciones en la toma de decisiones más informadas y eficaces, particularmente en escenarios de alta complejidad donde múltiples factores o criterios deben ser tenidos en cuenta.
@@ -142,19 +143,18 @@
 </body>
 
 <script>
-    // Obtiene el token JWT almacenado en una cookie llamada 'jwt_token'.
-    const token = document.cookie
-        .split('; ')
-        .find(row => row.startsWith('session='))
-        .split('=')[1];
-    console.log(token);
-    // Decodifica el token JWT y muestra la información que necesitas.
-    if (token) {
-        const decodedToken = JSON.parse(atob(token.split('.')[1]));
-        document.getElementById('username').textContent = decodedToken.user;
-    } else {
-        console.log("No hay token")
-    }
+            // Recuperar el nombre del usuario del almacenamiento local
+            const nombreUsuario = localStorage.getItem('nombreUsuario');
+            
+
+            // Verificar si se ha guardado un nombre de usuario en el almacenamiento local
+            if (nombreUsuario) {
+                // Si hay un nombre de usuario, mostrar el mensaje de bienvenida
+                document.getElementById('bienvenida').innerText = `Bienvenido ${nombreUsuario}`;
+            } else {
+                // Si no hay un nombre de usuario, mostrar un mensaje genérico
+                document.getElementById('bienvenida').innerText = 'Bienvenido';
+            }
 </script>
 
 </html>

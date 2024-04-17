@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,7 +28,7 @@
         
         <article class="">
            
-            <form class="p-14 grid gap-6 md:w-1/2" action="/login" method="POST">
+            <form class="p-14 grid gap-6 md:w-1/2" action="/login" method="POST" onsubmit="return validarFormulario();">
 
                  {% if mensaje %}
                  <p class="text-orange ml-3 text-lg text-center">{{ mensaje }}</p>
@@ -52,7 +50,68 @@
             <p>Don't have an account? <a href="/signup">Signup</a></p>
         </article>
     </section>
-   
+
+    <script>
+        // Array que simula la base de datos de usuarios
+        const usuarios = [
+            {
+                nombre: 'Juan',
+                escolaridad: 'Licenciatura',
+                email: 'juan@example.com',
+                password: 'contrasena123'
+            },
+            {
+                nombre: 'Dynhora',
+                escolaridad: 'Postgrado',
+                email: 'dramirez@utch.edu.mx',
+                password: 'RO2024@'
+            }
+            // Agrega más usuarios según sea necesario
+        ];
+    
+        // Función para validar las credenciales del usuario
+        function validarCredenciales(email, password) {
+            // Busca el usuario en el array por su correo electrónico
+            const usuario = usuarios.find(usuario => usuario.email === email);
+    
+            // Si no se encuentra un usuario con ese correo electrónico, retorna false
+            if (!usuario) {
+                return false;
+            }
+    
+            // Si se encuentra un usuario con ese correo electrónico, verifica la contraseña
+            if (usuario.password === password) {
+                return usuario; // Devuelve el usuario si las credenciales son válidas
+            } else {
+                return false; // La contraseña es incorrecta
+            }
+        }
+    
+        // Función para validar el formulario antes de enviarlo
+        function validarFormulario() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+    
+            const usuarioValido = validarCredenciales(email, password);
+    
+            if (usuarioValido) {
+                // Si las credenciales son válidas, se muestra un mensaje y se guarda el nombre del usuario en el almacenamiento local
+                console.log('Inicio de sesión exitoso para el usuario con correo electrónico:', email);
+                alert('Inicio de sesión exitoso para el usuario con correo electrónico:', email);
+                localStorage.setItem('nombreUsuario', usuarioValido.nombre); // Guarda el nombre del usuario en el almacenamiento local
+                setTimeout(() => {
+                    window.location.href = "/"; // Redirige a la página principal después de mostrar la alerta
+                }, 1000); // Espera 1 segundo antes de redirigir
+                return false; // Evita que el formulario se envíe automáticamente
+            } else {
+                // Si las credenciales son inválidas, se muestra un mensaje de error y no se envía el formulario
+                console.log('Correo electrónico o contraseña incorrectos para el usuario:', email);
+                alert('Correo electrónico o contraseña incorrectos.');
+                return false; // Evita que el formulario se envíe automáticamente
+            }
+        }
+    </script>
+    
     
 </body>
 </html>
