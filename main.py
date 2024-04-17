@@ -9,8 +9,7 @@ import jwt
 import mysql.connector
 import numpy as np
 from flask import (Flask, jsonify, make_response, render_template, request,
-                   session)
-from flask import send_from_directory
+                   send_from_directory, session)
 from flask_sqlalchemy import SQLAlchemy
 from numpy import ndarray
 from openpyxl import load_workbook
@@ -42,7 +41,7 @@ class SupaUser(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     nombredb = db.Column(db.String, unique=True, nullable=False)
     escolaridaddb = db.Column(db.String, nullable=False)
-    nacimientodb = db.Column(db.Date, nullable=False)
+    #nacimientodb = db.Column(db.Date, nullable=False)
     emaildb = db.Column(db.String, nullable=False)
     passworddb = db.Column(db.String, nullable=False)
     
@@ -1556,14 +1555,14 @@ def sign_validation():
     listaErrores = {
         'nombre': '',
         'escolaridad' : '',
-        'nacimiento' : '',
+        #'nacimiento' : '',
         'email' : '',
         'password' : ''
     }
     if request.method == 'POST': 
         nombre = request.form['nombre']
         escolaridad = request.form['escolaridad']
-        nacimiento = request.form['nacimiento']
+        #nacimiento = request.form['nacimiento']
         email = request.form['email']
         password = request.form['password']
         mensaje = ''
@@ -1580,8 +1579,8 @@ def sign_validation():
         elif not re.match("^[a-zA-Z\s]+$", escolaridad):
                 listaErrores['escolaridad'] = 'Favor de ingresar solo letras'
         
-        if not nacimiento:
-            listaErrores['nacimiento'] = 'Completa este campo'
+        # if not nacimiento:
+        #     listaErrores['nacimiento'] = 'Completa este campo'
 
         if not email:
             listaErrores['email'] = 'Completa este campo'
@@ -1601,7 +1600,7 @@ def sign_validation():
             try:
                 with app.app_context():
                     db.create_all()
-                    user = SupaUser(nombredb=nombre, escolaridaddb=escolaridad, nacimientodb=nacimiento, emaildb=email, passworddb=passwordHashed)
+                    user = SupaUser(nombredb=nombre, escolaridaddb=escolaridad, emaildb=email, passworddb=passwordHashed)
                     db.session.add(user)
                     db.session.commit()
                     mensaje = "Registro realizado con éxito!"

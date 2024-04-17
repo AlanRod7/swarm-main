@@ -42,13 +42,12 @@
                 {% endif %}
 
             <div class="bg-stone rounded-xl flex py-4 px-2 items-center">
-                <label for="escolaridad" class="ml-3 text-cobalt-blue text-lg">Grado académico</label><br>
-                <select class="py-3 text-dark-gray-blue px-4 pe-9 block w-full border-gray-200 rounded-full text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600" name="" id="">
+                <label value="{{escolaridad}}" for="escolaridad" class="ml-3 text-cobalt-blue text-lg">Grado académico</label><br>
+                <select class="py-3 text-dark-gray-blue px-4 pe-9 block w-full border-gray-200 rounded-full text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600" name="escolaridad" id="escolaridad">
                     <option selected disabled value=""  class="ml-auto font-bold text-dark-gray-blue rounded-xl text-center" >Seleccione una opción</option>
-                    <option value=""  class="ml-auto font-bold text-dark-gray-blue rounded-xl text-center">Licenciatura</option>
-                    <option value=""  class="ml-auto font-bold text-dark-gray-blue rounded-xl text-center">Maestría</option>
-                    <option value=""  class="ml-auto font-bold text-dark-gray-blue rounded-xl text-center">Posgrado</option>
-                    
+                    <option value="Licenciatura"  class="ml-auto font-bold text-dark-gray-blue rounded-xl text-center">Licenciatura</option>
+                    <option value="Maestría"  class="ml-auto font-bold text-dark-gray-blue rounded-xl text-center">Maestría</option>
+                    <option value="Posgrado"  class="ml-auto font-bold text-dark-gray-blue rounded-xl text-center">Posgrado</option>
                 </select>
             </div>
             
@@ -93,7 +92,7 @@
                 <p class="text-orange ml-1 text-sm text-center">{{ listaErrores['password'] }}</p>
                 {% endif %}
                 
-            <button class="bg-gray text-white rounded-full py-5 text-center font-bold hover:bg-gray-light text-2xl hover:text-blue" type="submit" id="" name="" value="">Submit</button>
+            <button class="bg-gray text-white rounded-full py-5 text-center font-bold hover:bg-gray-light text-2xl hover:text-blue" type="submit" id="" name="" value="" >Submit</button>
             <div>
             </form>
 
