@@ -41,7 +41,7 @@
 
       <div class="bg-white pt-8">
         <div class="container mx-auto rounded-xl bg-white px-8 py-10 shadow-2xl">
-            <h1 class="text-center text-3xl font-semibold capitalize text-gray-800 lg:text-4xl">Algoritmo de optimización de Colonia de Hormigas (ACO)</h1>
+            <h1 class="text-center text-3xl font-semibold text-gray-800 lg:text-4xl">Algoritmo de optimización de Colonia de Hormigas (ACO)</h1>
             <p class="mt-6 text-justify">
               El Algoritmo de Optimización de Colonias de Hormigas (ACO) es una potente técnica de optimización inspirada en el comportamiento de las colonias de hormigas reales. Fue concebido por Marco Dorigo en 1995  y se ha consolidado como una herramienta altamente efectiva para resolver problemas de optimización combinatoria. Estos desafíos involucran la búsqueda de la mejor solución entre múltiples opciones disponibles, y el ACO ha demostrado su utilidad en diversas áreas, desde la logística hasta la planificación de rutas, la asignación de recursos y la programación.
               La clave del éxito del ACO radica en la habilidad de las feromonas para transmitir información colectiva sobre las soluciones más prometedoras. <br>Conforme las hormigas encuentran soluciones de alta calidad, las feromonas se acumulan en los caminos correspondientes, atrayendo a más hormigas hacia estas soluciones. Este mecanismo facilita que el algoritmo converja hacia soluciones óptimas o cercanas a óptimas en problemas combinatorios complejos.
@@ -57,11 +57,11 @@
                     <!-- <h1 class="text-3xl font-bold text-gray-800 lg:text-4xl"></h1> -->
                 </div>
                 <div class="container mx-auto rounded-xl bg-white px-8 py-10 shadow-2xl">
-                    <h1 class="text-center text-3xl font-semibold capitalize text-gray-800 lg:text-4xl">
+                    <h1 class="text-center text-3xl font-semibold text-gray-800 lg:text-4xl">
                       El funcionamiento del algoritmo de Colonias de Hormigas se puede resumir en los siguientes pasos:
                     </h1>
                     <p class="text-justify text-gray-500">
-                        <div class="mt-10">
+                        <div class="mt-10" style="text-align: left;">
                             <li><strong>Inicialización de feromonas: </strong></li>
                             <h2>
                               En el inicio del algoritmo, se asigna una cantidad de "feromona" a todas las posibles soluciones o caminos en el espacio de búsqueda. Las feromonas son sustancias químicas que las hormigas reales utilizan para comunicarse entre sí y marcar caminos. En el contexto del ACO, las feromonas representan información compartida entre las soluciones candidatas.                            </h2>
@@ -69,7 +69,7 @@
                         </div>
                     </p>
                     <p class="text-justify text-gray-500">
-                        <div class="mt-10">
+                        <div class="mt-10" style="text-align: left;">
                             <li><strong>Construcción de soluciones: </strong></li>
                             <h2>
                               Se generan soluciones candidatas de manera probabilística. Cada hormiga (representando una solución) construye su propia solución visitando las opciones disponibles en función de las feromonas y una heurística que evalúa la calidad de las soluciones parciales. Las hormigas siguen caminos que tienen feromonas más fuertes y que parecen prometedores según la heurística.                            </h2>
@@ -77,31 +77,31 @@
                         </div>
                     </p>
                     <p class="text-justify text-gray-500">
-                        <div class="mt-10">
+                        <div class="mt-10" style="text-align: left;">
                             <li><strong>Evaluación y actualización de feromonas: </strong></li>
                             <h2>
                               Una vez que una hormiga ha construido una solución completa, se evalúa su calidad utilizando una función objetivo. Las soluciones de alta calidad dejan una cantidad mayor de feromona en los caminos que han seguido. Además, con el tiempo, las feromonas se evaporan gradualmente, lo que simula el proceso de olvido en las hormigas reales.                            <!-- ... (otros elementos li y h2) ... -->
                         </div>
                     </p>
                     <p class="text-justify text-gray-500">
-                        <div class="mt-10">
+                        <div class="mt-10" style="text-align: left;">
                             <li><strong>Mejora de las soluciones: </strong></li>
                             <h2>
                               A lo largo de múltiples iteraciones, las hormigas continúan construyendo soluciones, evaluando su calidad y actualizando las feromonas. Con el tiempo, la concentración de feromonas tiende a acumularse en los caminos que conducen a soluciones de alta calidad.                        </div>
                     </p>
                     <p class="text-justify text-gray-500">
-                        <div class="mt-10">
+                        <div class="mt-10" style="text-align: left;">
                             <li><strong>Comunicación: </strong></li>
                             <h2>
                               Los murciélagos también pueden comunicarse entre sí emitiendo llamadas de frecuencia ultrasónica. Esta comunicación permite a los murciélagos compartir información sobre soluciones prometedoras y, en consecuencia, converger más rápidamente hacia soluciones óptimas.                        </div>
                     </p>
                     <p class="text-justify text-gray-500">
-                        <div class="mt-10">
+                        <div class="mt-10" style="text-align: left;">
                             <li><strong>Exploración y explotación: </strong></li>
                             <h2>
                               El ACO equilibra la exploración (buscar nuevas soluciones) y la explotación (refinar las soluciones existentes). Las feromonas guían a las hormigas hacia soluciones prometedoras, pero también permiten cierta exploración de otras posibilidades.                    </p>
                     <p class="text-justify text-gray-500">
-                        <div class="mt-10">
+                        <div class="mt-10" style="text-align: left;">
                             <li><strong>Criterio de parada: </strong></li>
                             <h2>
                               El algoritmo de Colonias de Hormigas se ejecuta durante un número fijo de iteraciones o hasta que se cumpla un criterio de parada predefinido, como alcanzar un valor objetivo o una tolerancia específica.
@@ -114,9 +114,12 @@
                 </div>
             </section>
         </div>
-    </div>
-
-      <div class="mt-1 flex items-center justify-center">
+  </div>
+  <div class=" flex items-center justify-center max-w-lg">
+    <a class="text-lg p-8 text-blue-500 transition-all duration-100 ease-in-out hover:font-bold nav-link"
+      href="/casoexperimental">Caso Experimental</a>
+  </div>
+  <div class="mt-1 flex items-center justify-center">
         <a href="/aco" class="text-lg p-8 transition-all duration-100 ease-in-out hover:font-bold nav-link">
             ACO
         </a>
