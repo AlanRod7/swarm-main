@@ -1710,5 +1710,13 @@ def descargar_zip():
     filename = 'Compara.zip'
     return send_from_directory(directorio, filename, as_attachment=True)
 
+
+@app.route('/descargar-parametros')
+def descargar_parametros():
+    directorio = ''  # Asegúrate de que este directorio exista y sea accesible
+    filename = 'entradas-Programa.xlsx'
+    return send_from_directory(directorio, filename, as_attachment=True)
+
+
 if '__main__' == __name__:
     app.run(port=5000, debug=True)

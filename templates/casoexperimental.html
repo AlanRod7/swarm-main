@@ -1,53 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-      crossorigin="anonymous"
-    ></script>
-  </head>
 
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+    <title>Caso experimental</title>
+    
+  </head>
+</head>
+
+<body>
+  <nav class="bg-light p-4">
+    <div class="container mx-auto flex justify-between items-center">
       <a class="navbar-brand" href="/">Algorithms App</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-          <!-- Align items to the right -->
+      <div class="flex">
+        <ul class="flex space-x-4">
           <li class="nav-item active">
             <a class="nav-link" href="/">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/casoexperimental">Caso Experimental</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/topsis">MCDM</a>
@@ -62,151 +44,161 @@
             <a class="nav-link" href="/aco">ACO</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/comparacion">Comparación</a>
+            <a class="nav-link" href="/comparacionGeneral">Comparación</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/acercade">Acerca De</a>
           </li>
         </ul>
       </div>
-    </nav>
-    <div class="justify-center items-center">
-      <h1 class="text-4xl text-center font-semibold m-4">Caso experimental</h1>
-      <p class="text-justify my-8 mx-44">
-        Los datos de entrada utilizados para los algoritmos provienen
-        específicamente del proceso de moldeo por inyección de plástico de una
-        empresa manufacturera ubicada en Ciudad Juárez, Chihuahua, México. Este
-        proceso, ampliamente empleado en la industria manufacturera para
-        producir piezas de plástico en masa con precisión y detalles
-        intrincados, abarca una amplia gama de aplicaciones, desde juguetes y
-        embalajes hasta componentes automotrices y dispositivos médicos.
-        <br />
-        <br />
-        Durante esta operación, los gránulos de plástico se funden en una
-        máquina especializada y se inyectan con precisión en un molde cerrado
-        con la forma deseada. Dentro del molde, el plástico se enfría y
-        solidifica rápidamente, adoptando la forma deseada. Posteriormente, se
-        abre el molde y se expulsa la pieza moldeada.
-        <br />
-        <br />
-        Las características críticas dentro de este proceso aseguran la calidad
-        y eficiencia de este. Estas incluyen la temperatura de fusión, la
-        temperatura del molde, el tiempo de llenado, el tiempo de envasado y la
-        precisión del envasado. La temperatura de fusión influye en el flujo del
-        plástico durante la inyección, mientras que su mantenimiento adecuado
-        previene defectos. La temperatura del molde afecta la velocidad de
-        enfriamiento y la calidad de la superficie de la pieza. Un tiempo de
-        llenado adecuado previene problemas como el exceso de material o llenado
-        incompleto, así como la generación de tensiones internas en la pieza. El
-        tiempo de envasado adecuado garantiza una solidificación uniforme del
-        plástico en todas las áreas del molde, mejorando la densidad y
-        reduciendo posibles defectos como la contracción. La presión de envasado
-        adecuada ayuda en la compactación del material, reduce la porosidad y
-        mejora la homogeneidad de la pieza moldeada. El control preciso de estas
-        características es esencial para garantizar que la pieza final cumpla
-        con las especificaciones requeridas en términos de calidad, precisión
-        dimensional y propiedades físicas.
-        <br />
-        <br />
-        Optimizar estas características es crucial para prevenir defectos y
-        mantener una producción eficiente y consistente en el proceso de moldeo
-        por inyección de plástico. En consecuencia, se ha diseñado una matriz de
-        decisión que comprende cinco criterios: temperatura de fusión (C1),
-        temperatura del molde (C2), tiempo de llenado (C3), tiempo de envasado
-        (C4) y presión de envasado (C5), además de nueve alternativas (A1,
-        A2...A9) con valores asignados para estas características.
-      </p>
     </div>
-    <div class="max-w-screen-md mx-auto my-10">
-      <h2 class="text-2xl font-bold text-center mb-4">Tabla de datos</h2>
-      <div class="overflow-x-auto">
-        <table class="table-auto w-full">
-          <thead>
-            <tr class="bg-gray-200">
-              <th class="px-4 py-2">A</th>
-              <th class="px-4 py-2">C1</th>
-              <th class="px-4 py-2">C2</th>
-              <th class="px-4 py-2">C3</th>
-              <th class="px-4 py-2">C4</th>
-              <th class="px-4 py-2">C5</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="border px-4 py-2 text-center">A1</td>
-              <td class="border px-4 py-2 text-center">0.048</td>
-              <td class="border px-4 py-2 text-center">0.047</td>
-              <td class="border px-4 py-2 text-center">0.070</td>
-              <td class="border px-4 py-2 text-center">0.087</td>
-              <td class="border px-4 py-2 text-center">0.190</td>
-            </tr>
-            <tr>
-              <td class="border px-4 py-2 text-center">A2</td>
-              <td class="border px-4 py-2 text-center">0.053</td>
-              <td class="border px-4 py-2 text-center">0.052</td>
-              <td class="border px-4 py-2 text-center">0.066</td>
-              <td class="border px-4 py-2 text-center">0.081</td>
-              <td class="border px-4 py-2 text-center">0.058</td>
-            </tr>
-            <tr>
-              <td class="border px-4 py-2 text-center">A3</td>
-              <td class="border px-4 py-2 text-center">0.057</td>
-              <td class="border px-4 py-2 text-center">0.057</td>
-              <td class="border px-4 py-2 text-center">0.066</td>
-              <td class="border px-4 py-2 text-center">0.076</td>
-              <td class="border px-4 py-2 text-center">0.022</td>
-            </tr>
-            <tr>
-              <td class="border px-4 py-2 text-center">A4</td>
-              <td class="border px-4 py-2 text-center">0.062</td>
-              <td class="border px-4 py-2 text-center">0.062</td>
-              <td class="border px-4 py-2 text-center">0.063</td>
-              <td class="border px-4 py-2 text-center">0.058</td>
-              <td class="border px-4 py-2 text-center">0.007</td>
-            </tr>
-            <tr>
-              <td class="border px-4 py-2 text-center">A5</td>
-              <td class="border px-4 py-2 text-center">0.066</td>
-              <td class="border px-4 py-2 text-center">0.066</td>
-              <td class="border px-4 py-2 text-center">0.070</td>
-              <td class="border px-4 py-2 text-center">0.085</td>
-              <td class="border px-4 py-2 text-center">0.004</td>
-            </tr>
-            <tr>
-              <td class="border px-4 py-2 text-center">A6</td>
-              <td class="border px-4 py-2 text-center">0.070</td>
-              <td class="border px-4 py-2 text-center">0.071</td>
-              <td class="border px-4 py-2 text-center">0.066</td>
-              <td class="border px-4 py-2 text-center">0.058</td>
-              <td class="border px-4 py-2 text-center">0.003</td>
-            </tr>
-            <tr>
-              <td class="border px-4 py-2 text-center">A7</td>
-              <td class="border px-4 py-2 text-center">0.075</td>
-              <td class="border px-4 py-2 text-center">0.075</td>
-              <td class="border px-4 py-2 text-center">0.066</td>
-              <td class="border px-4 py-2 text-center">0.047</td>
-              <td class="border px-4 py-2 text-center">0.002</td>
-            </tr>
-            <tr>
-              <td class="border px-4 py-2 text-center">A8</td>
-              <td class="border px-4 py-2 text-center">0.079</td>
-              <td class="border px-4 py-2 text-center">0.079</td>
-              <td class="border px-4 py-2 text-center">0.066</td>
-              <td class="border px-4 py-2 text-center">0.035</td>
-              <td class="border px-4 py-2 text-center">0.002</td>
-            </tr>
-            <tr>
-              <td class="border px-4 py-2 text-center">A9</td>
-              <td class="border px-4 py-2 text-center">0.083</td>
-              <td class="border px-4 py-2 text-center">0.083</td>
-              <td class="border px-4 py-2 text-center">0.066</td>
-              <td class="border px-4 py-2 text-center">0.051</td>
-              <td class="border px-4 py-2 text-center">0.000</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+  </nav>
+  <div class="justify-center items-center">
+    <h1 class="text-4xl text-center font-semibold m-4">Caso experimental</h1>
+    <p class="text-justify my-8 mx-44">
+      Los datos de entrada utilizados para los algoritmos provienen
+      específicamente del proceso de moldeo por inyección de plástico de una
+      empresa manufacturera ubicada en Ciudad Juárez, Chihuahua, México. Este
+      proceso, ampliamente empleado en la industria manufacturera para
+      producir piezas de plástico en masa con precisión y detalles
+      intrincados, abarca una amplia gama de aplicaciones, desde juguetes y
+      embalajes hasta componentes automotrices y dispositivos médicos.
+      <br />
+      <br />
+      Durante esta operación, los gránulos de plástico se funden en una
+      máquina especializada y se inyectan con precisión en un molde cerrado
+      con la forma deseada. Dentro del molde, el plástico se enfría y
+      solidifica rápidamente, adoptando la forma deseada. Posteriormente, se
+      abre el molde y se expulsa la pieza moldeada.
+      <br />
+      <br />
+      Las características críticas dentro de este proceso aseguran la calidad
+      y eficiencia de este. Estas incluyen la temperatura de fusión, la
+      temperatura del molde, el tiempo de llenado, el tiempo de envasado y la
+      precisión del envasado. La temperatura de fusión influye en el flujo del
+      plástico durante la inyección, mientras que su mantenimiento adecuado
+      previene defectos. La temperatura del molde afecta la velocidad de
+      enfriamiento y la calidad de la superficie de la pieza. Un tiempo de
+      llenado adecuado previene problemas como el exceso de material o llenado
+      incompleto, así como la generación de tensiones internas en la pieza. El
+      tiempo de envasado adecuado garantiza una solidificación uniforme del
+      plástico en todas las áreas del molde, mejorando la densidad y
+      reduciendo posibles defectos como la contracción. La presión de envasado
+      adecuada ayuda en la compactación del material, reduce la porosidad y
+      mejora la homogeneidad de la pieza moldeada. El control preciso de estas
+      características es esencial para garantizar que la pieza final cumpla
+      con las especificaciones requeridas en términos de calidad, precisión
+      dimensional y propiedades físicas.
+      <br />
+      <br />
+      Optimizar estas características es crucial para prevenir defectos y
+      mantener una producción eficiente y consistente en el proceso de moldeo
+      por inyección de plástico. En consecuencia, se ha diseñado una matriz de
+      decisión que comprende cinco criterios: temperatura de fusión (C1),
+      temperatura del molde (C2), tiempo de llenado (C3), tiempo de envasado
+      (C4) y presión de envasado (C5), además de nueve alternativas (A1,
+      A2...A9) con valores asignados para estas características.
+    </p>
+  </div>
+  <div class="flex items-center max-w-lg">
+    <a href="/descargar-parametros">
+      <button
+        class="text-black mt-5 ml-9 hover:bg-blue font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center bg-slate-400">
+        Rango parámetros
+      </button>
+    </a>
+  </div>
+  <div class="max-w-screen-md mx-auto my-10">
+    <h2 class="text-2xl font-bold text-center mb-4">Tabla de datos</h2>
+    <div class="overflow-x-auto">
+      <table class="table-auto w-full">
+        <thead>
+          <tr class="bg-gray-200">
+            <th class="px-4 py-2">A</th>
+            <th class="px-4 py-2">C1</th>
+            <th class="px-4 py-2">C2</th>
+            <th class="px-4 py-2">C3</th>
+            <th class="px-4 py-2">C4</th>
+            <th class="px-4 py-2">C5</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="border px-4 py-2 text-center">A1</td>
+            <td class="border px-4 py-2 text-center">0.048</td>
+            <td class="border px-4 py-2 text-center">0.047</td>
+            <td class="border px-4 py-2 text-center">0.070</td>
+            <td class="border px-4 py-2 text-center">0.087</td>
+            <td class="border px-4 py-2 text-center">0.190</td>
+          </tr>
+          <tr>
+            <td class="border px-4 py-2 text-center">A2</td>
+            <td class="border px-4 py-2 text-center">0.053</td>
+            <td class="border px-4 py-2 text-center">0.052</td>
+            <td class="border px-4 py-2 text-center">0.066</td>
+            <td class="border px-4 py-2 text-center">0.081</td>
+            <td class="border px-4 py-2 text-center">0.058</td>
+          </tr>
+          <tr>
+            <td class="border px-4 py-2 text-center">A3</td>
+            <td class="border px-4 py-2 text-center">0.057</td>
+            <td class="border px-4 py-2 text-center">0.057</td>
+            <td class="border px-4 py-2 text-center">0.066</td>
+            <td class="border px-4 py-2 text-center">0.076</td>
+            <td class="border px-4 py-2 text-center">0.022</td>
+          </tr>
+          <tr>
+            <td class="border px-4 py-2 text-center">A4</td>
+            <td class="border px-4 py-2 text-center">0.062</td>
+            <td class="border px-4 py-2 text-center">0.062</td>
+            <td class="border px-4 py-2 text-center">0.063</td>
+            <td class="border px-4 py-2 text-center">0.058</td>
+            <td class="border px-4 py-2 text-center">0.007</td>
+          </tr>
+          <tr>
+            <td class="border px-4 py-2 text-center">A5</td>
+            <td class="border px-4 py-2 text-center">0.066</td>
+            <td class="border px-4 py-2 text-center">0.066</td>
+            <td class="border px-4 py-2 text-center">0.070</td>
+            <td class="border px-4 py-2 text-center">0.085</td>
+            <td class="border px-4 py-2 text-center">0.004</td>
+          </tr>
+          <tr>
+            <td class="border px-4 py-2 text-center">A6</td>
+            <td class="border px-4 py-2 text-center">0.070</td>
+            <td class="border px-4 py-2 text-center">0.071</td>
+            <td class="border px-4 py-2 text-center">0.066</td>
+            <td class="border px-4 py-2 text-center">0.058</td>
+            <td class="border px-4 py-2 text-center">0.003</td>
+          </tr>
+          <tr>
+            <td class="border px-4 py-2 text-center">A7</td>
+            <td class="border px-4 py-2 text-center">0.075</td>
+            <td class="border px-4 py-2 text-center">0.075</td>
+            <td class="border px-4 py-2 text-center">0.066</td>
+            <td class="border px-4 py-2 text-center">0.047</td>
+            <td class="border px-4 py-2 text-center">0.002</td>
+          </tr>
+          <tr>
+            <td class="border px-4 py-2 text-center">A8</td>
+            <td class="border px-4 py-2 text-center">0.079</td>
+            <td class="border px-4 py-2 text-center">0.079</td>
+            <td class="border px-4 py-2 text-center">0.066</td>
+            <td class="border px-4 py-2 text-center">0.035</td>
+            <td class="border px-4 py-2 text-center">0.002</td>
+          </tr>
+          <tr>
+            <td class="border px-4 py-2 text-center">A9</td>
+            <td class="border px-4 py-2 text-center">0.083</td>
+            <td class="border px-4 py-2 text-center">0.083</td>
+            <td class="border px-4 py-2 text-center">0.066</td>
+            <td class="border px-4 py-2 text-center">0.051</td>
+            <td class="border px-4 py-2 text-center">0.000</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>
