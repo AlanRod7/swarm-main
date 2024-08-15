@@ -615,11 +615,11 @@ def daaco():
         rho = float(request.form['rho'])
         Q = int(request.form['Q'])
         n_ants = int(request.form['n_ants'])
-        n_iterations = int(request.form['n_iterations'])
+        iter_max = int(request.form['iter_max'])
 
         
         # Llama a la función de procesar_datos 
-        datosDaaco = asyncio.run(ejecutar_daaco(w, alpha, beta, rho, Q, n_ants, n_iterations))
+        datosDaaco = asyncio.run(ejecutar_daaco(w, alpha, beta, rho, Q, n_ants, iter_max))
 
         return render_template('daaco.html', datosDaaco=datosDaaco)
     except Exception as e:
@@ -642,10 +642,10 @@ def calcular_daaco():
         rho = float(request.form['rho'])
         Q = int(request.form['Q'])
         n_ants = int(request.form['n_ants'])
-        n_iterations = int(request.form['n_iterations'])
+        iter_max = int(request.form['iter_max'])
 
         # Llama a la función de PSO en pso.py
-        datosDaaco = asyncio.run(ejecutar_daaco(w, alpha, beta, rho, Q, n_ants, n_iterations))
+        datosDaaco = asyncio.run(ejecutar_daaco(w, alpha, beta, rho, Q, n_ants, iter_max))
         print("Resultados de la ejecución:", datosDaaco)
 
         # Devuelve los resultados como JSON
@@ -680,10 +680,10 @@ def mooraaco():
         rho = float(request.form['rho'])
         Q = int(request.form['Q'])
         n_ants = int(request.form['n_ants'])
-        n_iterations = int(request.form['n_iterations'])
+        iter_max = int(request.form['iter_max'])
         
         # Llama a la función de procesar_datos 
-        datosMooraaco = asyncio.run(ejecutar_mooraaco(EV,w,alpha,beta,rho,Q,n_ants,n_iterations))
+        datosMooraaco = asyncio.run(ejecutar_mooraaco(EV,w,alpha,beta,rho,Q,n_ants,iter_max))
 
         return render_template('mooraaco.html', datosMooraaco=datosMooraaco)
     except Exception as e:
@@ -711,10 +711,10 @@ def calcular_mooraaco():
         rho = float(request.form['rho'])
         Q = int(request.form['Q'])
         n_ants = int(request.form['n_ants'])
-        n_iterations = int(request.form['n_iterations'])
+        iter_max = int(request.form['iter_max'])
 
         # Llama a la función de PSO en pso.py
-        datosMooraaco = asyncio.run(ejecutar_mooraaco(EV,w,alpha,beta,rho,Q,n_ants,n_iterations))
+        datosMooraaco = asyncio.run(ejecutar_mooraaco(EV,w,alpha,beta,rho,Q,n_ants,iter_max))
         print("Resultados de la ejecución:", datosMooraaco)
 
         # Devuelve los resultados como JSON
@@ -744,7 +744,7 @@ def topsisaco():
         rho = float(request.form['rho'])
         Q = int(request.form['Q'])
         n_ants = int(request.form['n_ants'])
-        n_iterations = int(request.form['n_iterations'])
+        iter_max = int(request.form['iter_max'])
         
         # benefit_input = request.form['be']  # Obtén el valor
         
@@ -753,7 +753,7 @@ def topsisaco():
         # benefit_attributes = [int(value) for value in benefit_values if value.strip() != '']
         
         # Llama a la función de procesar_datos 
-        datosTopsisaco = asyncio.run(ejecutar_topsisaco(w,alpha,beta,rho,Q,n_ants,n_iterations))
+        datosTopsisaco = asyncio.run(ejecutar_topsisaco(w,alpha,beta,rho,Q,n_ants,iter_max))
 
         return render_template('topsisaco.html', datosTopsisaco=datosTopsisaco)
     except Exception as e:
@@ -776,7 +776,7 @@ def calcular_topsisaco():
         rho = float(request.form['rho'])
         Q = int(request.form['Q'])
         n_ants = int(request.form['n_ants'])
-        n_iterations = int(request.form['n_iterations'])
+        iter_max = int(request.form['iter_max'])
         
         # benefit_input = request.form['be']  # Obtén el valor
         
@@ -785,7 +785,7 @@ def calcular_topsisaco():
         # benefit_attributes = [int(value) for value in benefit_values if value.strip() != '']
 
         # Llama a la función de PSO en pso.py
-        datosTopsisaco = asyncio.run(ejecutar_topsisaco(w,alpha,beta,rho,Q,n_ants,n_iterations))
+        datosTopsisaco = asyncio.run(ejecutar_topsisaco(w,alpha,beta,rho,Q,n_ants,iter_max))
         print("Resultados de la ejecución:", datosTopsisaco)
 
         # Devuelve los resultados como JSON
@@ -961,65 +961,68 @@ def calcular_comparacionBa():
 #-------------------------------------------------------------------------------------------------------------------
 
 #-------------------------------------------------------------------------------------------------------------------
-@app.route('/comparacionAco')
+# @app.route('/comparacionAco')
+# def comparacionAco():
+#     try:
+#         # Obtén los datos del formulario
+#         w_input =  [float(request.form[f'w{i}']) for i in range(1, 6)]
+#         w = [float(value) for value in w_input if value != '']  # Filtra valores vacíos
+#         alpha = int(request.form['alpha'])
+#         beta = int(request.form['beta'])
+#         rho = float(request.form['rho'])
+#         Q = int(request.form['Q'])
+#         n_ants = int(request.form['n_ants'])
+#         iter_max = int(request.form['iter_max'])
+        
+#         # Llama a la función de procesar_datos en pso.py
+#         datosAco = asyncio.run(ejecutar_aco(w, alpha, beta, rho, Q, n_ants, iter_max))
+#         datosDaaco = asyncio.run(ejecutar_daaco(w, alpha, beta, rho, Q, n_ants, iter_max))
+#         datosMooraaco = asyncio.run(ejecutar_mooraaco(w, alpha, beta, iter_max))
+#         datosTopsisaco = asyncio.run(ejecutar_topsisaco(w, alpha, beta, iter_max))
+                
+
+#         return render_template('comparacionAco.html', datosAco=datosAco, datosDaaco = datosDaaco , datosMooraaco = datosMooraaco, datosTopsisaco = datosTopsisaco)
+#     except Exception as e:
+#         return render_template('comparacionAco.html', error_message=str(e))
+
+
+@app.route('/comparacionAco', methods=['GET', 'POST'])
 def comparacionAco():
-    try:
-        # Obtén los datos del formulario
-        w_input =  [float(request.form[f'w{i}']) for i in range(1, 6)]
-        w = [float(value) for value in w_input if value != '']  # Filtra valores vacíos
-        alpha = float(request.form['alpha'])
-        gamma = float(request.form['gamma'])
-        iter_max = int(request.form['T'])
-        
-        # Llama a la función de procesar_datos en pso.py
-        datosAco = asyncio.run(ejecutar_ba(w, alpha, gamma, iter_max))
-        datosDaaco = asyncio.run(ejecutar_daba(w, alpha, gamma, iter_max))
-        datosMooraaco = asyncio.run(ejecutar_mooraba(w, alpha, gamma, iter_max))
-        datosTopsisaco = asyncio.run(ejecutar_topsisba(w, alpha, gamma, iter_max))
-        
-        
-        
+    if request.method == 'POST':
+        try:
+            ev_input = request.form['ev']  # Obtén el valor
+            ev_values = ev_input.split(',')
+            EV = [str(value) for value in ev_values if value.strip() != '']
 
-        return render_template('comparacionAco.html', datosAco=datosAco, datosDaaco = datosDaaco , datosMooraaco = datosMooraaco, datosTopsisaco = datosTopsisaco)
-    except Exception as e:
-        return render_template('comparacionAco.html', error_message=str(e))
+             # Obtén los datos del formulario
+            w_input = request.form['w']  # Obtén el valor seleccionado del menú desplegable desde el formulario
 
+            # Divide la cadena en una lista de valores usando la coma como separador
+            w_values = w_input.split(',')
 
-@app.route('/comparacionAco', methods=['POST'])
-def calcular_comparacionAco():
-    try:
-        # Obtén los datos del formulario
-        w_input =  [float(request.form[f'w{i}']) for i in range(1, 6)]
-        w = [float(value) for value in w_input if value != '']  # Filtra valores vacíos
-        alpha = float(request.form['alpha'])
-        gamma = float(request.form['gamma'])
-        iter_max = int(request.form['T'])
-        
-        # Llama a la función de procesar_datos en pso.py
-        datosAco = asyncio.run(ejecutar_ba(w, alpha, gamma, iter_max))
-        datosDaaco = asyncio.run(ejecutar_daba(w, alpha, gamma, iter_max))
-        datosMooraaco = asyncio.run(ejecutar_mooraba(w, alpha, gamma, iter_max))
-        datosTopsisaco = asyncio.run(ejecutar_topsisba(w, alpha, gamma, iter_max))
+            # Convierte cada valor en la lista a un número flotante, filtrando valores vacíos
+            w = [float(value) for value in w_values if value.strip() != '']     
+            alpha = int(request.form['alpha'])
+            beta = int(request.form['beta'])
+            rho = float(request.form['rho'])
+            Q = int(request.form['Q'])
+            n_ants = int(request.form['n_ants'])
+            iter_max = int(request.form['iter_max'])
+            
+            # Llama a la función de procesar_datos
+            datosAco = asyncio.run(ejecutar_aco(w, alpha, beta, rho, Q, n_ants, iter_max))
+            datosDaaco = asyncio.run(ejecutar_daaco(w, alpha, beta, rho, Q, n_ants, iter_max))
+            datosMooraaco = asyncio.run(ejecutar_mooraaco(EV, w, alpha, beta, rho, Q, n_ants, iter_max))
+            datosTopsisaco = asyncio.run(ejecutar_topsisaco(w, alpha, beta, iter_max))
 
-        # Llama a la función de PSO en pso.py
-        
-        
-        print("Resultados de la ejecución:", datosAco) 
-        print("Resultados de la ejecución:", datosDaaco) 
-        print("Resultados de la ejecución:", datosMooraaco) 
-        print("Resultados de la ejecución:", datosTopsisaco) 
-
-        # Obtén los resultados específicos que deseas mostrar
-        # dataGBP = resultados['dataGBP']
-        # dataGBF = resultados['dataGBF']
-        # dataResult = resultados['dataResult']
-
-        # Puedes hacer lo que quieras con los resultados, por ejemplo, pasarlos al template
-        return jsonify(datosAco,datosDaaco,datosMooraaco,datosTopsisaco)
-    except Exception as e:
-        # Manejo de errores, por ejemplo, mostrar un mensaje de error en la interfaz
-       print(f'Error en calcular_comparacion: {str(e)}')
-    return jsonify({'error': 'Ocurrió un error en el servidor'}), 500
+            # Regresa los resultados como JSON
+            return jsonify(datosAco=datosAco, datosDaaco=datosDaaco, datosMooraaco=datosMooraaco, datosTopsisaco=datosTopsisaco)
+        except Exception as e:
+            # Retorna un error JSON detallado
+            return jsonify({'error': str(e)}), 500
+    else:
+        # Para el método GET, solo renderiza el template
+        return render_template('comparacionAco.html')
 
 #-------------------------------------------------------------------------------------------------------------------
         #Algoritmos MCDM - PUROS
@@ -1031,6 +1034,7 @@ def calcular_comparacionAco():
 def aco():
     try:
         # Obtén los datos del formulario
+        w = [0.400, 0.200, 0.030, 0.070, 0.300]
         alpha = int(request.form['alpha'])
         beta = int(request.form['beta'])
         rho = float(request.form['rho'])
@@ -1039,7 +1043,7 @@ def aco():
         iter_max = int(request.form['iter_max'])
         
         # Llama a la función de procesar_datos en pso.py
-        datosAco = asyncio.run(ejecutar_aco(alpha, beta, rho, Q, n_ants, iter_max))
+        datosAco = asyncio.run(ejecutar_aco(w,alpha, beta, rho, Q, n_ants, iter_max))
 
         return render_template('aco.html', datosAco=datosAco)
     except Exception as e:
@@ -1050,6 +1054,7 @@ def aco():
 def calcular_aco():
     try:
        # Obtén los datos del formulario
+        w = [0.400, 0.200, 0.030, 0.070, 0.300]
         alpha = int(request.form['alpha'])
         beta = int(request.form['beta'])
         rho = float(request.form['rho'])
@@ -1058,7 +1063,7 @@ def calcular_aco():
         iter_max = int(request.form['iter_max'])
         
         # Llama a la función de procesar_datos en pso.py
-        datosAco = asyncio.run(ejecutar_aco(alpha, beta, rho, Q, n_ants, iter_max))
+        datosAco = asyncio.run(ejecutar_aco(w, alpha, beta, rho, Q, n_ants, iter_max))
         print("Resultados de la ejecución:", datosAco)
 
         # Devuelve los resultados como JSON

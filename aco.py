@@ -13,7 +13,7 @@ import pandas as pd
 from openpyxl import load_workbook
 
 
-async def ejecutar_aco(alpha, beta, rho, Q, n_ants, iter_max):
+async def ejecutar_aco(w, alpha, beta, rho, Q, n_ants, iter_max):
 
     hora_inicio = datetime.datetime.now()
     fecha_inicio = hora_inicio.date()

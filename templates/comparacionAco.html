@@ -6,6 +6,8 @@
     <title>Comparación ACO</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
   </head>
   <body>
     <nav class="bg-light p-4">
@@ -143,12 +145,22 @@
             <div class="max-w-2xl mx-auto bg-white p-8">
               <form
                 method="POST"
-                id="comparacionFormBa"
+                id="comparacionFormAco"
                 class="rounded-xl bg-white px-8 py-10 shadow-2xl"
               >
                 <h1 class="font-semibold mb-3">Ingrese parámetros de control</h1>
                 <div class="grid gap-6 mb-6 lg:grid-cols-2">
                   <div>
+                    <label for="w" class="block mb-2 text-sm font-medium text-gray-900">Pesos por cada criterio</label>
+                    <select id="w" name="w" class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                      <option value="0.400,0.200,0.030,0.070,0.300">0.400, 0.200, 0.030, 0.070, 0.300</option>
+                      <option value="0.300,0.200,0.200,0.150,0.150">0.300, 0.200, 0.200, 0.150, 0.150</option>
+                      <option value="0.200,0.200,0.200,0.200,0.200">0.200, 0.200, 0.200, 0.200, 0.200</option>
+                      <option value="0.123,0.099,0.043,0.343,0.392">0.123, 0.099, 0.043, 0.343, 0.392</option>
+                    </select>
+                  </div>
+
+                  <!-- <div>
                     <label
                       for="w1"
                       class="block mb-2 text-sm font-medium text-gray-900"
@@ -232,7 +244,7 @@
                       pattern=""
                       required
                     />
-                  </div>
+                  </div> -->
                   <div>
                     <label for="ev" class="block mb-2 text-sm font-medium text-gray-900">Evaluaciones cardinales</label>
                     <select id="ev" name="ev" class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
@@ -242,7 +254,7 @@
                 </div>
                   <div>
                     <label for="alpha" class="block mb-2 text-sm font-medium text-gray-900">Peso de la feromona</label>
-                    <input type="float" step="any" value="1" id="alphab" name="alphab" class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" pattern="" required />
+                    <input type="float" step="any" value="1" id="alpha" name="alpha" class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" pattern="" required />
                   </div>
                   <div>
                     <label for="beta" class="block mb-2 text-sm font-medium text-gray-900">Peso de la heurística</label>
@@ -262,31 +274,17 @@
                   </div>
                   <div>
                     <label class="block mb-2 text-sm font-medium text-gray-900">Cantidad de Iteraciones:</label>
-                    <input type="number" step="any" value="10" id="T" name="T" class="text-center bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" pattern="" required>
+                    <input type="float" step="any" value="10" id="iter_max" name="iter_max" class="text-center bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" pattern="" required>
                   </div>
                   <button
                   type="button"
-                  id="ejecutarComparacionBa"
+                  id="ejecutarComparacionAco"
                   class="text-black mt-5 hover:bg-blue focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center bg-slate-400"
                 >
                   Calcular
                 </button>
-
-                  <!-- Hidden -->
-                  <div hidden>
-                    <label hidden class="block mb-2 text-sm font-medium text-gray-900" >Alpha:</label>
-                    <input hidden type="number" step="any" value="2.5" id="alpha" name="alpha" class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" pattern="" required
-                    />
-                  </div>
-                  <div hidden>
-                    <label class="block mb-2 text-sm font-medium text-gray-900">Gamma:</label>
-                    <input type="number" step="any" value="2.5" id="gamma" name="gamma" class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" pattern="" required/>
-                  </div>
                 </div>
-                
-                
-                
-              </form>
+             </form>
               <div class="pb-5 ">
 
                 <a href="/descargar-zip" >
@@ -312,7 +310,7 @@
                   >
                   <input
                     type="text"
-                    id="ejecucionBa"
+                    id="ejecucionAco"
                     disabled
                     placeholder="Esperando ejecución..."
                     class="text-center bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
@@ -350,7 +348,7 @@
                           {{ i + 1 }}
                         </td>
                         <td
-                          id="alternativaBa{{i}}"
+                          id="alternativaAco{{i}}"
                           class="border border-slate-300 text-center align-middle"
                         ></td>
                         <!-- Repite para las otras mejores alternativas -->
@@ -373,7 +371,7 @@
                     >
                     <input
                     type="text"
-                    id="ejecucionMooraba"
+                    id="ejecucionMooraaco"
                     disabled
                     placeholder="Esperando ejecución..."
                     class="text-center bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
@@ -411,7 +409,7 @@
                           {{ i + 1 }}
                         </td>
                         <td
-                          id="alternativaMooraba{{ i }}"
+                          id="alternativaMooraaco{{ i }}"
                           class="border border-slate-300 text-center align-middle"
                         ></td>
                         <!-- Repite para las otras mejores alternativas -->
@@ -442,7 +440,7 @@
                   >
                   <input
                     type="text"
-                    id="ejecucionDaba"
+                    id="ejecucionDaaco"
                     disabled
                     placeholder="Esperando ejecución..."
                     class="text-center bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
@@ -480,7 +478,7 @@
                           {{ i + 1 }}
                         </td>
                         <td
-                          id="alternativaDaba{{ i }}"
+                          id="alternativaDaaco{{i}}"
                           class="border border-slate-300 text-center align-middle"
                         ></td>
                         <!-- Repite para las otras mejores alternativas -->
@@ -503,7 +501,7 @@
                     >
                     <input
                     type="text"
-                    id="ejecucionTopsisba"
+                    id="ejecucionTopsisaco"
                     disabled
                     placeholder="Esperando ejecución..."
                     class="text-center bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
@@ -541,7 +539,7 @@
                           {{ i + 1 }}
                         </td>
                         <td
-                          id="alternativaTopsisba{{ i }}"
+                          id="alternativaTopsisaco{{ i }}"
                           class="border border-slate-300 text-center align-middle"
                         ></td>
                         <!-- Repite para las otras mejores alternativas -->
@@ -560,6 +558,6 @@
       
     </div>
 
-    <script src="{{ url_for('static', filename='js/comparacionBa.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/comparacionAcos.js') }}"></script>
   </body>
 </html>
