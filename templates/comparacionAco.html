@@ -150,7 +150,7 @@
               >
                 <h1 class="font-semibold mb-3">Ingrese parámetros de control</h1>
                 <div class="grid gap-6 mb-6 lg:grid-cols-2">
-                  <div>
+                  <!-- <div>
                     <label for="w" class="block mb-2 text-sm font-medium text-gray-900">Pesos por cada criterio</label>
                     <select id="w" name="w" class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                       <option value="0.400,0.200,0.030,0.070,0.300">0.400, 0.200, 0.030, 0.070, 0.300</option>
@@ -158,9 +158,9 @@
                       <option value="0.200,0.200,0.200,0.200,0.200">0.200, 0.200, 0.200, 0.200, 0.200</option>
                       <option value="0.123,0.099,0.043,0.343,0.392">0.123, 0.099, 0.043, 0.343, 0.392</option>
                     </select>
-                  </div>
+                  </div> -->
 
-                  <!-- <div>
+                  <div>
                     <label
                       for="w1"
                       class="block mb-2 text-sm font-medium text-gray-900"
@@ -244,7 +244,7 @@
                       pattern=""
                       required
                     />
-                  </div> -->
+                  </div>
                   <div>
                     <label for="ev" class="block mb-2 text-sm font-medium text-gray-900">Evaluaciones cardinales</label>
                     <select id="ev" name="ev" class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
@@ -253,8 +253,8 @@
                     </select>
                 </div>
                   <div>
-                    <label for="alpha" class="block mb-2 text-sm font-medium text-gray-900">Peso de la feromona</label>
-                    <input type="float" step="any" value="1" id="alpha" name="alpha" class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" pattern="" required />
+                    <label for="alphaAco" class="block mb-2 text-sm font-medium text-gray-900">Peso de la feromona</label>
+                    <input type="float" step="any" value="1" id="alphaAco" name="alphaAco" class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" pattern="" required />
                   </div>
                   <div>
                     <label for="beta" class="block mb-2 text-sm font-medium text-gray-900">Peso de la heurística</label>
@@ -274,7 +274,7 @@
                   </div>
                   <div>
                     <label class="block mb-2 text-sm font-medium text-gray-900">Cantidad de Iteraciones:</label>
-                    <input type="float" step="any" value="10" id="iter_max" name="iter_max" class="text-center bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" pattern="" required>
+                    <input type="float" step="any" value="10" id="T" name="T" class="text-center bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" pattern="" required>
                   </div>
                   <button
                   type="button"

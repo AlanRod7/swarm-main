@@ -50,6 +50,17 @@
                 class="rounded-xl bg-white px-8 py-10 shadow-2xl"
               >
                 <h1 class="font-semibold mb-3">Pesos por criterio</h1>
+                <!-- <div>
+                  <div>
+                    <label for="w" class="block mb-2 text-sm font-medium text-gray-900">Pesos por cada criterio</label>
+                    <select id="w" name="w" class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                      <option value="0.400,0.200,0.030,0.070,0.300">0.400, 0.200, 0.030, 0.070, 0.300</option>
+                      <option value="0.300,0.200,0.200,0.150,0.150">0.300, 0.200, 0.200, 0.150, 0.150</option>
+                      <option value="0.200,0.200,0.200,0.200,0.200">0.200, 0.200, 0.200, 0.200, 0.200</option>
+                      <option value="0.123,0.099,0.043,0.343,0.392">0.123, 0.099, 0.043, 0.343, 0.392</option>
+                    </select>
+                  </div>
+                </div> -->
                 <div class="grid gap-6 mb-6 lg:grid-cols-2">
                   <div>
                     <label
@@ -259,8 +270,8 @@
                     </select>
                 </div>
                   <div>
-                    <label for="alph" class="block mb-2 text-sm font-medium text-gray-900">Peso de la feromona</label>
-                    <input type="number" step="any" value="1" id="alpaAco" name="alphaAco" class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" pattern="" required />
+                    <label for="alphaAco" class="block mb-2 text-sm font-medium text-gray-900">Peso de la feromona</label>
+                    <input type="number" step="any" value="1" id="alphaAco" name="alphaAco" class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" pattern="" required />
                   </div>
                   <div>
                     <label for="beta" class="block mb-2 text-sm font-medium text-gray-900">Peso de la heurística</label>
@@ -268,7 +279,7 @@
                   </div>
                   <div>
                     <label for="rho" class="block mb-2 text-sm font-medium text-gray-900">Tasa de evaporación de feromona</label>
-                    <input type="number" step="any" value="0.1" id="rho" name="rho" class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" pattern="" required />
+                    <input type="float" step="any" value="0.1" id="rho" name="rho" class="bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" pattern="" required />
                   </div>
                   <div>
                     <label for="Q" class="block mb-2 text-sm font-medium text-gray-900">Cantidad de feromona depositada</label>
@@ -453,7 +464,7 @@
                     >
                     <input
                     type="text"
-                    id="ejecucionDapso2"
+                    id="ejecucionDaaco"
                     disabled
                     placeholder="Esperando ejecución..."
                     class="text-center bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
@@ -491,7 +502,7 @@
                           {{ i + 1 }}
                         </td>
                         <td
-                          id="alternativaDapso2{{ i }}"
+                          id="alternativaDaaco{{ i }}"
                           class="border border-slate-300 text-center align-middle"
                         ></td>
                         <!-- Repite para las otras mejores alternativas -->
@@ -645,7 +656,7 @@
                       >
                       <input
                       type="text"
-                      id="ejecucionMooraba2"
+                      id="ejecucionMooraaco"
                       disabled
                       placeholder="Esperando ejecución..."
                       class="text-center bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
@@ -683,7 +694,7 @@
                             {{ i + 1 }}
                           </td>
                           <td
-                            id="alternativaMooraba2{{ i }}"
+                            id="alternativaMooraaco{{ i }}"
                             class="border border-slate-300 text-center align-middle"
                           ></td>
                           <!-- Repite para las otras mejores alternativas -->
@@ -838,7 +849,7 @@
                         >
                         <input
                         type="text"
-                        id="ejecucionTopsisba2"
+                        id="ejecucionTopsisaco"
                         disabled
                         placeholder="Esperando ejecución..."
                         class="text-center bg-slate-300 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
@@ -876,7 +887,7 @@
                               {{ i + 1 }}
                             </td>
                             <td
-                              id="alternativaTopsisba2{{ i }}"
+                              id="alternativaTopsisaco{{ i }}"
                               class="border border-slate-300 text-center align-middle"
                             ></td>
                             <!-- Repite para las otras mejores alternativas -->

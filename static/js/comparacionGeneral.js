@@ -171,7 +171,7 @@ const solicitudDaaco = (formularioComparacionGeneral) => {
         //Obtener datos del formulario
         const formData = new FormData(formularioComparacionGeneral);
         // Realizar la solicitud Ajax
-        fetch('/dapso', {
+        fetch('/daaco', {
             method: 'POST',
             body: formData
         })
@@ -180,9 +180,9 @@ const solicitudDaaco = (formularioComparacionGeneral) => {
                 // Actualizar los campos de entrada con los nuevos datos
                 const mejoresAlternativas = data.mejor_alternativa;
                 for (let i = 0; i < mejoresAlternativas.length; i++) {
-                    document.getElementById(`alternativaDapso2${i}`).innerText = mejoresAlternativas[i];
+                    document.getElementById(`alternativaDaaco${i}`).innerText = mejoresAlternativas[i];
                 }
-                document.getElementById('ejecucionDapso2').value = data.tiempo_ejecucion;
+                document.getElementById('ejecucionDaaco').value = data.tiempo_ejecucion;
                 resolve();
             })
             .catch(error => { console.error('Error:', error); reject(error); });
@@ -194,7 +194,7 @@ const solicitudMooraaco = (formularioComparacionGeneral) => {
         //Obtener datos del formulario
         const formData = new FormData(formularioComparacionGeneral);
         // Realizar la solicitud Ajax
-        fetch('/mooraba', {
+        fetch('/mooraaco', {
             method: 'POST',
             body: formData
         })
@@ -203,9 +203,9 @@ const solicitudMooraaco = (formularioComparacionGeneral) => {
                 // Actualizar los campos de entrada con los nuevos datos
                 const mejoresAlternativas = data.mejor_alternativa;
                 for (let i = 0; i < mejoresAlternativas.length; i++) {
-                    document.getElementById(`alternativaMooraba2${i}`).innerText = mejoresAlternativas[i];
+                    document.getElementById(`alternativaMooraaco${i}`).innerText = mejoresAlternativas[i];
                 }
-                document.getElementById('ejecucionMooraba2').value = data.tiempo_ejecucion;
+                document.getElementById('ejecucionMooraaco').value = data.tiempo_ejecucion;
                 resolve();
             })
             .catch(error => { console.error('Error:', error); reject(error); });
@@ -217,7 +217,7 @@ const solicitudTopsisaco = (formularioComparacionGeneral) => {
         //Obtener datos del formulario
         const formData = new FormData(formularioComparacionGeneral);
         // Realizar la solicitud Ajax
-        fetch('/topsisba', {
+        fetch('/topsisaco', {
             method: 'POST',
             body: formData
         })
@@ -226,9 +226,9 @@ const solicitudTopsisaco = (formularioComparacionGeneral) => {
                 // Actualizar los campos de entrada con los nuevos datos
                 const mejoresAlternativas = data.mejor_alternativa;
                 for (let i = 0; i < mejoresAlternativas.length; i++) {
-                    document.getElementById(`alternativaTopsisba2${i}`).innerText = mejoresAlternativas[i];
+                    document.getElementById(`alternativaTopsisaco${i}`).innerText = mejoresAlternativas[i];
                 }
-                document.getElementById('ejecucionTopsisba2').value = data.tiempo_ejecucion;
+                document.getElementById('ejecucionTopsisaco').value = data.tiempo_ejecucion;
                 resolve();
             })
             .catch(error => { console.error('Error:', error); reject(error); });
